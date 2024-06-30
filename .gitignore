@@ -1,0 +1,7 @@
+# Python files.
+venv
+__pycache__
+
+# Project development files.
+downloads
+tests
