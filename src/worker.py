@@ -1,9 +1,9 @@
 import json
 import click
-from src.lib.data import pre_cmd, INFO_MARKDOWN
 from rich import print as rprint
 from urllib.parse import urlparse
 from .utils.basics import validURL
+from .utils.downloader import downloader
 
 # Functions / services.
 from .services import *
@@ -12,9 +12,10 @@ def main(inputData, dtype, format):
     if inputData.startswith("http"):
         domain = urlparse(inputData).netloc
         if (validURL(inputData)):
-            if "youtube.com" in domain or domain == "youtu.be": youtube.youtube(inputData, dtype, format)
+            if "youtube.com" in domain or domain == "youtu.be": return youtube.youtube(inputData, dtype, format)
+            downloader(inputData)
         else:
-            click.echo("Invalid URL.", err= True)
+            click.echo("[red]Invalid URL.[/red]", err= True)
     else:
         try:
             with open("downloads.json", "r") as file:

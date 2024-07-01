@@ -2,10 +2,12 @@ import os
 import requests
 from datetime import datetime
 from bs4 import BeautifulSoup
+from rich import print as rprint
 from urllib.parse import urljoin, urlparse
 
 def downloader(url):
-    destination_folder = f"downloads/{datetime.now().strftime('%Y%m%d')}/{urlparse(url).netloc}-{datetime.now().strftime('%H%M%S')}"
+    parsed_url = urlparse(url)
+    destination_folder = f"downloads/{parsed_url.netloc}/{parsed_url.path.strip("/").replace("/", "-")}"
     # Get the content of the URL.
     response = requests.get(url)
     if response.status_code == 200:
@@ -31,7 +33,7 @@ def downloader(url):
                 download_resource(complete_url, destination_folder)
 
     else:
-        print(f"Failed to access the URL. Status code: {response.status_code}")
+        rprint(f"[red]Failed to access the URL. Status code: {response.status_code}[/red]")
 
 def download_resource(url, destination_folder):
     try:
@@ -44,6 +46,6 @@ def download_resource(url, destination_folder):
             with open(os.path.join(destination_folder, filename), "wb") as file:
                 file.write(response.content)
         else:
-            print(f"Failed to download the resource. Status code: {response.status_code}")
+            rprint(f"[red]Failed to download the resource. Status code: {response.status_code}[/red]")
     except Exception as e:
-        print(f"Error downloading the resource {url}: {str(e)}")
+        rprint(f"[red]Error downloading the resource {url}: {str(e)}[/red]")

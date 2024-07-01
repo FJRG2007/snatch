@@ -1,4 +1,7 @@
 pre_cmd = "python cli.py"
+dirs = {
+    "temporal": "/temporal"
+}
 
 INFO_MARKDOWN = """\
 # Snatch
