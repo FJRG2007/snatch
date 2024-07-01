@@ -1,29 +1,30 @@
 import os
-import ffmpeg # pip install ffmpeg-python
 from rich import print as rprint
+from moviepy.editor import VideoFileClip
+from urllib.parse import urljoin, urlparse
 
-def convert_mp4_to_audio(input_file, output_format):
+def convert_mp4_to_audio(input_file, output_format, del_original, url):
     try:
+        parsed_url = urlparse(url)
+        # Get the absolute path of the input file.
         input_path = os.path.abspath(f"./temporal/{input_file}")
-        print(input_path)
-        
-        # Upload MP4 file.
-        stream = ffmpeg.input(input_path)
-        
-        # Extract audio from MP4 file.
-        audio = stream.audio
-        
-        # Set the output format.
-        output_path = os.path.join("./temporal")
-        if output_format == "mp3": 
-            audio = ffmpeg.output(audio, output_path, f=output_format, ab="192k")
-        elif output_format == "wav":
-            audio = ffmpeg.output(audio, output_path, f=output_format)
-        else:
-            return rprint("[red]Invalid output format. Choose mp3 or wav.[/red]")
-        
-        ffmpeg.run(audio)
+
+        # Load the MP4 file using moviepy.
+        video = VideoFileClip(input_path)
+
+        # Extract audio from the video.
+        audio = video.audio
+
+        # Set the output path.
+        output_path = os.path.join(f"downloads/{parsed_url.netloc}/{parsed_url.path.strip("/").replace("/", "-")}", os.path.splitext(input_file)[0] + f".{output_format}")
+
+        # Write the audio to the output file.
+        audio.write_audiofile(output_path)
+
+        video.close()
+
+        if (del_original): os.remove(input_path) # Elminates the original file.
+
         rprint(f"[green]Successful conversion. File saved as: {output_path}[/green]")
-    
     except Exception as e:
-        rprint(f"[red]Error during conversion: {e}[/red]")
+        rprint(f"[red]Error during conversion of file '{input_file}' (path: {input_path}): {e}[/red]")

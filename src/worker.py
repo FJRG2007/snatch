@@ -4,6 +4,7 @@ from rich import print as rprint
 from urllib.parse import urlparse
 from .utils.basics import validURL
 from .utils.downloader import downloader
+from urllib.parse import urljoin, urlparse
 
 # Functions / services.
 from .services import *
@@ -11,8 +12,12 @@ from .services import *
 def main(inputData, dtype, format):
     if inputData.startswith("http"):
         domain = urlparse(inputData).netloc
+        parsed_url = urlparse(inputData)
+        destination_folder = f"downloads/{parsed_url.netloc}/{parsed_url.path.strip("/").replace("/", "-")}"
+        if not os.path.exists(destination_folder): os.makedirs(destination_folder)
         if (validURL(inputData)):
-            if "youtube.com" in domain or domain == "youtu.be": return youtube.youtube(inputData, dtype, format)
+            if domain in ["www.youtube.com", "youtube.com", "youtu.be"]: return youtube.youtube(inputData, dtype, format)
+            if domain in ["x.com", "twitter.com", "t.co"]: return x_twitter.x_twitter(inputData, dtype, format)
             downloader(inputData)
         else:
             click.echo("[red]Invalid URL.[/red]", err= True)

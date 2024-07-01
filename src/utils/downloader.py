@@ -31,7 +31,7 @@ def downloader(url):
 
                 # Download the resource and save it in the destination folder.
                 download_resource(complete_url, destination_folder)
-
+        rprint(f"[green]Download completed successfully in: {destination_folder}[/green]")
     else:
         rprint(f"[red]Failed to access the URL. Status code: {response.status_code}[/red]")
 

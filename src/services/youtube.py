@@ -1,6 +1,5 @@
 import re
 import os
-import click
 from rich import print as rprint
 from pytube import YouTube, Playlist
 from ..utils.downloader import downloader
@@ -41,11 +40,11 @@ def youtube(url, dtype, format):
                 try:
                     stream = YouTube(url).streams.filter(progressive=True, file_extension="mp4").first()
                     if (format in ["mp3", "wav"]):
-                        convert_mp4_to_audio(os.path.basename(stream.download(output_path="./temporal")), format)
+                        convert_mp4_to_audio(os.path.basename(stream.download(output_path="./temporal")), format, True, url)
                     rprint(f"Downloading: {stream.title}")
                 except KeyError as e:
                     rprint(f"[red]There was an error downloading the video: {e}[/red]")
-            else: rprint("[red]Error: Invalid download format -> [mp4, mp3].[/red]")
+            else: rprint("[red]Error: Invalid download format -> (mp4, mp3).[/red]")
         elif (type["type"] == "playlist"):
             if (format in ["mp4", "mp3"] or format == "auto"):
                 try:
@@ -59,5 +58,5 @@ def youtube(url, dtype, format):
                         rprint(f"Downloading: {v.title}")
                 except KeyError as e:
                     rprint(f"[red]There was an error downloading the playlist: {e}[/red]")
-            else: rprint("[red]Error: Invalid download format -> [mp4, mp3].[/red]")
+            else: rprint("[red]Error: Invalid download format -> (mp4, mp3).[/red]")
         else: rprint("[red]Error: Invalid[/red]")

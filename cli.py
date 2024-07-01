@@ -1,14 +1,14 @@
-import os
 import click
-from src.worker import main as worker
 import src.lib.data as data
 from rich import print as rprint
-from textual.app import App, ComposeResult
+from src.lib.config import config
 from textual.widgets import Markdown
+from src.worker import main as worker
+from textual.app import App, ComposeResult
 
 @click.group()
 def cli():
-    if not os.path.exists(data.dirs["temporal"]): os.makedirs(data.dirs["temporal"])
+    pass
 
 @cli.command()
 def info():

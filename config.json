@@ -1,7 +1,13 @@
 {
-    "config": {
-        "outputDir": "",
-        "maxFileSize": "",
-        "ignoreFileTypes": []
+    "outputDir": "",
+    "maxFileSize": "",
+    "ignoreFileTypes": [],
+    "platforms": {
+        "x_twitter": {
+            "useNoAuthResource": true,
+            "consumer_key": "",
+            "consumer_secret": "",
+            "bearer_token": ""
+        }
     }
 }
