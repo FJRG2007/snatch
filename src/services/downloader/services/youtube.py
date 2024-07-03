@@ -40,7 +40,7 @@ def youtube(url, dtype, format):
                 try:
                     stream = YouTube(url).streams.filter(progressive=True, file_extension="mp4").first()
                     if (format in ["mp3", "wav"]):
-                        convert_mp4_to_audio(os.path.basename(stream.download(output_path="./temporal")), format, True, url)
+                        convert_mp4_to_audio(os.path.basename(stream.download(output_path="./output/temporal")), format, True, url)
                     rprint(f"Downloading: {stream.title}")
                 except KeyError as e:
                     rprint(f"[red]There was an error downloading the video: {e}[/red]")

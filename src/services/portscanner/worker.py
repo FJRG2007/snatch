@@ -66,7 +66,7 @@ def main(target, ports, saveonfile):
             sys.exit()
     if saveonfile:
         os.makedirs("portscans", exist_ok=True)
-        filename = f"portscans/{target.replace(".", "_")}_open_ports.txt"
+        filename = f"output/portscans/{target.replace(".", "_")}_open_ports.txt"
         with open(filename, "w") as f:
             f.write(",".join(map(str, open_ports)))
         rprint(f"[green]Open ports have been saved to {filename}.[/green]")
