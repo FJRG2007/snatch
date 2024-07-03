@@ -4,6 +4,7 @@ env
 __pycache__
 
 # Project development files.
+downloads.json
 output
 customs/*
 !customs/WHAT_TO_PUT_HERE.txt

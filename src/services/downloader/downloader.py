@@ -7,7 +7,7 @@ from urllib.parse import urljoin, urlparse
 
 def downloader(url):
     parsed_url = urlparse(url)
-    destination_folder = f"output/downloads/{parsed_url.netloc}/{parsed_url.path.strip("/").replace("/", "-")}"
+    destination_folder = f"output/downloads/{parsed_url.netloc}/{parsed_url.path.strip('/').replace('/', '-')}"
     # Get the content of the URL.
     response = requests.get(url)
     if response.status_code == 200:
