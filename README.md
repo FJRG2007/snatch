@@ -31,4 +31,4 @@ Coming Soon.
  - Email: [fjrg2007@tpeoficial.com](mailto:fjrg2007@tpeoficial.com)
 
 #### License
-This project is licensed under the terms of the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.](./LICENSE).
+This project is licensed under the terms of the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](./LICENSE).
