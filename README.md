@@ -16,7 +16,7 @@ Coming Soon.
 
 | Name                           | Status              | Active |
 |--------------------------------|---------------------|--------|
-| AI Prompt                      | Relatively early         | ❌     |
+| AI Prompt                      | Relatively early    | ❌     |
 | Vulnerability Scanning Algorithm| Coming Soon        | ❌     |
 | Ports Scanner                  | Active              | ✅     |
 | Website/video/data Downloader  | Active              | ✅     |

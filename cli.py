@@ -8,6 +8,7 @@ from textual.widgets import Markdown
 from textual.app import App, ComposeResult
 
 # Functionalities.
+from src.services.ai.worker import main as aiWoker
 from src.services.downloader.worker import main as downloaderWorker
 from src.services.directory_listing.worker import main as directoryListing
 from src.services.portscanner.worker import main as portscanner
@@ -23,6 +24,12 @@ def info():
             yield Markdown(data.INFO_MARKDOWN)
     app = MarkdownExampleApp()
     app.run()
+
+@cli.command()
+@click.argument("prompt", required=True)
+def ai(prompt):
+    if not prompt: rprint(f"[red]Error: Enter a valid option; run \"{data.pre_cmd} ai --help\" for further help.[/red]")
+    aiWoker(prompt)
 
 @cli.command()
 @click.argument("url", required=False)

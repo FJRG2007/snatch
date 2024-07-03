@@ -3,6 +3,7 @@ venv
 __pycache__
 
 # Project development files.
+.env
 output
 customs/*
 !customs/WHAT_TO_PUT_HERE.txt
