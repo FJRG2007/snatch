@@ -8,8 +8,8 @@ from textual.widgets import Markdown
 from textual.app import App, ComposeResult
 
 # Functionalities.
-from src.downloader.worker import main as downloaderWorker
-from src.portscanner.worker import main as portscanner
+from src.services.downloader.worker import main as downloaderWorker
+from src.services.portscanner.worker import main as portscanner
 
 @click.group()
 def cli():
