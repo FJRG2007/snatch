@@ -34,6 +34,7 @@ Coming Soon.
 <a href="https://github.com/FJRG2007/snatch/graphs/contributors">
     <img src="https://contrib.rocks/image?repo=FJRG2007/snatch" class="not-center" loading="lazy" />
 </a>
+
 **Note**: If you are a contributor and do not appear here, wait a little while until the image is reloaded.
 
 #### License
