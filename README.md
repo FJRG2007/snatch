@@ -9,6 +9,18 @@ Alternatively, you can directly execute commands via your terminal to utilize **
 
 It's important to emphasize that **Snatch** is a work in progress, and all operations are conducted locally. Users should exercise caution as they assume full responsibility for their actions.
 
+### Main functionalities
+
+| Name        | Status     |
+|--------------|------------|
+| AI Prompt | ❌   |
+| Vulnerability Scanning Algorithm | ❌   |
+| Ports Scanner| ✅    |
+| Website/video/data Downloader      | ✅  |
+| Directory Listing | ❌   |
+| Password List Generation | ❌   |
+| Social Network Analysis | ❌   |
+
 #### Author
  - FJRG007
  - Email: [fjrg2007@tpeoficial.com](mailto:fjrg2007@tpeoficial.com)
