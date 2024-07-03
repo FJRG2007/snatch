@@ -4,5 +4,6 @@ __pycache__
 
 # Project development files.
 downloads
+portscans
 temporal
 tests
