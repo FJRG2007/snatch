@@ -16,14 +16,14 @@ Coming Soon.
 
 | Name                           | Status              | Active |
 |--------------------------------|---------------------|--------|
-| AI Prompt                      | Relatively early    |   ❌   |
+| AI Prompt                      | Relatively early    |   ⚠️   |
 | Vulnerability Scanning Algorithm| Coming Soon        |   ❌   |
 | Ports Scanner                  | Active              |   ✅   |
 | Website/video/data Downloader  | Active              |   ✅   |
-| Directory Listing              | Relatively early    |   ❌   |
+| Directory Listing              | Relatively early    |   ⚠️   |
 | Password List Generation       | Coming Soon         |   ❌   |
 | Social Network Analysis        | Coming Soon         |   ❌   |
-| WhatsApp OSINT                 | Relatively early    |   ❌   |
+| WhatsApp OSINT                 | Coming Soon         |   ❌   |
 
 
 #### Author
