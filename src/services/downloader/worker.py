@@ -13,7 +13,7 @@ def main(inputData, dtype, format):
     if inputData.startswith("http"):
         domain = urlparse(inputData).netloc
         parsed_url = urlparse(inputData)
-        destination_folder = f"output/downloads/{parsed_url.netloc}/{parsed_url.path.strip("/").replace("/", "-")}"
+        destination_folder = f"output/downloads/{parsed_url.netloc}/{parsed_url.path.strip('/').replace('/', '-')}"
         if not os.path.exists(destination_folder): os.makedirs(destination_folder)
         if (validURL(inputData)):
             if domain in ["www.youtube.com", "youtube.com", "youtu.be"]: return youtube.youtube(inputData, dtype, format)

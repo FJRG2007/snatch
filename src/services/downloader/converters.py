@@ -13,7 +13,7 @@ def convert_mp4_to_audio(input_file, output_format, del_original, url):
         # Extract audio from the video.
         audio = video.audio
         # Set the output path.
-        output_path = os.path.join(f"output/downloads/{parsed_url.netloc}/{parsed_url.path.strip("/").replace("/", "-")}", os.path.splitext(input_file)[0] + f".{output_format}")
+        output_path = os.path.join(f"output/downloads/{parsed_url.netloc}/{parsed_url.path.strip('/').replace('/', '-')}", os.path.splitext(input_file)[0] + f".{output_format}")
         # Write the audio to the output file.
         audio.write_audiofile(output_path)
         video.close()

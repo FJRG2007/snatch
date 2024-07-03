@@ -35,6 +35,7 @@ def main(target, ports, saveonfile=False):
     # Add Banner.
     print("-" * 50)
     print(f"Scanning Target: {target}")
+    print(f"Scanning ports: {ports}")
     print(f"Scanning started at: {str(datetime.now())}")
     print("-" * 50)
     try:
@@ -67,7 +68,7 @@ def main(target, ports, saveonfile=False):
             sys.exit()
     if saveonfile:
         os.makedirs("portscans", exist_ok=True)
-        filename = f"output/portscans/{target.replace(".", "_")}_open_ports.txt"
+        filename = f"output/portscans/{target.replace('.', '_')}_open_ports.txt"
         with open(filename, "w") as f:
             f.write(",".join(map(str, open_ports)))
         rprint(f"[green]Open ports have been saved to {filename}.[/green]")
