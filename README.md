@@ -16,7 +16,7 @@ Coming Soon.
 
 | Name                           | Status              | Active |
 |--------------------------------|---------------------|--------|
-| AI Prompt                      | Coming Soon         | ❌     |
+| AI Prompt                      | Relatively early         | ❌     |
 | Vulnerability Scanning Algorithm| Coming Soon        | ❌     |
 | Ports Scanner                  | Active              | ✅     |
 | Website/video/data Downloader  | Active              | ✅     |
@@ -30,5 +30,10 @@ Coming Soon.
  - FJRG007
  - Email: [fjrg2007@tpeoficial.com](mailto:fjrg2007@tpeoficial.com)
 
-#### License
+#### Contributors
+<a href="https://github.com/FJRG2007/snatch/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=FJRG2007/snatch" class="not-center" loading="lazy" />
+</a>
+
+### License
 This project is licensed under the terms of the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](./LICENSE).
