@@ -29,3 +29,6 @@ Coming Soon.
 #### Author
  - FJRG007
  - Email: [fjrg2007@tpeoficial.com](mailto:fjrg2007@tpeoficial.com)
+
+#### License
+This project is licensed under the terms of the [MIT License](./LICENSE).
