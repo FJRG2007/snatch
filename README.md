@@ -16,16 +16,6 @@ Coming Soon.
 
 | Name                           | Status              | Active |
 |--------------------------------|---------------------|--------|
-<<<<<<< HEAD
-| AI Prompt                      | Relatively early    | ❌     |
-| Vulnerability Scanning Algorithm| Coming Soon        | ❌     |
-| Ports Scanner                  | Active              | ✅     |
-| Website/video/data Downloader  | Active              | ✅     |
-| Directory Listing              | Relatively early    | ❌     |
-| Password List Generation       | Coming Soon         | ❌     |
-| Social Network Analysis        | Coming Soon         | ❌     |
-| WhatsApp OSINT                 | Relatively early    | ❌     |
-=======
 | AI Prompt                      | Relatively early    |   ⚠️   |
 | Vulnerability Scanning Algorithm| Coming Soon        |   ❌   |
 | Ports Scanner                  | Active              |   ✅   |
@@ -34,7 +24,6 @@ Coming Soon.
 | Password List Generation       | Coming Soon         |   ❌   |
 | Social Network Analysis        | Coming Soon         |   ❌   |
 | WhatsApp OSINT                 | Coming Soon         |   ❌   |
->>>>>>> 25abe91ea07b09966a6c86288c23e87bf5eb5ffb
 
 
 #### Author

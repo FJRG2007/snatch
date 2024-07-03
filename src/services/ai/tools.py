@@ -8,11 +8,7 @@ tools = [
         "type": "function",
         "function": {
             "name": "scan_ports",
-<<<<<<< HEAD
             "description": "Scan the target host with the given range of ports, then generate a report of open ports",
-=======
-            "description": "scan the target host with the given range of ports, then generate a report of open ports",
->>>>>>> 25abe91ea07b09966a6c86288c23e87bf5eb5ffb
             "parameters": {
                 "type": "object",
                 "properties": {
