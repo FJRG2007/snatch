@@ -1,6 +1,6 @@
 pre_cmd = "python cli.py"
 dirs = {
-    "temporal": "/temporal"
+    "temporal": "./temporal"
 }
 
 requestsHeaders = {
