@@ -31,8 +31,9 @@ Coming Soon.
  - Email: [fjrg2007@tpeoficial.com](mailto:fjrg2007@tpeoficial.com)
 
 #### Contributors
- - Lizardwine
- - Email: [x@lizardwine.com](mailto:x@lizardwine.com)
+<a href="https://github.com/FJRG2007/snatch/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=FJRG2007/snatch" class="not-center" loading="lazy" />
+</a>
 
 #### License
 This project is licensed under the terms of the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](./LICENSE).
