@@ -9,17 +9,22 @@ Alternatively, you can directly execute commands via your terminal to utilize **
 
 It's important to emphasize that **Snatch** is a work in progress, and all operations are conducted locally. Users should exercise caution as they assume full responsibility for their actions.
 
+### Use
+Coming Soon.
+
 ### Main functionalities
 
-| Name        | Status     |
-|--------------|------------|
-| AI Prompt | ❌   |
-| Vulnerability Scanning Algorithm | ❌   |
-| Ports Scanner| ✅    |
-| Website/video/data Downloader      | ✅  |
-| Directory Listing | ❌   |
-| Password List Generation | ❌   |
-| Social Network Analysis | ❌   |
+| Name                           | Status              | Active |
+|--------------------------------|---------------------|--------|
+| AI Prompt                      | Coming Soon         | ❌     |
+| Vulnerability Scanning Algorithm| Coming Soon        | ❌     |
+| Ports Scanner                  | Active              | ✅     |
+| Website/video/data Downloader  | Active              | ✅     |
+| Directory Listing              | Relatively early    | ❌     |
+| Password List Generation       | Coming Soon         | ❌     |
+| Social Network Analysis        | Coming Soon         | ❌     |
+| WhatsApp OSINT                 | Relatively early    | ❌     |
+
 
 #### Author
  - FJRG007
