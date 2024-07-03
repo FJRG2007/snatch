@@ -5,6 +5,7 @@ import src.lib.data as data
 from datetime import datetime
 from rich import print as rprint
 
+
 class InvalidPortException(Exception):
     pass
 
@@ -37,7 +38,7 @@ def parse_ports(port_str):
                 
     return ports
 
-def main(target, ports, saveonfile):
+def main(target, ports, saveonfile=False):
     try:
         # Validating and preparing the ports to be scanned.
         ports = parse_ports(ports)
@@ -58,12 +59,11 @@ def main(target, ports, saveonfile):
         # Will scan ports between 1 to 65535.
         for port in ports:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            socket.setdefaulttimeout(1)
+            s.settimeout(0.5)
          
             # Returns an error indicator.
             result = s.connect_ex((target, port))
             if result == 0:
-                print("Port {} is open".format(port))
                 open_ports.append(port)
             s.close()
          
@@ -79,7 +79,9 @@ def main(target, ports, saveonfile):
 
     if saveonfile:
         os.makedirs("portscans", exist_ok=True)
-        filename = f"portscans/{target.replace(".", "_")}_open_ports.txt"
+        filename = f"portscans/{target.replace('.', '_')}_open_ports.txt"
         with open(filename, "w") as f:
             f.write(",".join(map(str, open_ports)))
         rprint(f"[green]Open ports have been saved to {filename}.[/green]")
+    else:
+        return open_ports

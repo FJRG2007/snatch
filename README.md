@@ -12,11 +12,11 @@ It's important to emphasize that **Snatch** is a work in progress, and all opera
 ### Use
 Coming Soon.
 
-### Main functionalities
+### Main Features
 
 | Name                           | Status              | Active |
 |--------------------------------|---------------------|--------|
-| AI Prompt                      | Coming Soon         | ❌     |
+| AI Prompt                      | Active              | ✅     |
 | Vulnerability Scanning Algorithm| Coming Soon        | ❌     |
 | Ports Scanner                  | Active              | ✅     |
 | Website/video/data Downloader  | Active              | ✅     |
@@ -29,6 +29,10 @@ Coming Soon.
 #### Author
  - FJRG007
  - Email: [fjrg2007@tpeoficial.com](mailto:fjrg2007@tpeoficial.com)
+
+#### Contributors
+ - Lizardwine
+ - Email: [x@lizardwine.com](mailto:x@lizardwine.com)
 
 #### License
 This project is licensed under the terms of the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](./LICENSE).

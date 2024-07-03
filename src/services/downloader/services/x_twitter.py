@@ -29,7 +29,7 @@ def download_video(url, path, file_name) -> None:
 
 def download_twitter_video(url):
     parsed_url = urlparse(url)
-    download_path = f"downloads/{parsed_url.netloc}/{parsed_url.path.strip("/").replace("/", "-")}"
+    download_path = f"downloads/{parsed_url.netloc}/{parsed_url.path.strip('/').replace('/', '-')}"
     if (config.platforms.x_twitter.useNoAuthResource):
         try:
             api_url = f"https://twitsave.com/info?url={url}"

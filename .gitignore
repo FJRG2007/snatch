@@ -1,5 +1,6 @@
 # Python files.
 venv
+env
 __pycache__
 
 # Project development files.
@@ -7,3 +8,7 @@ downloads
 portscans
 temporal
 tests
+
+# other files
+downloads.json
+.env
