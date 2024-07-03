@@ -6,7 +6,7 @@ import requests
 from tqdm import tqdm
 from rich import print as rprint
 from src.lib.config import config
-from ..utils.downloader import downloader
+from ..downloader import downloader
 from urllib.parse import urljoin, urlparse
 
 def download_video(url, path, file_name) -> None:

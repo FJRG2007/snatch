@@ -2,8 +2,8 @@ import json
 import click
 from rich import print as rprint
 from urllib.parse import urlparse
-from .utils.basics import validURL
-from .utils.downloader import downloader
+from ..utils.basics import validURL
+from .downloader import downloader
 from urllib.parse import urljoin, urlparse
 
 # Functions / services.
