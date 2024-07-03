@@ -35,10 +35,11 @@ def download(url, local, dtype, format):
 
 @cli.command()
 @click.argument("ip", required=True)
-@click.option("--ports", default="*", type=str, help="Ports to be scanned, separated by commas or [start-port]-[end-port] (You can use * to refer to the end or to the beginning depending on the position in the hyphen.)")
-def portscan(ip, ports):
+@click.option("--ports", default="*", type=str, help="Ports to be scanned (1,2,3 or 16-24 or *-24 or 24-* or * or common).")
+@click.option("--saveonfile", default=False, type=bool, help="Saves the open ports in a file.")
+def portscan(ip, ports, saveonfile):
     if not ip: rprint(f"[red]Error: Enter a valid option; run \"{data.pre_cmd} portscan --help\" for further help.[/red]")
-    portscanner(ip, ports)
+    portscanner(ip, ports, saveonfile)
 
 if __name__ == "__main__":
     cli()
