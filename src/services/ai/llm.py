@@ -58,4 +58,8 @@ class LLM:
             return message.content, messages
             
         return message.content, messages
+<<<<<<< HEAD
         
+=======
+        
+>>>>>>> 25abe91ea07b09966a6c86288c23e87bf5eb5ffb

@@ -1,6 +1,6 @@
 import click
 import pyfiglet
-import src.lib.data as data
+from src.lib import data
 from rich import print as rprint
 from src.lib.config import config
 from textual.widgets import Markdown
@@ -12,6 +12,7 @@ from src.services.ai.worker import main as aiWoker
 from src.services.downloader.worker import main as downloaderWorker
 from src.services.directory_listing.worker import main as directoryListing
 from src.services.portscanner.worker import main as portscanner
+from src.services.ai.worker import main as aiWoker
 
 @click.group()
 def cli():
@@ -56,5 +57,11 @@ def portscan(ip, ports, saveonfile):
     if not ip: rprint(f"[red]Error: Enter a valid option; run \"{data.pre_cmd} portscan --help\" for further help.[/red]")
     portscanner(ip, ports, saveonfile)
 
+@cli.command()
+@click.argument("prompt", required=True)
+def ai(prompt):
+    if not prompt: rprint(f"[red]Error: Enter a valid option; run \"{data.pre_cmd} ai --help\" for further help.[/red]")
+    aiWoker(prompt)
+    
 if __name__ == "__main__":
     cli()

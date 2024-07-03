@@ -12,10 +12,11 @@ It's important to emphasize that **Snatch** is a work in progress, and all opera
 ### Use
 Coming Soon.
 
-### Main functionalities
+### Main Features
 
 | Name                           | Status              | Active |
 |--------------------------------|---------------------|--------|
+<<<<<<< HEAD
 | AI Prompt                      | Relatively early    | ❌     |
 | Vulnerability Scanning Algorithm| Coming Soon        | ❌     |
 | Ports Scanner                  | Active              | ✅     |
@@ -24,6 +25,16 @@ Coming Soon.
 | Password List Generation       | Coming Soon         | ❌     |
 | Social Network Analysis        | Coming Soon         | ❌     |
 | WhatsApp OSINT                 | Relatively early    | ❌     |
+=======
+| AI Prompt                      | Relatively early    |   ⚠️   |
+| Vulnerability Scanning Algorithm| Coming Soon        |   ❌   |
+| Ports Scanner                  | Active              |   ✅   |
+| Website/video/data Downloader  | Active              |   ✅   |
+| Directory Listing              | Relatively early    |   ⚠️   |
+| Password List Generation       | Coming Soon         |   ❌   |
+| Social Network Analysis        | Coming Soon         |   ❌   |
+| WhatsApp OSINT                 | Coming Soon         |   ❌   |
+>>>>>>> 25abe91ea07b09966a6c86288c23e87bf5eb5ffb
 
 
 #### Author
@@ -31,9 +42,8 @@ Coming Soon.
  - Email: [fjrg2007@tpeoficial.com](mailto:fjrg2007@tpeoficial.com)
 
 #### Contributors
-<a href="https://github.com/FJRG2007/snatch/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=FJRG2007/snatch" class="not-center" loading="lazy" />
-</a>
+ - Lizardwine
+ - Email: [x@lizardwine.com](mailto:x@lizardwine.com)
 
-### License
+#### License
 This project is licensed under the terms of the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](./LICENSE).
