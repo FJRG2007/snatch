@@ -1,3 +1,4 @@
+import re
 from textual.timer import Timer
 from urllib.parse import urlparse
 from textual.app import App, ComposeResult
@@ -10,6 +11,16 @@ def validURL(url):
         return all([r.scheme, r.netloc])
     except ValueError:
         return False
+    
+def validTarget(target):
+    # Validate IP address (IPv4).
+    if re.compile(r"^(\d{1,3}\.){3}\d{1,3}$").match(target):
+        parts = target.split(".")
+        if all(0 <= int(part) <= 255 for part in parts): return True
+    
+    # Validate domain.
+    if re.compile(r"^(?=.{1,253}$)(?:(?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,6}$").match(target): return True
+    return False
     
 def progressBar():
     class IndeterminateProgressBar(App[None]):

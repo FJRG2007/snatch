@@ -19,17 +19,17 @@ def main(inputData, dtype, format):
             if domain in ["www.youtube.com", "youtube.com", "youtu.be"]: return youtube.youtube(inputData, dtype, format)
             if domain in ["x.com", "twitter.com", "t.co"]: return x_twitter.x_twitter(inputData, dtype, format)
             downloader(inputData)
-        else:
-            click.echo("[red]Invalid URL.[/red]", err= True)
+        else: click.echo("[red]Invalid URL.[/red]", err= True)
     else:
         try:
             with open("downloads.json", "r") as file:
                 data = json.load(file)
                 if len(data) == 0: return rprint(f"[red]Error: The \"downloads.json\" file has no links to download.[/red]")
                 ...
+        except KeyboardInterrupt:
+            rprint("[red]Exiting Program: Canceled by user.[/red]")
         except FileNotFoundError:
             with open("downloads.json", "w") as file:
                 json.dump([], file)
             rprint(f"[red]Error: The \"downloads.json\" file has no links to download.[/red]")
-        except json.JSONDecodeError:
-            rprint(f"[red]Error: Decoding error \"downloads.json\".[/red]")
+        except json.JSONDecodeError: rprint(f"[red]Error: Decoding error \"downloads.json\".[/red]")

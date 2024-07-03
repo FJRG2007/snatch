@@ -9,6 +9,7 @@ from textual.app import App, ComposeResult
 
 # Functionalities.
 from src.services.downloader.worker import main as downloaderWorker
+from src.services.directory_listing.worker import main as directoryListing
 from src.services.portscanner.worker import main as portscanner
 
 @click.group()
@@ -32,6 +33,13 @@ def download(url, local, dtype, format):
     if not url and not local: rprint(f"[red]Error: Enter a valid option; run \"{data.pre_cmd} download --help\" for further help.[/red]")
     if (url): downloaderWorker(url, dtype, format)
     elif (local): downloaderWorker(local, dtype, format)
+
+@cli.command()
+@click.argument("target", required=True)
+@click.option("--wordlist", default="./src/lib/files/directory_listing.txt", type=str, help="Dictionary with routes.")
+def dirlist(target, wordlist):
+    if not target: rprint(f"[red]Error: Enter a valid option; run \"{data.pre_cmd} dirlist --help\" for further help.[/red]")
+    directoryListing(target, wordlist)
 
 @cli.command()
 @click.argument("ip", required=True)
