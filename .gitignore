@@ -1,5 +1,6 @@
 # Python files.
 venv
+env
 __pycache__
 
 # Project development files.
@@ -7,3 +8,4 @@ output
 customs/*
 !customs/WHAT_TO_PUT_HERE.txt
 !customs/downloads.json
+.env
