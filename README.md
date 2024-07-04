@@ -9,6 +9,8 @@ Alternatively, you can directly execute commands via your terminal to utilize **
 
 It's important to emphasize that **Snatch** is a work in progress, and all operations are conducted locally. Users should exercise caution as they assume full responsibility for their actions.
 
+**Disclaimer**: This tool are for technical discussion and sharing only. Illegal use is strictly prohibited.
+
 ### Use
 Coming Soon.
 
@@ -16,15 +18,15 @@ Coming Soon.
 
 | Name                            | Status              | Active |
 |-------------------------------- |---------------------|--------|
-| AI Prompt                       | In BETA Phase       |   ⚠️  |
-| Vulnerability Scanning Algorithm| Coming Soon         |   ❌   |
+| AI Prompt                       | In BETA Phase       |   ⚠️   |
+| Vulnerability Scanning Algorithm| Relatively soon     |   ❌   |
+| Email Search & Completion Tool  | Coming Soon         |   ❌   |
 | Ports Scanner                   | Active              |   ✅   |
 | Website/video/data Downloader   | Active              |   ✅   |
 | Directory Listing               | In BETA Phase       |   ⚠️   |
 | Password List Generation        | Coming Soon         |   ❌   |
 | Social Network Analysis         | Coming Soon         |   ❌   |
 | WhatsApp Basic OSINT            | Active              |   ✅   |
-
 
 ### Supported AI Models
 
@@ -37,6 +39,21 @@ Coming Soon.
 | OpenAI                         | GPT-4               | API         | None    |
 | OpenAI                         | GPT-3.5 Turbo       | API         | None    |
 
+<details open>
+<summary>All Features</summary>
+
+- Get social accounts of an email using multiple sources.
+- Generate LOGS of a person's activity in applications such as WhatsApp.
+- Download web content, including videos, and other resources nested to a website.
+- Generate customized and automated dictionaries with possible passwords or e-mails based on your target.
+- Mass and/or controlled port scanning.
+- Search people from an image or video.
+- Massive metadata extraction.
+- Search for vulnerable paths using directory listing.
+- Get domains registered with an email (reverse whois).
+- Find emails from a username.
+
+</details>
 
 #### Author
  - FJRG007
