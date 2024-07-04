@@ -3,7 +3,7 @@
     "maxFileSize": "",
     "ignoreFileTypes": [],
     "ai": {
-        "model": "gpt-4o",
+        "model": "gpt-3.5-turbo",
         "temperature": 0.75,
         "max_tokens": 1024
     },
@@ -14,10 +14,5 @@
             "consumer_secret": "",
             "bearer_token": ""
         }
-    },
-    "ai": {
-        "model": "gpt-4o",
-        "temperature": 0.75,
-        "max_tokens": 1024
     }
 }

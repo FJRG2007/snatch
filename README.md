@@ -16,14 +16,26 @@ Coming Soon.
 
 | Name                           | Status              | Active |
 |--------------------------------|---------------------|--------|
-| AI Prompt                      | Relatively early    |   ⚠️   |
+| AI Prompt                      | In BETA Phase       |   ⚠️   |
 | Vulnerability Scanning Algorithm| Coming Soon        |   ❌   |
 | Ports Scanner                  | Active              |   ✅   |
 | Website/video/data Downloader  | Active              |   ✅   |
-| Directory Listing              | Relatively early    |   ⚠️   |
+| Directory Listing              | In BETA Phase       |   ⚠️   |
 | Password List Generation       | Coming Soon         |   ❌   |
 | Social Network Analysis        | Coming Soon         |   ❌   |
 | WhatsApp OSINT                 | Coming Soon         |   ❌   |
+
+
+### Supported AI Models
+
+| Company                        | Model               | Execution   | Rating  |
+|--------------------------------|---------------------|-------------|------   |
+| Claude                         | Claude AI           | API         | None    |
+| Google                         | Gemini              | API         | None    |
+| Meta                           | LLama3              | Local/API   | None    |
+| OpenAI                         | GPT-4o              | API         | None    |
+| OpenAI                         | GPT-4               | API         | None    |
+| OpenAI                         | GPT-3.5 Turbo       | API         | None    |
 
 
 #### Author
