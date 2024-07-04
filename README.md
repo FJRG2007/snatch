@@ -67,4 +67,4 @@ Coming Soon.
 **Note**: If you are a contributor and do not appear here, wait a little while until the image is reloaded.
 
 #### License
-This project is licensed under the terms of the [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License](./LICENSE).
+This project is licensed under the terms of the [GNU Affero General Public License](./LICENSE).
