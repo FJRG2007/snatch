@@ -14,16 +14,16 @@ Coming Soon.
 
 ### Main Features
 
-| Name                           | Status              | Active |
-|--------------------------------|---------------------|--------|
-| AI Prompt                      | In BETA Phase       |   ⚠️   |
-| Vulnerability Scanning Algorithm| Coming Soon        |   ❌   |
-| Ports Scanner                  | Active              |   ✅   |
-| Website/video/data Downloader  | Active              |   ✅   |
-| Directory Listing              | In BETA Phase       |   ⚠️   |
-| Password List Generation       | Coming Soon         |   ❌   |
-| Social Network Analysis        | Coming Soon         |   ❌   |
-| WhatsApp OSINT                 | Coming Soon         |   ❌   |
+| Name                            | Status              | Active |
+|-------------------------------- |---------------------|--------|
+| AI Prompt                       | In BETA Phase       |   ⚠️  |
+| Vulnerability Scanning Algorithm| Coming Soon         |   ❌   |
+| Ports Scanner                   | Active              |   ✅   |
+| Website/video/data Downloader   | Active              |   ✅   |
+| Directory Listing               | In BETA Phase       |   ⚠️   |
+| Password List Generation        | Coming Soon         |   ❌   |
+| Social Network Analysis         | Coming Soon         |   ❌   |
+| WhatsApp Basic OSINT            | Active              |   ✅   |
 
 
 ### Supported AI Models

@@ -1,8 +1,7 @@
 import os
 import requests
-from datetime import datetime
 from bs4 import BeautifulSoup
-from rich import print as rprint
+from ...utils.basics import terminal
 from urllib.parse import urljoin, urlparse
 
 def downloader(url):
@@ -23,17 +22,17 @@ def downloader(url):
             if tag.has_attr("src") or tag.has_attr("href"):
                 # Download the resource and save it in the destination folder.
                 download_resource(urljoin(url, tag["src" if "src" in tag.attrs else "href"]), destination_folder)
-        rprint(f"[green]Download completed successfully in: {destination_folder}[/green]")
-    else: rprint(f"[red]Failed to access the URL. Status code: {response.status_code}[/red]")
+        terminal("s", f"Download completed successfully in: {destination_folder}")
+    else: terminal("e", f"Failed to access the URL. Status code: {response.status_code}")
 
 def download_resource(url, destination_folder):
     try:
         response = requests.get(url)
         if response.status_code == 200:
-            # Extract the filename from the URL
+            # Extract the filename from the URL.
             filename = os.path.basename(urlparse(url).path)
-            # Save the resource in the destination folder
+            # Save the resource in the destination folder.
             with open(os.path.join(destination_folder, filename), "wb") as file:
                 file.write(response.content)
-        else: rprint(f"[red]Failed to download the resource. Status code: {response.status_code}[/red]")
-    except Exception as e: rprint(f"[red]Error downloading the resource {url}: {str(e)}[/red]")
+        else: terminal("e", f"Failed to download the resource. Status code: {response.status_code}")
+    except Exception as e: terminal("e", f"Error downloading the resource {url}: {str(e)}.")

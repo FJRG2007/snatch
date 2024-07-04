@@ -1,7 +1,8 @@
 import os
-from rich import print as rprint
+from urllib.parse import urlparse
+from ...utils.basics import terminal
 from moviepy.editor import VideoFileClip
-from urllib.parse import urljoin, urlparse
+
 
 def convert_mp4_to_audio(input_file, output_format, del_original, url):
     try:
@@ -18,5 +19,5 @@ def convert_mp4_to_audio(input_file, output_format, del_original, url):
         audio.write_audiofile(output_path)
         video.close()
         if (del_original): os.remove(input_path) # Elminates the original file.
-        rprint(f"[green]Successful conversion. File saved as: {output_path}[/green]")
-    except Exception as e: rprint(f"[red]Error during conversion of file '{input_file}' (path: {input_path}): {e}[/red]")
+        terminal("s", f"[green]Successful conversion. File saved as: {output_path}")
+    except Exception as e: terminal("e", f"Error during conversion of file '{input_file}' (path: {input_path}): {e}")

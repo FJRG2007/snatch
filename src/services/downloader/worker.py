@@ -1,10 +1,9 @@
 import json
 import click
-from rich import print as rprint
 from urllib.parse import urlparse
-from ...utils.basics import validURL
 from .downloader import downloader
-from urllib.parse import urljoin, urlparse
+from ...utils.basics import terminal
+from ...utils.basics import validURL
 
 # Functions / services.
 from .services import *
@@ -24,12 +23,11 @@ def main(inputData, dtype, format):
         try:
             with open("downloads.json", "r") as file:
                 data = json.load(file)
-                if len(data) == 0: return rprint(f"[red]Error: The \"output/downloads.json\" file has no links to download.[/red]")
+                if len(data) == 0: return terminal("e", f"[red]The \"output/downloads.json\" file has no links to download.")
                 ...
-        except KeyboardInterrupt:
-            rprint("[red]Exiting Program: Canceled by user.[/red]")
+        except KeyboardInterrupt: terminal(KeyboardInterrupt)
         except FileNotFoundError:
             with open("output/downloads.json", "w") as file:
                 json.dump([], file)
-            rprint(f"[red]Error: The \"output/downloads.json\" file has no links to download.[/red]")
-        except json.JSONDecodeError: rprint(f"[red]Error: Decoding error \"output/downloads.json\".[/red]")
+            terminal("e", f"The \"output/downloads.json\" file has no links to download.")
+        except json.JSONDecodeError: terminal("e", f"Decoding error \"output/downloads.json\".")

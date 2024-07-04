@@ -1,5 +1,6 @@
 import re
 from textual.timer import Timer
+from rich import print as rprint
 from urllib.parse import urlparse
 from textual.app import App, ComposeResult
 from textual.containers import Center, Middle
@@ -21,6 +22,16 @@ def validTarget(target):
     # Validate domain.
     if re.compile(r"^(?=.{1,253}$)(?:(?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,6}$").match(target): return True
     return False
+
+
+def terminal(typeMessage, string):
+    if (type(typeMessage) == "string"):
+        if (typeMessage == "e"): return rprint(f"[bold red]Error:[/bold red] [red]{string}[/red]")
+        if (typeMessage == "s"): return rprint(f"[green]{string}[/green]")
+        if (typeMessage == "i"): return rprint(f"[cyan]{string}[/cyan]")
+        if (typeMessage == "w"): return rprint(f"[bold yellow]Warning:[/bold yellow] [yellow]{string}[/yellow]")
+    else:
+        if(typeMessage == KeyboardInterrupt): return rprint(f"[bold red]Error:[/bold red] [red]Exiting Program: Canceled by user.[/red]")
     
 def progressBar():
     class IndeterminateProgressBar(App[None]):

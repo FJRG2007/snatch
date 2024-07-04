@@ -1,8 +1,8 @@
 import re
 import os
-from rich import print as rprint
-from pytube import YouTube, Playlist
 from ..downloader import downloader
+from pytube import YouTube, Playlist
+from ....utils.basics import terminal
 from ..converters import convert_mp4_to_audio
 
 def sanitize_url(url): return re.sub(r'android-app://com.google.android.youtube/http/|ios-app://544007664/vnd.youtube/', 'https://', url)  # Remove mobile app prefixes and convert to standard URL format.
@@ -41,22 +41,19 @@ def youtube(url, dtype, format):
                     stream = YouTube(url).streams.filter(progressive=True, file_extension="mp4").first()
                     if (format in ["mp3", "wav"]):
                         convert_mp4_to_audio(os.path.basename(stream.download(output_path="./output/temporal")), format, True, url)
-                    rprint(f"Downloading: {stream.title}")
+                    print(f"Downloading: {stream.title}")
                 except KeyError as e:
-                    rprint(f"[red]There was an error downloading the video: {e}[/red]")
-            else: rprint("[red]Error: Invalid download format -> (mp4, mp3).[/red]")
+                    terminal("e", f"There was an error downloading the video: {e}")
+            else: terminal("e", "Invalid download format -> (mp4, mp3).")
         elif (type["type"] == "playlist"):
             if (format in ["mp4", "mp3"] or format == "auto"):
                 try:
                     p = Playlist(url)
                     for v in p.videos:
-                        rprint(f"Downloading: {v.title}")
-                        if (format == "mp3"):
-                            v.streams.filter(progressive=True, only_audio=True).first().download()
-                        else:
-                            v.streams.filter(progressive=True, file_extension="mp4" if format == "auto" else format).first().download()
-                        rprint(f"Downloading: {v.title}")
+                        print(f"Downloading: {v.title}")
+                        if (format == "mp3"): v.streams.filter(progressive=True, only_audio=True).first().download()
+                        else: v.streams.filter(progressive=True, file_extension="mp4" if format == "auto" else format).first().download()
                 except KeyError as e:
-                    rprint(f"[red]There was an error downloading the playlist: {e}[/red]")
-            else: rprint("[red]Error: Invalid download format -> (mp4, mp3).[/red]")
-        else: rprint("[red]Error: Invalid[/red]")
+                    terminal("e", f"There was an error downloading the playlist: {e}")
+            else: terminal("e", "Invalid download format -> (mp4, mp3).")
+        else: terminal("e", "Invalid format.")

@@ -3,8 +3,7 @@ import sys
 import socket
 import src.lib.data as data
 from datetime import datetime
-from rich import print as rprint
-
+from ...utils.basics import terminal
 
 class InvalidPortException(Exception):
     pass
@@ -42,7 +41,7 @@ def main(target, ports, saveonfile=False):
         # Validating and preparing the ports to be scanned.
         ports = parse_ports(ports)
     except InvalidPortException as e:
-        rprint(f"[red]Error: {e}[/red]")
+        terminal("e", e)
         print(f"Example: {data.pre_cmd} portscan example.com or ip --ports 1,2,3 or 16-24 or *-24 or 24-* or * or common")
         sys.exit(1)
     open_ports = []
@@ -55,22 +54,22 @@ def main(target, ports, saveonfile=False):
             # Returns an error indicator.
             result = s.connect_ex((target, port))
             if result == 0:
+                print(f"Open port {port}.")
                 open_ports.append(port)
             s.close()
     except KeyboardInterrupt:
-            rprint("[red]Exiting Program: Canceled by user.[/red]")
+            terminal("e", KeyboardInterrupt)
             sys.exit()
     except socket.gaierror:
-            rprint("[red]Error: Hostname Could Not Be Resolved.[/red]")
+            terminal("e", "Hostname Could Not Be Resolved.")
             sys.exit()
     except socket.error:
-            rprint("[red]Error: Server not responding.[/red]")
+            terminal("e", "Server not responding.")
             sys.exit()
     if saveonfile:
         os.makedirs("portscans", exist_ok=True)
         filename = f"output/portscans/{target.replace('.', '_')}_open_ports.txt"
         with open(filename, "w") as f:
             f.write(",".join(map(str, open_ports)))
-        rprint(f"[green]Open ports have been saved to {filename}.[/green]")
-    else:
-        return open_ports
+        terminal("s", f"Open ports have been saved to {filename}.")
+    else: return open_ports
