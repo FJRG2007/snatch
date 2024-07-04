@@ -4,15 +4,10 @@ import math
 import datetime
 from selenium import webdriver
 from ...utils.basics import terminal
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchWindowException
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import InvalidArgumentException
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.chrome.options import Options
 
 class Logs():
     @staticmethod
@@ -28,9 +23,9 @@ class Logs():
             f.close()
 
 def study_user(driver, user, language):
-	# First, go to their chat
+	# First, go to their chat.
 	try:
-		#We instantiate our Logs class, save current date and create a text file for the user
+		# We instantiate our Logs class, save current date and create a text file for the user.
 		logs = Logs()
 		logs_date = datetime.datetime.now().strftime("%Y-%m-%d")
 		logs.create_log(user, logs_date)
@@ -74,7 +69,7 @@ def study_user(driver, user, language):
 			
 		except NoSuchElementException:
 			if previous_state == "ONLINE":
-			# calculate approximate real time of WhatsApp being online.
+			# Calculate approximate real time of WhatsApp being online.
 				total_online_time = time.time() - first_online - 12 # approximately what it takes onPause to send signal.
 				if total_online_time < 0: # This means that the user was typing instead of going offline.
 					continue # Skip the rest of this iteration. Do nothing.
@@ -109,6 +104,10 @@ def whatsapp_login():
 
 def main(username, language):
 	if (language not in ["en", "es", "fr", "pt", "de", "cat"]): return terminal("e", "Enter a valid supported language -> en, es, fr, pt, de, cat.")
-	driver = whatsapp_login()
+	try:	
+		driver = whatsapp_login()
 
-	study_user(driver, username, language)
+		study_user(driver, username, language)
+	except KeyboardInterrupt:
+		if driver: driver.quit()
+		terminal(KeyboardInterrupt)

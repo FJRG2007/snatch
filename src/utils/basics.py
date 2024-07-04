@@ -24,7 +24,7 @@ def validTarget(target):
     return False
 
 
-def terminal(typeMessage, string):
+def terminal(typeMessage, string=""):
     if (type(typeMessage) == "string"):
         if (typeMessage == "e"): return rprint(f"[bold red]Error:[/bold red] [red]{string}[/red]")
         if (typeMessage == "s"): return rprint(f"[green]{string}[/green]")
