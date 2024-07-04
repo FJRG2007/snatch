@@ -67,4 +67,5 @@ Coming Soon.
 **Note**: If you are a contributor and do not appear here, wait a little while until the image is reloaded.
 
 #### License
+The founder of the project, [FJRG2007](https://github.com/FJRG2007/), reserves the right to modify the license at any time.
 This project is licensed under the terms of the [GNU Affero General Public License](./LICENSE).
