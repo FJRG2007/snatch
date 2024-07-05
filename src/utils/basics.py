@@ -1,4 +1,5 @@
 import re
+import src.lib.colors as cl
 from textual.timer import Timer
 from rich import print as rprint
 from urllib.parse import urlparse
@@ -25,13 +26,15 @@ def validTarget(target):
 
 
 def terminal(typeMessage, string=""):
-    if (type(typeMessage) == "string"):
-        if (typeMessage == "e"): return rprint(f"[bold red]Error:[/bold red] [red]{string}[/red]")
-        if (typeMessage == "s"): return rprint(f"[green]{string}[/green]")
-        if (typeMessage == "i"): return rprint(f"[cyan]{string}[/cyan]")
-        if (typeMessage == "w"): return rprint(f"[bold yellow]Warning:[/bold yellow] [yellow]{string}[/yellow]")
-    else:
-        if(typeMessage == KeyboardInterrupt): return rprint(f"[bold red]Error:[/bold red] [red]Exiting Program: Canceled by user.[/red]")
+    if isinstance(typeMessage, str):
+        if typeMessage == "e": return print(f"{cl.R} ERROR {cl.w} {string}")
+        if typeMessage == "s": return rprint(f"[green]{string}[/green]")
+        if typeMessage == "i": return rprint(f"[cyan]{string}[/cyan]")
+        if typeMessage == "w": return rprint(f"[bold yellow]Warning:[/bold yellow] [yellow]{string}[/yellow]")
+        if typeMessage == "nmi": return print(f"{cl.R} ERROR {cl.w} Could not install {string}. Please install it manually.")
+    elif isinstance(typeMessage, type) and issubclass(typeMessage, BaseException):
+        if typeMessage == KeyboardInterrupt: return print(f"{cl.R} ERROR {cl.w} Exiting Program: Canceled by user.")
+    else: print("Unhandled typeMessage:", typeMessage)
     
 def progressBar():
     class IndeterminateProgressBar(App[None]):

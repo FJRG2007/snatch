@@ -23,3 +23,7 @@ Coming Soon!
 - Syntax highlighted code blocks
 - Tables!
 """
+
+DEFAULT_API_KEYS = {
+    "HUNTER": ["5d5015259730682de8b542355525b16ab7026c976a72993d", "83e338e3a43cdcc649a1ea49957d2c0223b601bb", "36a4ce62890b18e216951bb2cf4b9748129418f8"]
+}

@@ -1,6 +1,5 @@
 import json
 import importlib
-from rich import print as rprint
 
 tools = [
     {

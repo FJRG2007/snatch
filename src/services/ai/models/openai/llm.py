@@ -4,6 +4,7 @@ from . import tools
 from os import getenv
 from rich import print as rprint
 from src.lib.config import config
+from src.utils.basics import terminal
 
 class LLM:
 
@@ -12,7 +13,6 @@ class LLM:
         self.tools = tools.get_tools()
         self.system = "You are a helpful pentesting assistant. You will assist the user by performing the pentesting functions for them."
         self.context = context
-        
         
     def process_request(self, prompt):
         try: 
@@ -56,6 +56,6 @@ class LLM:
                 messages.append(message.model_dump())
                 return message.content, messages
             rprint(f"[bold magenta]AI: {message.content}[/bold magenta]")
-        except openai.NotFoundError as e: rprint(f"[red]Error: Define a valid AI model.[/red]")
-        except openai.RateLimitError as e: rprint(f"[red]Error: Check your OpenAI plan and billing details.[/red]")
-        except openai.AuthenticationError as e: rprint(f"[red]Error: OpenAI API KEY invalid.[/red]")
+        except openai.NotFoundError as e: terminal("e", f"Define a valid AI model.")
+        except openai.RateLimitError as e: terminal("e", f"Check your OpenAI plan and billing details.")
+        except openai.AuthenticationError as e: terminal("e", f"OpenAI API KEY invalid.")

@@ -1,7 +1,6 @@
 import openai
 from .models.openai.llm import LLM as OpenAILLM
 from dotenv import load_dotenv
-from rich import print as rprint
 from src.lib.config import config
 
 load_dotenv(override=True)

@@ -45,9 +45,9 @@ def download(url, local, dtype, format):
     elif (local): downloaderWorker(local, dtype, format)
 
 @cli.command()
-@click.argument("email", required=True)
+@click.argument("email_or_username", required=True)
+@click.option("-n", "--name", type=str, help="Name.")
 @click.option("-f", "--first", type=str, help="First name.")
-@click.option("-m", "--middle", type=str, help="Middle name.")
 @click.option("-l", "--last", type=str, help="Last name.")
 @click.option("-b", "--birthdate", type=str, help="Birthdate in ddmmyyyy format,type * if you dont know(ex:****1967,3104****).")
 @click.option("-a", "--addinfo", help="Additional info to help guessing the email(ex:king,345981)",nargs="+")
@@ -57,9 +57,9 @@ def download(url, local, dtype, format):
 @click.option("-s", "--saveonfile", default=False, type=bool, help="Saves the information in a file.")
 @click.option("-v","--validate", help="Check which emails are valid and returns information of each one")
 @click.option("--list", help="File containing list of emails",type=str)
-def emseek(email, first, middle, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list):
-    if not email: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} emseek --help\" for further help.")
-    emseekWorker(email, first, middle, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
+def emseek(email_or_username, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list):
+    if not email_or_username: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} emseek --help\" for further help.")
+    emseekWorker(email_or_username, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
 
 @cli.command()
 @click.argument("target", required=True)
