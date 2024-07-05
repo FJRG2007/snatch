@@ -22,12 +22,12 @@ class LLM:
                 {"role": "user", "content": prompt},
             ]
             response = self.client.chat.completions.create(
-                model=config.ai.model,
-                messages=messages,
-                temperature=config.ai.temperature,
-                max_tokens=config.ai.max_tokens,
+                model = config.ai.model,
+                messages = messages,
+                temperature = config.ai.temperature,
+                max_tokens = config.ai.max_tokens,
                 tools = self.tools,
-                tool_choice='auto'
+                tool_choice = "auto"
             )
         
             message = response.choices[0].message

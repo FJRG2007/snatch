@@ -13,6 +13,9 @@
             "consumer_key": "",
             "consumer_secret": "",
             "bearer_token": ""
+        },
+        "whatsapp": {
+            "authCookie": "autoBrowser"
         }
     }
 }

@@ -3,6 +3,7 @@ import time
 import math
 import datetime
 from selenium import webdriver
+from src.lib.config import config
 from ...utils.basics import terminal
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchWindowException
@@ -93,8 +94,11 @@ def whatsapp_login():
 		options = webdriver.ChromeOptions()
 		options.add_argument("user-data-dir=C:\\Path")
 		options.add_experimental_option("excludeSwitches", ["enable-logging"])
-		driver = webdriver.Chrome(options=options)
-		driver.get("https://web.whatsapp.com")
+		driver = webdriver.Chrome(options = options)
+		if (config.platforms.whatsapp.authCookie == "autoBrowser"): driver.get("https://web.whatsapp.com")
+		elif (config.platforms.whatsapp.authCookie != ""):
+			# Coming Soon.
+			...
 		assert "WhatsApp" in driver.title 
 		input("Press any key when you are at the chat menu...")
 		return driver
@@ -106,7 +110,6 @@ def main(username, language):
 	if (language not in ["en", "es", "fr", "pt", "de", "cat"]): return terminal("e", "Enter a valid supported language -> en, es, fr, pt, de, cat.")
 	try:	
 		driver = whatsapp_login()
-
 		study_user(driver, username, language)
 	except KeyboardInterrupt:
 		if driver: driver.quit()
