@@ -45,7 +45,7 @@ def download(url, local, dtype, format):
     elif (local): downloaderWorker(local, dtype, format)
 
 @cli.command()
-@click.argument("email_or_username", , required=False)
+@click.argument("email_or_username", required=False)
 @click.option("-n", "--name", type=str, help="Name.")
 @click.option("-f", "--first", type=str, help="First name.")
 @click.option("-l", "--last", type=str, help="Last name.")
