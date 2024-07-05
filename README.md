@@ -20,10 +20,10 @@ Coming Soon.
 |-------------------------------- |---------------------|--------|
 | AI Prompt                       | In BETA Phase       |   ⚠️   |
 | Vulnerability Scanning Algorithm| Relatively soon     |   ❌   |
-| Email Search & Completion Tool  | Coming Soon         |   ❌   |
+| Email Search & Completion Tool  | In BETA Phase       |   ⚠️   |
 | Ports Scanner                   | Active              |   ✅   |
 | Website/video/data Downloader   | Active              |   ✅   |
-| Directory Listing               | In BETA Phase       |   ⚠️   |
+| Directory Listing               | Active              |   ✅   |
 | Password List Generation        | Coming Soon         |   ❌   |
 | Social Network Analysis         | Coming Soon         |   ❌   |
 | WhatsApp Basic OSINT            | Active              |   ✅   |

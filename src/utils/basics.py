@@ -19,11 +19,9 @@ def validTarget(target):
     if re.compile(r"^(\d{1,3}\.){3}\d{1,3}$").match(target):
         parts = target.split(".")
         if all(0 <= int(part) <= 255 for part in parts): return True
-    
     # Validate domain.
-    if re.compile(r"^(?=.{1,253}$)(?:(?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,6}$").match(target): return True
+    if re.compile(r"^(?=.{1,253}$)(?:(?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,10}$").match(target): return True
     return False
-
 
 def terminal(typeMessage, string=""):
     if isinstance(typeMessage, str):
