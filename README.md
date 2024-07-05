@@ -28,10 +28,8 @@ Coming Soon.
 | Social Network Analysis         | Coming Soon         |   ❌   |
 | WhatsApp Basic OSINT            | Active              |   ✅   |
 
-<div style="border: 2px solid #eebd53; padding: 10px; border-radius: 5px; background-color: #4e4022;">
-  <strong style="color: #f9e2b3">⚠️ Important Notice</strong><br>
-  Due to the sensitive nature of OSINT tools, full versions of some tools will not be provided. For example, the WhatsApp LOGS tool is only available in a basic version.
-</div>
+> ## ⚠️ Important Notice
+> Due to the sensitive nature of OSINT tools, full versions of some tools will not be provided. For example, the WhatsApp LOGS tool is only available in a basic version.
 
 ### Supported AI Models
 
