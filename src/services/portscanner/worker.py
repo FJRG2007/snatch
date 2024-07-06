@@ -1,6 +1,7 @@
 import os
 import sys
 import socket
+import src.lib.colors as cl
 import src.lib.data as data
 from datetime import datetime
 from ...utils.basics import terminal
@@ -32,11 +33,11 @@ def parse_ports(port_str):
 
 def main(target, ports, saveonfile=False):
     # Add Banner.
-    print("-" * 50)
-    print(f"Scanning Target: {target}")
-    print(f"Scanning ports: {ports}")
-    print(f"Scanning started at: {str(datetime.now())}")
-    print("-" * 50)
+    print(f"{cl.des_space}" + "-" * 50)
+    print(f"{cl.des_space}Scanning Target: {target}")
+    print(f"{cl.des_space}Scanning ports: {ports}")
+    print(f"{cl.des_space}Scanning started at: {str(datetime.now())}")
+    print(f"{cl.des_space}" + "-" * 50)
     try:
         # Validating and preparing the ports to be scanned.
         ports = parse_ports(ports)

@@ -1,10 +1,10 @@
 import click
 import pyfiglet
 from src.lib import data
+import src.lib.colors as cl
 from src.lib.config import config
 from textual.widgets import Markdown
 from src.utils.basics import terminal
-
 from textual.app import App, ComposeResult
 
 # Functionalities.
@@ -19,6 +19,7 @@ from src.services.ai.worker import main as aiWoker
 @click.group()
 def cli():
     print(pyfiglet.figlet_format("SNATCH"))
+    print(f'\n{cl.des_space}{cl.b}>> {cl.w}Welcome to Snatch, remember to use it responsibly. \n{cl.des_space}{cl.b}>> {cl.w}Join to our Discord server on tpeoficial.com/dsc\n{cl.des_space}{cl.b}>> {cl.w}Version: {data.version}\n')
 
 @cli.command()
 def info():

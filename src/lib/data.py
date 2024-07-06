@@ -1,4 +1,5 @@
 pre_cmd = "python cli.py"
+version = "0.0.1-alpha"
 dirs = {
     "temporal": "./temporal"
 }

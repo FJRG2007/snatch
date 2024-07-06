@@ -15,7 +15,7 @@ def search_username(username, saveonfile):
             if output.startswith("[") and output[2] == "]": output = output[4:]
             if output == "" and len(output) > 10 and process.poll() is not None: break
             if output.startswith("Checking username "): terminal("i", f"{output}\nThis may take a few minutes...")
-            elif output.startswith("Search completed with "): terminal("s", output); break
+            elif output.startswith("Search completed with "): terminal("s", f"{output}."); break
             elif len(output) > 10: 
                 print(output)
                 if saveonfile: file.write(output + "\n")
