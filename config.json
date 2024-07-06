@@ -6,19 +6,5 @@
         "model": "gpt-3.5-turbo",
         "temperature": 0.75,
         "max_tokens": 1024
-    },
-    "platforms": {
-        "x_twitter": {
-            "useNoAuthResource": true,
-            "consumer_key": "",
-            "consumer_secret": "",
-            "bearer_token": ""
-        },
-        "hunter": {
-            "useNoAuthResource": true
-        },
-        "whatsapp": {
-            "authCookie": "autoBrowser"
-        }
     }
 }

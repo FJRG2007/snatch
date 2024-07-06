@@ -5,7 +5,7 @@ def search_username(username, saveonfile):
     try:
         try: subprocess.check_output("pip install sherlock-project", shell=True, text=True)
         except subprocess.CalledProcessError: return terminal("nmi", "Sherlock")
-        process = subprocess.Popen(f"sherlock {username} --nsfw", shell=True, stdout=subprocess.PIPE, universal_newlines=True)
+        process = subprocess.Popen(f"sherlock {username} --nsfw --print-found --folderoutput ./temporal", shell=True, stdout=subprocess.PIPE, universal_newlines=True)
         # Open file for writing if saveonfile is True.
         if saveonfile:
             os.makedirs("output/emseek", exist_ok=True)
@@ -15,7 +15,10 @@ def search_username(username, saveonfile):
             if output.startswith("[") and output[2] == "]": output = output[4:]
             if output == "" and len(output) > 10 and process.poll() is not None: break
             if output.startswith("Checking username "): terminal("i", f"{output}\nThis may take a few minutes...")
-            elif output.startswith("Search completed with "): terminal("s", f"{output}."); break
+            elif output.startswith("Search completed with "): 
+                terminal("s", f"{output}.");
+                if os.path.isfile(f"temporal/{username}.txt"): os.remove(f"temporal/{username}.txt")
+                break
             elif len(output) > 10: 
                 print(output)
                 if saveonfile: file.write(output + "\n")

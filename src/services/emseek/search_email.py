@@ -58,8 +58,7 @@ def checkdomain():
 def emailinfo(email):
     auto()
     try:
-        if config.platforms.hunter.useNoAuthResource: h_api = random.choice(DEFAULT_API_KEYS["HUNTER"])
-        else: h_api = os.getenv("HUNTER_API_KEY")
+        h_api = config.getAPIKey("HUNTER")
         get = requests.get(f"https://api.hunter.io/v2/email-verifier?email={email}&api_key={h_api}").json()
         data = get['data']
         one = str(data['status'])
@@ -81,8 +80,7 @@ def emailinfo(email):
         print(f"{space}{b}[{w}+{b}]{w} smtp_server : "+seven)
         print(f"{space}{b}[{w}+{b}]{w} smtp_check  : "+eight)
         print(f"{space}{b}[{w}+{b}]{w} Block       : "+nine)
-    except:
-        terminal("e", "Invalid Hunter API KEY.")
+    except: terminal("e", "Invalid Hunter API KEY.")
     finally: get = requests.get(f"https://api.hunter.io/v2/email-verifier?email={email}&api_key={h_api}").text
 
 def validator(user):

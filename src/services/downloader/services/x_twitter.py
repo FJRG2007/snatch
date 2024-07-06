@@ -25,7 +25,7 @@ def download_video(url, path, file_name) -> None:
 def download_twitter_video(url):
     parsed_url = urlparse(url)
     download_path = f"output/downloads/{parsed_url.netloc}/{parsed_url.path.strip('/').replace('/', '-')}"
-    if (config.platforms.x_twitter.useNoAuthResource):
+    if (True): # Coming Soon.
         try:
             api_url = f"https://twitsave.com/info?url={url}"
             response = requests.get(api_url)

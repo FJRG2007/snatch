@@ -1,4 +1,4 @@
-import re
+import re, sys
 import src.lib.colors as cl
 from textual.timer import Timer
 from rich import print as rprint
@@ -23,7 +23,7 @@ def validTarget(target):
     if re.compile(r"^(?=.{1,253}$)(?:(?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,10}$").match(target): return True
     return False
 
-def terminal(typeMessage, string=""):
+def terminal(typeMessage, string="", exitScript=False):
     if isinstance(typeMessage, str):
         if typeMessage == "e": return print(f"{cl.R} ERROR {cl.w} {string}")
         if typeMessage == "s": return rprint(f"[green]{string}[/green]")
@@ -33,6 +33,7 @@ def terminal(typeMessage, string=""):
     elif isinstance(typeMessage, type) and issubclass(typeMessage, BaseException):
         if typeMessage == KeyboardInterrupt: return print(f"{cl.R} ERROR {cl.w} Exiting Program: Canceled by user.")
     else: print("Unhandled typeMessage:", typeMessage)
+    if (exitScript): sys.exit(1)
     
 def progressBar():
     class IndeterminateProgressBar(App[None]):

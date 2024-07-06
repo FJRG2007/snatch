@@ -1,7 +1,4 @@
-import os
-import time
-import math
-import datetime
+import os, time, math, datetime
 from selenium import webdriver
 from src.lib.config import config
 from ...utils.basics import terminal
@@ -95,10 +92,10 @@ def whatsapp_login():
 		options.add_argument("user-data-dir=C:\\Path")
 		options.add_experimental_option("excludeSwitches", ["enable-logging"])
 		driver = webdriver.Chrome(options = options)
-		if (config.platforms.whatsapp.authCookie == "autoBrowser"): driver.get("https://web.whatsapp.com")
-		elif (config.platforms.whatsapp.authCookie != ""):
+		if (os.getenv("WHATSAPP_AUTH_COOKIE") != ""):
 			# Coming Soon.
 			...
+		else: driver.get("https://web.whatsapp.com")
 		assert "WhatsApp" in driver.title 
 		input("Press any key when you are at the chat menu...")
 		return driver
