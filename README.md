@@ -34,8 +34,9 @@ Coming Soon.
 ### Supported AI Models
 
 | Company                        | Model               | Execution   | Rating  |
-|--------------------------------|---------------------|-------------|------   |
+|--------------------------------|---------------------|-------------|---------|
 | Claude                         | Claude AI           | API         | None    |
+| TPEOficial                     | Dymo AGI            | API         | None    |
 | Google                         | Gemini              | API         | None    |
 | Meta                           | LLama3              | Local/API   | None    |
 | OpenAI                         | GPT-4o              | API         | None    |
