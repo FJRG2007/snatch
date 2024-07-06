@@ -1,9 +1,8 @@
+import os, sys, time, requests
 from src.lib.config import config
 from ...utils.basics import terminal
 from requests.exceptions import Timeout
-from src.lib.data import DEFAULT_API_KEYS
-import os, re, sys, time, json, requests, random
-from src.lib.colors import r, g, y, b, p, d, w, W, R, G, Y, B, space, des_space, lines
+from src.lib.colors import g, y, b, w, R, Y, B, space, des_space, lines
 
 validator_url = "https://ftp-mj-washer-maritime.trycloudflare.com/" # https://raw.githubusercontent.com/mishakorzik/MailFinder/main/.validator
 headers = {"User-Agent":"Opera/9.80 (J2ME/MIDP; Opera Mini/9.80 (S60; SymbOS; Opera Mobi/23.334; U; id) Presto/2.5.25 Version/10.54"}
@@ -13,7 +12,7 @@ def cls():
     else: os.system('clear')
 
 def restart():
-    print("{space}{b}[{w}01{b}]{w} Error! You forgot to write something...")
+    terminal("e", "You forgot to write something...")
     time.sleep(2)
     cls()
     os.execl(sys.executable, sys.executable, *sys.argv)
@@ -26,16 +25,18 @@ def selecttype(email, name, first, last, birthdate, addinfo, username, company, 
     print(f"{space}{b}[{w}2{b}]{w} Check username on emails domains")
     print(f"{space} {w}|")
     print(f"{space}{b}[{w}3{b}]{w} Search e-mail information, Hunter.io")
-    print(f"{space}{b}[{w}4{b}]{w} Search e-mail via fullname\n")
+    print(f"{space}{b}[{w}4{b}]{w} Search e-mail via fullname")
+    print(f"{space} {w}|")
+    print(f"{space}{b}[{w}5{b}]{w} Search reverse whois\n")
     type = str(input(f"{space}{b}[{w}?{b}]{w} Select a number:{b} ").lower())
     if type == "1" or type == "01": checkdomain()
     elif type == "2" or type == "02": validator(username)
     elif type == "3" or type == "03": emailinfo(email)
     elif type == "4" or type == "04": mailfinder(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
+    elif type == "5" or type == "05": reverseWhois(email)
     else: restart()
 
 def auto():
-    time.sleep(1)
     cls()
     banner()
 
@@ -84,6 +85,7 @@ def emailinfo(email):
     finally: get = requests.get(f"https://api.hunter.io/v2/email-verifier?email={email}&api_key={h_api}").text
 
 def validator(user):
+    if not user: return terminal("e", "You must define a valid user name.")
     auto()
     print(w+lines)
     data = [
@@ -745,12 +747,14 @@ def mailfinder(email, name, first, last, birthdate, addinfo, username, company, 
     except requests.exceptions.ReadTimeout: pass
     except TimeoutError: pass
     except requests.exceptions.SSLError: pass
-    except KeyboardInterrupt:
-        print("\r"),;sys.stdout.flush()
-        pass
+    except KeyboardInterrupt: print("\r"),;sys.stdout.flush()
     file.close()
     print(w+lines)
     print(f"{space}{b}>{w} {str(len(ok))} retrieved as: {y}result.txt{w}")
+
+def reverseWhois(email):
+    auto()
+    ...
 
 def search_email(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list):
     banner()
