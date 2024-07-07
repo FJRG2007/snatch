@@ -291,5 +291,4 @@
     "zhihu.com": "https://www.zhihu.com/people/{}",
     "zomato.com": "https://www.zomato.com/{}",
     "zooppa.com": "https://api.zooppa.com/api/v3/users?filters[]=login+is+{}"
-    
 }

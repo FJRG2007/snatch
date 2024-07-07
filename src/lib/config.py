@@ -39,22 +39,6 @@ class Config:
             elif len(api_key) >= 7: return api_key
             else: terminal("e", "Invalid Hunter API Key.", True)
 
-    def _update_config(self, path, obj):
-        keys = path.split(".")
-        d = self.config
-        for key in keys[:-1]:
-            d = getattr(d, key)
-        setattr(d, keys[-1], obj)
-        self._save_config()
-
-    def _save_config(self):
-        with open("./config.json", "w") as file:
-            json.dump(self._to_dict(self.config), file, indent=4)
-
-    def _to_dict(self, obj):
-        if isinstance(obj, DictToObj):return {k: self._to_dict(v) for k, v in obj.__dict__.items() if k not in ["_parent", "_path"]}
-        else: return obj
-
     def __getattr__(self, name):
         return getattr(self.config, name)
 
