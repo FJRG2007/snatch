@@ -64,6 +64,8 @@ Coming Soon.
  - Email: [fjrg2007@tpeoficial.com](mailto:fjrg2007@tpeoficial.com)
 
 #### Contributors
+To contribute to the project visit the requirements at [CONTRIBUTING](./docs/dev/CONTRIBUTING.md).
+
 <a href="https://github.com/FJRG2007/snatch/graphs/contributors">
     <img src="https://contrib.rocks/image?repo=FJRG2007/snatch&v=2" class="not-center" loading="lazy" />
 </a>
