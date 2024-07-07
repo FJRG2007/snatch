@@ -43,7 +43,7 @@ Contributions to Sntach are welcome. Here is how you can contribute:
 
 1. [Submit bugs or a feature request](https://github.com/FJRG2007/snatch/issues) and
    help us verify fixes as they are checked in.
-2. Create your working branch from the `main` branch: `git checkout dev -b feature/my-awesome-feature`.
+2. Create your working branch from the `main` branch: `git checkout main -b feature/my-awesome-feature`.
 3. Install development dependencies: `pip install -r requirements.txt`.
 4. Write code for a bug fix or for your new awesome feature.
 5. Write test cases for your changes.
