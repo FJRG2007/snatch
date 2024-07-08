@@ -1,14 +1,13 @@
-import os
-import sys
-import socket
+
 import src.lib.colors as cl
 import src.lib.data as data
+from statistics import mean
 from datetime import datetime
+import os, sys, socket, subprocess
 from ...utils.basics import terminal
 from threading import Thread, Semaphore
 
-class InvalidPortException(Exception):
-    pass
+class InvalidPortException(Exception): pass
 
 def parse_ports(port_str):
     ports = set()
@@ -51,7 +50,7 @@ def main(target, ports, threadsNumber=50, saveonfile=False):
             for port in ports_to_scan:
                 semaphore.acquire()  # Acquire the semaphore.
                 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-                s.settimeout(0.5)
+                s.settimeout(timeout)
                 result = s.connect_ex((target, port))
                 if result == 0:
                     open_ports.append(port)
@@ -68,21 +67,41 @@ def main(target, ports, threadsNumber=50, saveonfile=False):
             terminal("e", "Server not responding.")
             sys.exit()
 
+    def ping_avg_time(target):
+        try:
+            output = subprocess.check_output(['ping', '-c', '3', target])
+            lines = output.decode('utf-8').splitlines()
+            times = []
+            for line in lines:
+                if 'time=' in line: times.append(float(line.split('time=')[-1].split(' ')[0]))
+            if times: return mean(times)
+            else: return 0.0
+        except subprocess.CalledProcessError: return 0.0
+        except Exception as e:
+            print(f"Error while pinging {target}: {e}")
+            return 0.0
     # Validating and preparing the ports to be scanned.
-    try:
-        ports = parse_ports(ports)
+    try: ports = parse_ports(ports)
     except InvalidPortException as e:
         terminal("e", e)
         print(f"Example: {data.pre_cmd} portscan example.com or ip --ports 1,2,3 or 16-24 or *-24 or 24-* or * or common")
         sys.exit(1)
+    ping_time = ping_avg_time(target)
+    if ping_time > 0: timeout = ping_time * 1.6  # Use twice the average ping time as the initial wait time.
+    else: timeout = 0.5  # Default value if ping time cannot be obtained.
 
     # Distribute the ports among the threads.
     ports_per_thread = len(ports) // threadsNumber
+    remaining_ports = len(ports) % threadsNumber
     threads = []
+
+    start = 0
     for i in range(threadsNumber):
-        start = i * ports_per_thread
-        thread_ports = ports[start:start + ports_per_thread if i != threadsNumber - 1 else len(ports)]
-        thread = Thread(target=scan_ports, args=(thread_ports, i+1))
+        extra = 1 if i < remaining_ports else 0
+        end = start + ports_per_thread + extra
+        thread_ports = ports[start:end]
+        start = end
+        thread = Thread(target=scan_ports, args=(thread_ports, i + 1))
         threads.append(thread)
         thread.start()
 
