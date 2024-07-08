@@ -29,7 +29,7 @@ Coming Soon.
 | WhatsApp Basic OSINT            | Active              |   ✅   |
 | Wifi Scanner                    | Relatively soon     |   ❌   |
 
-> ### ⚠️ Important Notice
+> [!IMPORTANT]\
 > Due to the sensitive nature of OSINT tools, full versions of some tools will not be provided. For example, the WhatsApp LOGS tool is only available in a basic version.
 
 ### Supported AI Models
