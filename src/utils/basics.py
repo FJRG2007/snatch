@@ -25,13 +25,16 @@ def validTarget(target):
 
 def terminal(typeMessage, string="", exitScript=False):
     if isinstance(typeMessage, str):
-        if typeMessage == "e": return print(f"{cl.R} ERROR {cl.w} {string}")
-        if typeMessage == "s": return rprint(f"[green]{string}[/green]")
+        if typeMessage == "e": return print(f"{cl.R} ERROR {cl.w} {string}") # X or ❌
+        if typeMessage == "s": return rprint(f"[green]✅ {string}[/green]") # ✓ or ✅
         if typeMessage == "i": return rprint(f"[cyan]{string}[/cyan]")
         if typeMessage == "w": return rprint(f"[bold yellow]Warning:[/bold yellow] [yellow]{string}[/yellow]")
+        if typeMessage == "h": return print(f"{cl.B}💡 TIP {cl.w} {string}") # X or ❌
         if typeMessage == "nmi": return print(f"{cl.R} ERROR {cl.w} Could not install {string}. Please install it manually.")
+        if typeMessage == "nei": return print(f"{cl.R} ERROR {cl.w} {string} is not installed or not found in PATH. Please install it manually.")
     elif isinstance(typeMessage, type) and issubclass(typeMessage, BaseException):
         if typeMessage == KeyboardInterrupt: return print(f"{cl.R} ERROR {cl.w} Exiting Program: Canceled by user.")
+        sys.exit(1)
     else: print("Unhandled typeMessage:", typeMessage)
     if (exitScript): sys.exit(1)
     

@@ -19,15 +19,24 @@ Coming Soon.
 | Name                            | Status              | Active |
 |-------------------------------- |---------------------|--------|
 | AI Prompt                       | In BETA Phase       |   ⚠️   |
+| OSINT Automation	              | Coming Soon	        |   ❌   |
 | Vulnerability Scanning Algorithm| Relatively soon     |   ❌   |
 | Email Search & Completion Tool  | In BETA Phase       |   ⚠️   |
 | Ports Scanner                   | Active              |   ✅   |
 | Website/video/data Downloader   | Active              |   ✅   |
 | Directory Listing               | Active              |   ✅   |
 | Password List Generation        | Coming Soon         |   ❌   |
-| Social Network Analysis         | Coming Soon         |   ❌   |
 | WhatsApp Basic OSINT            | Active              |   ✅   |
 | Wifi Scanner                    | Relatively soon     |   ❌   |
+| Geolocation Tools	              | Coming Soon	        |   ❌   |
+| Image Analysis	              | Coming Soon	        |   ❌   |
+| Dark Web Monitoring	          | Coming Soon	        |   ❌   |
+| Blockchain Investigation	      | Coming Soon	        |   ❌   |
+| Advanced Social Media Analytics | Coming Soon	        |   ❌   |
+| Real-time Data Monitoring	      | Coming Soon	        |   ❌   |
+| Language and Sentiment Analysi  | Coming Soon	        |   ❌   |
+| Customizable API Integration	  | Coming Soon	        |   ❌   |
+| Metadata Extractor	          | Relatively soon	    |   ❌   |
 
 > [!IMPORTANT]\
 > Due to the sensitive nature of OSINT tools, full versions of some tools will not be provided. For example, the WhatsApp LOGS tool is only available in a basic version.
@@ -60,12 +69,14 @@ Coming Soon.
 
 </details>
 
+Requirements available at [`REQUERIMENTS`](./docs/REQUERIMENTS.md).
+
 #### Author
  - FJRG007
  - Email: [fjrg2007@tpeoficial.com](mailto:fjrg2007@tpeoficial.com)
 
 #### Contributors
-To contribute to the project visit the requirements at [CONTRIBUTING](./docs/dev/CONTRIBUTING.md).
+To contribute to the project visit the requirements at [`CONTRIBUTING`](./docs/dev/CONTRIBUTING.md).
 
 ![Alt](https://repobeats.axiom.co/api/embed/752f1062974e1799dfb603d420343078a9e4a378.svg "Snatch analytics image")
 

@@ -11,6 +11,7 @@ from textual.app import App, ComposeResult
 from src.services.ai.worker import main as aiWoker
 from src.services.downloader.worker import main as downloaderWorker
 from src.services.emseek.worker import main as emseekWorker
+from src.services.metadata_extractor.worker import main as exdataWorker
 from src.services.directory_listing.worker import main as directoryListing
 from src.services.portscanner.worker import main as portscanner
 from src.services.whatsapp.worker import main as whatsappWorker
@@ -62,6 +63,12 @@ def download(url, local, dtype, format):
 def emseek(email_or_username, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list):
     if not email_or_username: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} emseek --help\" for further help.")
     emseekWorker(email_or_username, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
+
+@cli.command()
+@click.option("-t", "--tool", default="snatch", type=str, help="Use an advanced tool [snatch (default), exiftool].")
+@click.option("-s", "--saveonfile", is_flag=True, type=bool, help="Saves the information in a file.")
+def exdata(tool, saveonfile):
+    exdataWorker(tool, saveonfile)
 
 @cli.command()
 @click.argument("target", required=True)
