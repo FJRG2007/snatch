@@ -14,6 +14,7 @@ from src.services.emseek.worker import main as emseekWorker
 from src.services.directory_listing.worker import main as directoryListing
 from src.services.portscanner.worker import main as portscanner
 from src.services.whatsapp.worker import main as whatsappWorker
+from src.services.wifiscanner.worker import main as wifiscanWorker
 from src.services.ai.worker import main as aiWoker
 
 @click.group()
@@ -84,6 +85,10 @@ def portscan(target, ports, threads, saveonfile):
 def whatsapp(username, language):
     if not username or not language: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} whatsapp --help\" for further help.")
     whatsappWorker(username, language)
+
+@cli.command()
+def wifiscan():
+    wifiscanWorker()
 
 if __name__ == "__main__":
     cli()
