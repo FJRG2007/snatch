@@ -1,0 +1,1 @@
+Here you must put all the files from which you want to extract the metadata.
