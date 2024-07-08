@@ -3,7 +3,7 @@
 Snatch currently supports the following operating systems:
  - [x] Windows
  - [x] Linux
- - [ ] MacOS
+ - [x] MacOS
  - [ ] Android
  - [ ] iOS
 
