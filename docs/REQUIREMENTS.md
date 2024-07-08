@@ -16,7 +16,10 @@ pip install -r requirements.txt
 
 ### Dependent tools
 
-| Name                            | Website                                              | Automatic installation  |
-|-------------------------------- |------------------------------------------------------|-------------------------|
-| ExifTool                        | [ExifTool by Phil Harvey](https://exiftool.org/)     | ❌                     |
-| Sherlock	                      | [Sherlock Project](https://sherlockproject.xyz/)     | ✅                     |
+> [!IMPORTANT]\
+> Although not all of them are required, it is highly recommended to install them for a better user experience with **Snatch**.
+
+| Name                            | Website                                              | Automatic installation  | Required |
+|-------------------------------- |------------------------------------------------------|-------------------------|----------|
+| ExifTool                        | [ExifTool by Phil Harvey](https://exiftool.org/)     | ❌                     | ❌       |
+| Sherlock	                      | [Sherlock Project](https://sherlockproject.xyz/)     | ✅                     | ✅       |
