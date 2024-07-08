@@ -72,7 +72,7 @@ def dirlist(target, wordlist):
 @cli.command()
 @click.argument("target", required=True)
 @click.option("-p", "--ports", default="*", type=str, help="Ports to be scanned (1,2,3 or 16-24 or *-24 or 24-* or * or common).")
-@click.option("-t", "--threads", default=10, type=int, help="Number of simultaneous threads for the requests.")
+@click.option("-t", "--threads", default=50, type=int, help="Number of simultaneous threads for the requests.")
 @click.option("-s", "--saveonfile", is_flag=True, type=bool, help="Saves the open ports in a file.")
 def portscan(target, ports, threads, saveonfile):
     if not target: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} portscan --help\" for further help.")

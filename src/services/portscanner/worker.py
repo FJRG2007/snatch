@@ -32,7 +32,7 @@ def parse_ports(port_str):
             except ValueError: raise InvalidPortException(f"Invalid port range: {part}")
     return sorted(ports)
 
-def main(target, ports, threadsNumber=10, saveonfile=False):
+def main(target, ports, threadsNumber=50, saveonfile=False):
     # Add Banner.
     print(f"{cl.des_space}" + "-" * 50)
     print(f"{cl.des_space}Scanning Target: {target}")
