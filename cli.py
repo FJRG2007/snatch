@@ -51,13 +51,13 @@ def download(url, local, dtype, format):
 @click.option("-f", "--first", type=str, help="First name.")
 @click.option("-l", "--last", type=str, help="Last name.")
 @click.option("-b", "--birthdate", type=str, help="Birthdate in ddmmyyyy format,type * if you dont know(ex:****1967,3104****).")
-@click.option("-a", "--addinfo", help="Additional info to help guessing the email(ex:king,345981)",nargs="+")
-@click.option("-u", "--username", help="Checks 100+ email providers for the availability of username@provider.com",type=str)
-@click.option("-c", "--company", help="Company domain",type=str)
-@click.option("-p", "--providers", help="Email provider domains",nargs="+")
-@click.option("-s", "--saveonfile", default=False, type=bool, help="Saves the information in a file.")
+@click.option("-a", "--addinfo", help="Additional info to help guessing the email(ex:king,345981)", nargs="+")
+@click.option("-u", "--username", help="Checks 100+ email providers for the availability of username@provider.com", type=str)
+@click.option("-c", "--company", help="Company domain", type=str)
+@click.option("-p", "--providers", help="Email provider domains", nargs="+")
+@click.option("-s", "--saveonfile", is_flag=True, type=bool, help="Saves the information in a file.")
 @click.option("-v","--validate", help="Check which emails are valid and returns information of each one")
-@click.option("--list", help="File containing list of emails",type=str)
+@click.option("--list", help="File containing list of emails", type=str)
 def emseek(email_or_username, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list):
     if not email_or_username: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} emseek --help\" for further help.")
     emseekWorker(email_or_username, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
@@ -70,13 +70,14 @@ def dirlist(target, wordlist):
     directoryListing(target, wordlist)
 
 @cli.command()
-@click.argument("ip", required=True)
+@click.argument("target", required=True)
 @click.option("-p", "--ports", default="*", type=str, help="Ports to be scanned (1,2,3 or 16-24 or *-24 or 24-* or * or common).")
-@click.option("-s", "--saveonfile", default=False, type=bool, help="Saves the open ports in a file.")
-def portscan(ip, ports, saveonfile):
-    if not ip: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} portscan --help\" for further help.")
-    portscanner(ip, ports, saveonfile)
-    
+@click.option("-t", "--threads", default=10, type=int, help="Number of simultaneous threads for the requests.")
+@click.option("-s", "--saveonfile", is_flag=True, type=bool, help="Saves the open ports in a file.")
+def portscan(target, ports, threads, saveonfile):
+    if not target: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} portscan --help\" for further help.")
+    portscanner(target, ports, threads, saveonfile)
+
 @cli.command()
 @click.argument("username", required=True)
 @click.argument("language", required=True)

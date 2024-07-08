@@ -22,9 +22,7 @@ def typeLink(url):
     
     # Check if the link matches the playlist pattern.
     playlist_match = re.match(playlist_pattern, url)
-    if playlist_match:
-        playlist_id = playlist_match.group(1)
-        return {"type": "playlist", "id": playlist_id}
+    if playlist_match: return {"type": "playlist", "id": playlist_match.group(1)}
     
     # If the link does not match any pattern, return None.
     return {"type": "web" }
@@ -39,11 +37,9 @@ def youtube(url, dtype, format):
             if (format in ["mp4", "mp3", "wav"] or format == "auto"):
                 try:
                     stream = YouTube(url).streams.filter(progressive=True, file_extension="mp4").first()
-                    if (format in ["mp3", "wav"]):
-                        convert_mp4_to_audio(os.path.basename(stream.download(output_path="./output/temporal")), format, True, url)
+                    if (format in ["mp3", "wav"]): convert_mp4_to_audio(os.path.basename(stream.download(output_path="./output/temporal")), format, True, url)
                     print(f"Downloading: {stream.title}")
-                except KeyError as e:
-                    terminal("e", f"There was an error downloading the video: {e}")
+                except KeyError as e: terminal("e", f"There was an error downloading the video: {e}")
             else: terminal("e", "Invalid download format -> (mp4, mp3).")
         elif (type["type"] == "playlist"):
             if (format in ["mp4", "mp3"] or format == "auto"):
@@ -53,7 +49,6 @@ def youtube(url, dtype, format):
                         print(f"Downloading: {v.title}")
                         if (format == "mp3"): v.streams.filter(progressive=True, only_audio=True).first().download()
                         else: v.streams.filter(progressive=True, file_extension="mp4" if format == "auto" else format).first().download()
-                except KeyError as e:
-                    terminal("e", f"There was an error downloading the playlist: {e}")
+                except KeyError as e: terminal("e", f"There was an error downloading the playlist: {e}")
             else: terminal("e", "Invalid download format -> (mp4, mp3).")
         else: terminal("e", "Invalid format.")
