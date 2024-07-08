@@ -69,7 +69,7 @@ Coming Soon.
 
 </details>
 
-Requirements available at [`REQUERIMENTS`](./docs/REQUERIMENTS.md).
+Requirements available at [`REQUIREMENTS`](./docs/REQUIREMENTS.md).
 
 #### Author
  - FJRG007
