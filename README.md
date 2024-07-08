@@ -1,5 +1,9 @@
+<div align="center">
+
 # Snatch
+
 ### 📥 AI OSINT - Capture, download, and enjoy.
+</div>
 
 **Snatch** is a versatile tool crafted for cybersecurity and hacking enthusiasts. Developed in Python and currently in active development, **Snatch** aims to serve as a powerful multipurpose tool for OSINT (Open Source Intelligence) tasks, leveraging Artificial Intelligence to enhance task efficiency and speed.
 
@@ -10,7 +14,6 @@ Alternatively, you can directly execute commands via your terminal to utilize **
 It's important to emphasize that **Snatch** is a work in progress, and all operations are conducted locally. Users should exercise caution as they assume full responsibility for their actions.
 
 **Disclaimer**: This tool are for technical discussion and sharing only. Illegal use is strictly prohibited.
-
 ### Use
 Coming Soon.
 
