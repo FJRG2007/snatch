@@ -67,7 +67,7 @@ Coming Soon.
 #### Contributors
 To contribute to the project visit the requirements at [CONTRIBUTING](./docs/dev/CONTRIBUTING.md).
 
-![Alt](https://repobeats.axiom.co/api/embed/752f1062974e1799dfb603d420343078a9e4a378.svg "Repobeats analytics image")
+![Alt](https://repobeats.axiom.co/api/embed/752f1062974e1799dfb603d420343078a9e4a378.svg "Snatch analytics image")
 
 <a href="https://github.com/FJRG2007/snatch/graphs/contributors">
     <img src="https://contrib.rocks/image?repo=FJRG2007/snatch&v=2" class="not-center" loading="lazy" />
