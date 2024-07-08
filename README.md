@@ -18,7 +18,7 @@ Coming Soon.
 
 | Name                            | Status              | Active |
 |-------------------------------- |---------------------|--------|
-| AI Prompt                       | In BETA Phase       |   ⚠️   |
+| AI Prompt                       | In development      |   ⚠️   |
 | OSINT Automation	              | Coming Soon	        |   ❌   |
 | Vulnerability Scanning Algorithm| Relatively soon     |   ❌   |
 | Email Search & Completion Tool  | In BETA Phase       |   ⚠️   |
@@ -34,9 +34,7 @@ Coming Soon.
 | Blockchain Investigation	      | Coming Soon	        |   ❌   |
 | Advanced Social Media Analytics | Coming Soon	        |   ❌   |
 | Real-time Data Monitoring	      | Coming Soon	        |   ❌   |
-| Language and Sentiment Analysi  | Coming Soon	        |   ❌   |
-| Customizable API Integration	  | Coming Soon	        |   ❌   |
-| Metadata Extractor	          | Relatively soon	    |   ❌   |
+| Metadata Extractor	          | In development	    |   ⚠️   |
 
 > [!IMPORTANT]\
 > Due to the sensitive nature of OSINT tools, full versions of some tools will not be provided. For example, the WhatsApp LOGS tool is only available in a basic version.
