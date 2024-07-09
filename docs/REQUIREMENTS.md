@@ -19,7 +19,22 @@ pip install -r requirements.txt
 > [!IMPORTANT]\
 > Although not all of them are required, it is highly recommended to install them for a better user experience with **Snatch**.
 
-| Name                            | Website                                              | Automatic installation  | Required |
-|-------------------------------- |------------------------------------------------------|-------------------------|----------|
-| ExifTool                        | [ExifTool by Phil Harvey](https://exiftool.org/)     | ❌                     | ❌       |
-| Sherlock	                      | [Sherlock Project](https://sherlockproject.xyz/)     | ✅                     | ✅       |
+| Name                            | Website                                                          | Automatic installation  | Required |
+|-------------------------------- |------------------------------------------------------------------|-------------------------|----------|
+| ExifTool                        | [ExifTool by Phil Harvey](https://exiftool.org/)                 | ❌                     | ❌       |
+| Sherlock	                      | [Sherlock Project](https://sherlockproject.xyz/)                 | ✅                     | ✅       |
+| Llama3	                      | [Sherlock Project](https://llama.meta.com/docs/get-started/)     | ❌                     | ❌       |
+
+### Dependent APIs
+
+> [!IMPORTANT]\
+> Although not all of them are required, it is highly recommended to install them for a better user experience with **Snatch**.
+
+| Name               | Website                                              | Utility                | Required |
+|--------------------|------------------------------------------------------|------------------------|----------|
+| Dymo               | [Dymo AGI](https://dymo.tpeoficial.com/)             | Data and AI model      | ❌       |
+| Have I Been Pwned  | [Have I Been Pwned](https://haveibeenpwned.com/)     | Email data             | ❌       |
+| OpenAI	         | [OpenAI](https://openai.com/)                        | AI model               | ❌       |
+| Hunter	         | [Hunter](https://hunter.io/)                         | Email data             | ❌       |
+| Claude	         | [Claude](https://claude.ai/)                         | AI model               | ❌       |
+| Gemini	         | [Gemini](https://gemini.google.com/app)              | AI model               | ❌       |
