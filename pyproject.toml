@@ -1,18 +1,20 @@
 [build-system]
-requires = ["setuptools>=42"]
+requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
-
-[tool.poetry]
+[project]
 name = "snatch"
-version = "0"
+version = "0.1.0"
 description = "📥 AI OSINT - Capture, download, and enjoy."
-license = "AGPL-3.0"
-authors = [ "FJRG2007", "lizardwine" ]
-keywords = [ "artificial intelligence", "osint", "reconnaissance", "information gathering" ]
+license = {text = "AGPL-3.0"}
+authors = [
+    {name = "FJRG2007"},
+    {name = "lizardwine"}
+]
+keywords = ["artificial intelligence", "osint", "reconnaissance", "information gathering"]
 
-[tool.poetry.urls]
+[project.urls]
 "Bug Tracker" = "https://github.com/FJRG2007/snatch/issues"
 
-[tool.poetry.scripts]
+[project.scripts]
 snatch = "src.worker:main"
