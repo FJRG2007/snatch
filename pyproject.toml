@@ -7,10 +7,7 @@ name = "snatch"
 version = "0.1.0"
 description = "📥 AI OSINT - Capture, download, and enjoy."
 license = {text = "AGPL-3.0"}
-authors = [
-    {name = "FJRG2007"},
-    {name = "lizardwine"}
-]
+authors = [{name = "FJRG2007"}]
 keywords = ["artificial intelligence", "osint", "reconnaissance", "information gathering"]
 
 [project.urls]
