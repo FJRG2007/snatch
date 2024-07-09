@@ -35,6 +35,7 @@ pip install -r requirements.txt
 | [Dymo AGI](https://dymo.tpeoficial.com/)             | Data and AI model      | ❌       |
 | [Have I Been Pwned](https://haveibeenpwned.com/)     | Email data             | ❌       |
 | [OpenAI](https://openai.com/)                        | AI model               | ❌       |
+| [Face Check ID](https://facecheck.id/)               | Visual data search     | ❌       |
 | [Hunter](https://hunter.io/)                         | Email data             | ❌       |
 | [Claude](https://claude.ai/)                         | AI model               | ❌       |
 | [Gemini](https://gemini.google.com/app)              | AI model               | ❌       |
