@@ -1,4 +1,4 @@
-import re, sys
+import os, re, sys
 import src.lib.colors as cl
 from textual.timer import Timer
 from rich import print as rprint
@@ -7,6 +7,10 @@ from textual.app import App, ComposeResult
 from textual.containers import Center, Middle
 from textual.widgets import Footer, ProgressBar
 
+def cls() -> None:
+    if sys.platform == 'win32': os.system('cls')
+    else: os.system('clear')
+
 def validURL(url):
     try:
         r = urlparse(url)
@@ -14,6 +18,16 @@ def validURL(url):
     except ValueError:
         return False
     
+def getTypeString(v):
+    if re.match(r'^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$', v): return "email"
+    elif re.match(r'^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$', v): return "tel"
+    else: return "unknown"
+    
+def setColor(v):
+    if (v == "True" or v == True): return f"{cl.g}True{cl.w}"
+    elif (v == "False" or v == False): return f"{cl.r}False{cl.w}"
+    else: return f"{v}"
+
 def validTarget(target):
     # Validate IP address (IPv4).
     if re.compile(r"^(\d{1,3}\.){3}\d{1,3}$").match(target):
@@ -25,15 +39,15 @@ def validTarget(target):
 
 def terminal(typeMessage, string="", exitScript=False):
     if isinstance(typeMessage, str):
-        if typeMessage == "e": return print(f"{cl.R} ERROR {cl.w} {string}") # X or ❌
-        if typeMessage == "s": return rprint(f"[green]✅ {string}[/green]") # ✓ or ✅
-        if typeMessage == "i": return rprint(f"[cyan]{string}[/cyan]")
-        if typeMessage == "w": return rprint(f"[bold yellow]Warning:[/bold yellow] [yellow]{string}[/yellow]")
-        if typeMessage == "h": return print(f"{cl.B}💡 TIP {cl.w} {string}") # X or ❌
-        if typeMessage == "nmi": return print(f"{cl.R} ERROR {cl.w} Could not install {string}. Please install it manually.")
-        if typeMessage == "nei": return print(f"{cl.R} ERROR {cl.w} {string} is not installed or not found in PATH. Please install it manually.")
+        if typeMessage == "e": print(f"{cl.R} ERROR {cl.w} {string}") # X or ❌
+        if typeMessage == "s": rprint(f"[green]✅ {string}[/green]") # ✓ or ✅
+        if typeMessage == "i": rprint(f"[cyan]{string}[/cyan]")
+        if typeMessage == "w": rprint(f"[bold yellow]Warning:[/bold yellow] [yellow]{string}[/yellow]")
+        if typeMessage == "h": print(f"{cl.B}💡 TIP {cl.w} {string}") # X or ❌
+        if typeMessage == "nmi": print(f"{cl.R} ERROR {cl.w} Could not install {string}. Please install it manually.")
+        if typeMessage == "nei": print(f"{cl.R} ERROR {cl.w} {string} is not installed or not found in PATH. Please install it manually.")
     elif isinstance(typeMessage, type) and issubclass(typeMessage, BaseException):
-        if typeMessage == KeyboardInterrupt: return print(f"{cl.R} ERROR {cl.w} Exiting Program: Canceled by user.")
+        if typeMessage == KeyboardInterrupt: print(f"{cl.R} ERROR {cl.w} Exiting Program: Canceled by user.")
         sys.exit(1)
     else: print("Unhandled typeMessage:", typeMessage)
     if (exitScript): sys.exit(1)

@@ -1,15 +1,12 @@
+from .scanner import scanner
 import os, sys, time, requests
 from src.lib.config import config
-from ...utils.basics import terminal
+from ...utils.basics import cls, terminal
 from requests.exceptions import Timeout
 from src.lib.colors import g, y, b, w, R, Y, B, space, des_space, lines
 
 validator_url = "https://ftp-mj-washer-maritime.trycloudflare.com/" # https://raw.githubusercontent.com/mishakorzik/MailFinder/main/.validator
 headers = {"User-Agent":"Opera/9.80 (J2ME/MIDP; Opera Mini/9.80 (S60; SymbOS; Opera Mobi/23.334; U; id) Presto/2.5.25 Version/10.54"}
-
-def cls():
-    if sys.platform == 'win32': os.system('cls')
-    else: os.system('clear')
 
 def restart():
     terminal("e", "You forgot to write something...")
@@ -24,14 +21,13 @@ def selecttype(email, name, first, last, birthdate, addinfo, username, company, 
     print(f"{space}{b}[{w}1{b}]{w} Check e-mail domain in blacklist")
     print(f"{space}{b}[{w}2{b}]{w} Check username on emails domains")
     print(f"{space} {w}|")
-    print(f"{space}{b}[{w}3{b}]{w} Search e-mail information, Hunter.io")
+    print(f"{space}{b}[{w}3{b}]{w} Scanner")
     print(f"{space}{b}[{w}4{b}]{w} Search e-mail via fullname")
     print(f"{space} {w}|")
-    print(f"{space}{b}[{w}5{b}]{w} Search reverse whois\n")
     type = str(input(f"{space}{b}[{w}?{b}]{w} Select a number:{b} ").lower())
     if type == "1" or type == "01": checkdomain()
     elif type == "2" or type == "02": validator(username)
-    elif type == "3" or type == "03": emailinfo(email)
+    elif type == "3" or type == "03": scanner(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
     elif type == "4" or type == "04": mailfinder(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
     elif type == "5" or type == "05": reverseWhois(email)
     else: restart()
