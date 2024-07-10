@@ -15,7 +15,7 @@ It's important to emphasize that **Snatch** is a work in progress, and all opera
 
 **Disclaimer**: This tool are for technical discussion and sharing only. Illegal use is strictly prohibited.
 
-<img src="./docs/images/diagram.jpeg" style="background-color: #f2f3f5" loading="lazy" />
+<img src="./docs/images/basic-cdiagram.jpeg" loading="lazy" />
 
 ### Use
 Coming Soon.
