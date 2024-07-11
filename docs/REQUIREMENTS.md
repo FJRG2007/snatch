@@ -14,10 +14,10 @@ Once you have [Python](https://www.python.org/) installed and the repository clo
 pip install -r requirements.txt
 ```
 
-### Dependent tools
-
 > [!IMPORTANT]\
-> Although not all of them are required, it is highly recommended to install them for a better user experience with **Snatch**.
+> Although not all of them are required, it is highly recommended to install/use them for a better user experience with **Snatch**.
+
+### Dependent tools
 
 | Name                                                          | Automatic installation  | Required |
 |-------------------------------------------------------------- |-------------------------|----------|
@@ -26,9 +26,6 @@ pip install -r requirements.txt
 | [Llama3](https://llama.meta.com/docs/get-started/)            | ❌                     | ❌       |
 
 ### Dependent APIs
-
-> [!IMPORTANT]\
-> Although not all of them are required, it is highly recommended to install them for a better user experience with **Snatch**.
 
 | Name                                                 | Utility                | Required |
 |------------------------------------------------------|------------------------|----------|
@@ -39,3 +36,11 @@ pip install -r requirements.txt
 | [Hunter](https://hunter.io/)                         | Email data             | ❌       |
 | [Claude](https://claude.ai/)                         | AI model               | ❌       |
 | [Gemini](https://gemini.google.com/app)              | AI model               | ❌       |
+
+### Dependent Accounts/Platforms
+
+| Name                                                          | Required |
+|---------------------------------------------------------------|----------|
+| [LinkedIn](https://linkedin.com/)                             | ✅       |
+| [WhatsApp](https://web.whatsapp.com/)                         | ✅       |
+| [X/Twitter](https://x.com/)                                   | ❌       |
