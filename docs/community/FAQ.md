@@ -1,6 +1,12 @@
 # Frequently Asked Questions
 
 <details>
+  <summary>Why should I use Snatch?</summary>
+  
+  Snatch will serve as an advanced OSINT tool to collect and validate important information from a user, currently there are no tools similar to Snatch capable of integrating all in one to automate most of the processes for the user who uses it. It should be noted that Snatch is still under development.
+</details>
+
+<details>
   <summary>How does Snatch conduct OSINT research?</summary>
   
   Snatch conducts OSINT (Open Source Intelligence) research following well-established guidelines and methodologies outlined in the <a href="https://osintframework.com/" target="_blank">OSINT Framework</a>. This includes systematic approaches to collecting and analyzing publicly available information from diverse online and offline sources. By adhering to these structured processes, Snatch ensures thorough and ethical gathering of information in its investigative endeavors.
