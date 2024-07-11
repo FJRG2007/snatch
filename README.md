@@ -33,7 +33,7 @@ Coming Soon.
 | Directory Listing                 | Active              |   ✅   |
 | Password List Generation          | Coming Soon         |   ❌   |
 | WhatsApp Basic OSINT              | Active              |   ✅   |
-| Wifi Scanner                      | Relatively soon     |   ❌   |
+| Wifi Scanner                      | Relatively Soon     |   ❌   |
 | Geolocation Tools	                | Coming Soon	      |   ❌   |
 | Image Analysis	                | Coming Soon	      |   ❌   |
 | Dark Web Monitoring	            | Coming Soon	      |   ❌   |
@@ -41,7 +41,7 @@ Coming Soon.
 | Advanced Social Media Analytics   | Coming Soon	      |   ❌   |
 | Real-time Data Monitoring	        | Coming Soon	      |   ❌   |
 | Metadata Extractor	            | In development	  |   ⚠️   |
-| Personal Data Scraper             | Relatively soon     |   ❌   |
+| Personal Data Scraper             | Relatively Soon     |   ❌   |
 
 > [!IMPORTANT]\
 > Due to the sensitive nature of OSINT tools, full versions of some tools will not be provided. For example, the WhatsApp LOGS tool is only available in a basic version.
