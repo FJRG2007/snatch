@@ -48,6 +48,10 @@ AI = {
             "models": ["llama3"]
         },
         {
+            "name": "Ollama",
+            "models": ["llama3"]
+        },
+        {
             "name": "OpenAI",
             "models": ["gpt-4o", "gpt-4", "gpt-3.5-turbo"]
         },

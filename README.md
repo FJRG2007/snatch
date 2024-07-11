@@ -54,7 +54,8 @@ Coming Soon.
 | TPEOficial                     | Dymo AGI, ELA                                 | API         | None    |
 | Google                         | Gemini                                        | API         | None    |
 | Groq                           | Llama3, Gemma, Whisper                        | API         | None    |
-| Meta                           | Llama3                                        | Local/API   | None    |
+| Meta                           | Llama3                                        | API         | None    |
+| Ollama                         | Llama3, Gemma                                 | Local       | None    |
 | OpenAI                         | GPT-4o, GPT-4, GPT-3.5 Turbo, GPT-3.5         | API         | None    |
 | Perplexity                     | Llama3, Mixtral                               | API         | None    |
 

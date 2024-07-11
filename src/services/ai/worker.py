@@ -2,12 +2,13 @@ from src.lib.data import AI
 from dotenv import load_dotenv
 from src.lib.config import config
 from src.utils.basics import terminal
-from .models.openai.llm import LLM as OpenAILLM
 # from .models.anthropic.llm import LLM as AnthropicLLM
 # from .models.dymo.llm import LLM as DymoLLM
 from .models.google.llm import LLM as GoogleLLM
 from .models.groq.llm import LLM as GroqLLM
 # from .models.meta.llm import LLM as MetaLLM
+from .models.openai.llm import LLM as OpenAILLM
+# from .models.ollama.llm import LLM as OllamaLLM
 # from .models.perplexity.llm import LLM as PerplexityLLM
 
 load_dotenv(override=True)
@@ -24,6 +25,7 @@ def main(prompt):
                 elif provider == "google": return GoogleLLM().process_request(prompt)
                 elif provider == "groq": return GroqLLM().process_request(prompt)
                 elif provider == "meta": ... #return MetaLLM().process_request(prompt)
+                elif provider == "ollama": ... #return OllamaLLM().process_request(prompt)
                 elif provider == "openai": return OpenAILLM().process_request(prompt)
                 elif provider == "perplexity": ... #return PerplexityLLM().process_request(prompt)
                 else: return terminal("e", f"Provider '{provider}' and model '{model}' found but no action defined.")
