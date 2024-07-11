@@ -50,8 +50,8 @@ Coming Soon.
 
 | Provider                       | Models                                        | Execution   | Rating  |
 |--------------------------------|-----------------------------------------------|-------------|---------|
-| Claude                         | Claude AI                                     | API         | None    |
-| TPEOficial                     | Dymo AGI                                      | API         | None    |
+| Anthropic                      | Claude                                        | API         | None    |
+| TPEOficial                     | Dymo AGI, ELA                                 | API         | None    |
 | Google                         | Gemini                                        | API         | None    |
 | Meta                           | LLama3                                        | Local/API   | None    |
 | OpenAI                         | GPT-4o, GPT-4, GPT-3.5, GPT-3.5 Turbo         | API         | None    |

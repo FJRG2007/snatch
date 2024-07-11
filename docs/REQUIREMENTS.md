@@ -22,20 +22,21 @@ pip install -r requirements.txt
 | Name                                                          | Automatic installation  | Required |
 |-------------------------------------------------------------- |-------------------------|----------|
 | [ExifTool](https://exiftool.org/)                             | ❌                     | ❌       |
-| [Sherlock Project](https://sherlockproject.xyz/)              | ✅                     | ✅       |
 | [Llama3](https://llama.meta.com/docs/get-started/)            | ❌                     | ❌       |
+| [Sherlock Project](https://sherlockproject.xyz/)              | ✅                     | ✅       |
 
 ### Dependent APIs
 
 | Name                                                 | Utility                | Required |
 |------------------------------------------------------|------------------------|----------|
+| [Anthropic](https://www.anthropic.com/)              | AI model               | ❌       |
 | [Dymo AGI](https://dymo.tpeoficial.com/)             | Data and AI model      | ❌       |
-| [Have I Been Pwned](https://haveibeenpwned.com/)     | Email data             | ❌       |
-| [OpenAI](https://openai.com/)                        | AI model               | ❌       |
 | [Face Check ID](https://facecheck.id/)               | Visual data search     | ❌       |
-| [Hunter](https://hunter.io/)                         | Email data             | ❌       |
-| [Claude](https://claude.ai/)                         | AI model               | ❌       |
 | [Gemini](https://gemini.google.com/app)              | AI model               | ❌       |
+| [Have I Been Pwned](https://haveibeenpwned.com/)     | Email data             | ❌       |
+| [Hunter](https://hunter.io/)                         | Email data             | ❌       |
+| [OpenAI](https://openai.com/)                        | AI model               | ❌       |
+| [Perplexity](https://perplexity.ai/)                 | AI model               | ❌       |
 
 ### Dependent accounts/platforms
 
