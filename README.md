@@ -22,25 +22,26 @@ Coming Soon.
 
 ### Main Features
 
-| Name                            | Status              | Active |
-|-------------------------------- |---------------------|--------|
-| AI Prompt                       | In development      |   ⚠️   |
-| OSINT Automation	              | Coming Soon	        |   ❌   |
-| Vulnerability Scanning Algorithm| Relatively soon     |   ❌   |
-| Email Search & Completion Tool  | In BETA Phase       |   ⚠️   |
-| Ports Scanner                   | Active              |   ✅   |
-| Website/video/data Downloader   | Active              |   ✅   |
-| Directory Listing               | Active              |   ✅   |
-| Password List Generation        | Coming Soon         |   ❌   |
-| WhatsApp Basic OSINT            | Active              |   ✅   |
-| Wifi Scanner                    | Relatively soon     |   ❌   |
-| Geolocation Tools	              | Coming Soon	        |   ❌   |
-| Image Analysis	              | Coming Soon	        |   ❌   |
-| Dark Web Monitoring	          | Coming Soon	        |   ❌   |
-| Blockchain Investigation	      | Coming Soon	        |   ❌   |
-| Advanced Social Media Analytics | Coming Soon	        |   ❌   |
-| Real-time Data Monitoring	      | Coming Soon	        |   ❌   |
-| Metadata Extractor	          | In development	    |   ⚠️   |
+| Name                              | Status              | Active |
+|-----------------------------------|---------------------|--------|
+| AI Prompt                         | In development      |   ⚠️   |
+| OSINT Automation	                | Coming Soon	      |   ❌   |
+| Vulnerability Scanning Algorithm  | Coming Soon         |   ❌   |
+| Email Search & Completion Tool    | In BETA Phase       |   ⚠️   |
+| Ports Scanner                     | Active              |   ✅   |
+| Website/video/data Downloader     | Active              |   ✅   |
+| Directory Listing                 | Active              |   ✅   |
+| Password List Generation          | Coming Soon         |   ❌   |
+| WhatsApp Basic OSINT              | Active              |   ✅   |
+| Wifi Scanner                      | Relatively soon     |   ❌   |
+| Geolocation Tools	                | Coming Soon	      |   ❌   |
+| Image Analysis	                | Coming Soon	      |   ❌   |
+| Dark Web Monitoring	            | Coming Soon	      |   ❌   |
+| Blockchain Investigation	        | Coming Soon	      |   ❌   |
+| Advanced Social Media Analytics   | Coming Soon	      |   ❌   |
+| Real-time Data Monitoring	        | Coming Soon	      |   ❌   |
+| Metadata Extractor	            | In development	  |   ⚠️   |
+| Personal Data Scraper             | Relatively soon     |   ⚠️   |
 
 > [!IMPORTANT]\
 > Due to the sensitive nature of OSINT tools, full versions of some tools will not be provided. For example, the WhatsApp LOGS tool is only available in a basic version.
