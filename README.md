@@ -90,6 +90,16 @@ To contribute to the project visit the requirements at [`CONTRIBUTING`](./docs/d
 
 **Note**: If you are a contributor and do not appear here, wait a little while until the image is reloaded.
 
+<div align="left">
+  <a href="https://tpeoficial.com/dsc" target="_blank">
+    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/discord/default.svg" width="52" height="40" alt="discord logo"  />
+  </a>
+</div>
+
+#### Useful Links
+
+- [FAQ](./docs/community/FAQ.md)
+
 #### License
 The founder of the project, [FJRG2007](https://github.com/FJRG2007/), reserves the right to modify the license at any time.
 This project is licensed under the terms of the [GNU Affero General Public License](./LICENSE).
