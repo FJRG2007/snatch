@@ -1,22 +1,22 @@
 import click, pyfiglet
-from .lib.config import config
-from .utils.snatch import Snatch
-from .utils.basics import terminal
-from .lib import data, colors as cl
+from src.lib.config import config
+from src.utils.snatch import Snatch
+from src.utils.basics import terminal
+from src.lib import data, colors as cl
 from textual.widgets import Markdown
 from textual.app import App, ComposeResult
 
 # Functionalities.
-from .services.ai.worker import main as aiWoker
-from .services.downloader.worker import main as downloaderWorker
-from .services.emseek.worker import main as emseekWorker
-from .services.metadata_extractor.worker import main as exdataWorker
-from .services.directory_listing.worker import main as directoryListing
-from .services.portscanner.worker import main as portscanner
-from .services.settings.worker import main as settingsWorker
-from .services.whatsapp.worker import main as whatsappWorker
-from .services.wifiscanner.worker import main as wifiscanWorker
-from .services.ai.worker import main as aiWoker
+from src.services.ai.worker import main as aiWoker
+from src.services.downloader.worker import main as downloaderWorker
+from src.services.emseek.worker import main as emseekWorker
+from src.services.metadata_extractor.worker import main as exdataWorker
+from src.services.directory_listing.worker import main as directoryListing
+from src.services.portscanner.worker import main as portscanner
+from src.services.settings.worker import main as settingsWorker
+from src.services.whatsapp.worker import main as whatsappWorker
+from src.services.wifiscanner.worker import main as wifiscanWorker
+from src.services.ai.worker import main as aiWoker
 
 @click.group()
 def cli():
