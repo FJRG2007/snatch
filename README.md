@@ -48,15 +48,14 @@ Coming Soon.
 
 ### Supported AI Models
 
-| Company                        | Model               | Execution   | Rating  |
-|--------------------------------|---------------------|-------------|---------|
-| Claude                         | Claude AI           | API         | None    |
-| TPEOficial                     | Dymo AGI            | API         | None    |
-| Google                         | Gemini              | API         | None    |
-| Meta                           | LLama3              | Local/API   | None    |
-| OpenAI                         | GPT-4o              | API         | None    |
-| OpenAI                         | GPT-4               | API         | None    |
-| OpenAI                         | GPT-3.5 Turbo       | API         | None    |
+| Provider                       | Models                                        | Execution   | Rating  |
+|--------------------------------|-----------------------------------------------|-------------|---------|
+| Claude                         | Claude AI                                     | API         | None    |
+| TPEOficial                     | Dymo AGI                                      | API         | None    |
+| Google                         | Gemini                                        | API         | None    |
+| Meta                           | LLama3                                        | Local/API   | None    |
+| OpenAI                         | GPT-4o, GPT-4, GPT-3.5, GPT-3.5 Turbo         | API         | None    |
+| Perplexity                     | Llama3, Mixtral                               | API         | None    |
 
 <details open>
 <summary>All Features</summary>
