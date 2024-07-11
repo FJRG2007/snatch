@@ -56,4 +56,4 @@ class LLM:
                 messages.append(message.model_dump())
                 return message.content, messages
             rprint(f"[bold magenta]AI: {message.content}[/bold magenta]")
-        except Exception as e: terminal("e", e)
+        except Exception as e: terminal("e", e.me)
