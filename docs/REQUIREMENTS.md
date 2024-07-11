@@ -22,7 +22,7 @@ pip install -r requirements.txt
 | Name                                                          | Automatic installation  | Required |
 |-------------------------------------------------------------- |-------------------------|----------|
 | [ExifTool](https://exiftool.org/)                             | ❌                     | ❌       |
-| [Llama3](https://llama.meta.com/docs/get-started/)            | ❌                     | ❌       |
+| [Ollama](https://ollama.com/)                                 | ❌                     | ❌       |
 | [Sherlock Project](https://sherlockproject.xyz/)              | ✅                     | ✅       |
 
 ### Dependent APIs
