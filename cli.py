@@ -3,6 +3,7 @@ import pyfiglet
 from src.lib import data
 import src.lib.colors as cl
 from src.lib.config import config
+from src.utils.snatch import Snatch
 from textual.widgets import Markdown
 from src.utils.basics import terminal
 from textual.app import App, ComposeResult
@@ -106,6 +107,6 @@ def wifiscan():
     wifiscanWorker()
 
 if __name__ == "__main__":
-    try:
-        cli()
+    try: cli()
     except KeyboardInterrupt as e: terminal(KeyboardInterrupt)
+    except Snatch.InvalidOption as e: terminal("iom")

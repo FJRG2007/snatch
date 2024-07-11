@@ -1,5 +1,4 @@
-import json
-import importlib
+import json, importlib
 
 tools = [
     {
@@ -25,14 +24,13 @@ tools = [
         }
     }
 ]
+
 def get_tools():
-    tools_ = json.loads(json.dumps(tools.copy(), ensure_ascii=False))
     no_worker_tools = []
-    for tool_ in tools_:
+    for tool_ in json.loads(json.dumps(tools.copy(), ensure_ascii=False)):
         tool_.pop("worker")
         no_worker_tools.append(tool_)
     return no_worker_tools
 
 def get_worker(name):
-    tool = list(filter(lambda x: x["function"]["name"] == name, tools))[0]
-    return importlib.import_module(tool["worker"]).main
+    return importlib.import_module(list(filter(lambda x: x["function"]["name"] == name, tools))[0]["worker"]).main
