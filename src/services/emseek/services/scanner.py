@@ -1,7 +1,5 @@
-
 import os, requests
 import src.lib.colors as cl
-from rich import print as rprint
 from src.lib.config import config
 from src.utils.basics import cls, terminal, setColor, getTypeString
 

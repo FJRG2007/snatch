@@ -1,7 +1,7 @@
-from .scanner import scanner
+from ..scanner import scanner
 import os, sys, time, requests
 from src.lib.config import config
-from ...utils.basics import cls, terminal
+from .....utils.basics import cls, terminal
 from requests.exceptions import Timeout
 from src.lib.colors import g, y, b, w, R, Y, B, space, des_space, lines
 
@@ -15,21 +15,19 @@ def restart():
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 def banner():
-    print(f'\n{des_space}{b}>> {w}To find the mail you need, write your last name and \n{des_space}{b}>> {w}first name in different ways. For example: vuiko, vuikoo, vu\n{des_space}{b}>> {w}It still takes a long time to find your e-mail.\n')
+    print(f'\n{des_space}{b}>> {w}To find the email you need, write your last name and \n{des_space}{b}>> {w}first name in different ways. For example: vuiko, vuikoo, vu\n{des_space}{b}>> {w}It still takes a long time to find your e-mail.\n')
 
 def selecttype(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list):
     print(f"{space}{b}[{w}1{b}]{w} Check e-mail domain in blacklist")
-    print(f"{space}{b}[{w}2{b}]{w} Check username on emails domains")
     print(f"{space} {w}|")
-    print(f"{space}{b}[{w}3{b}]{w} Scanner")
-    print(f"{space}{b}[{w}4{b}]{w} Search e-mail via fullname")
+    print(f"{space}{b}[{w}2{b}]{w} Scanner")
+    print(f"{space}{b}[{w}3{b}]{w} Search e-mail via fullname")
     print(f"{space} {w}|")
     type = str(input(f"{space}{b}[{w}?{b}]{w} Select a number:{b} ").lower())
     if type == "1" or type == "01": checkdomain()
-    elif type == "2" or type == "02": validator(username)
-    elif type == "3" or type == "03": scanner(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
-    elif type == "4" or type == "04": mailfinder(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
-    elif type == "5" or type == "05": reverseWhois(email)
+    elif type == "2" or type == "02": scanner(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
+    elif type == "3" or type == "03": mailfinder(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
+    elif type == "4" or type == "04": reverseWhois(email)
     else: restart()
 
 def auto():
@@ -79,102 +77,6 @@ def emailinfo(email):
         print(f"{space}{b}[{w}+{b}]{w} Block       : "+nine)
     except: terminal("e", "Invalid Hunter API KEY.")
     finally: get = requests.get(f"https://api.hunter.io/v2/email-verifier?email={email}&api_key={h_api}").text
-
-def validator(user):
-    if not user: return terminal("e", "You must define a valid user name.")
-    auto()
-    print(w+lines)
-    data = [
-        "gmail.com",
-        "yahoo.com",
-        "outlook.com",
-        "hotmail.com",
-        "live.com",
-        "icloud.com",
-        "email.com",
-        "aol.com",
-        "qq.com",
-        "comcast.net",
-        "proton.me",
-        "protonmail.com",
-        "inbox.com",
-        "football.ua",
-        "i.ua",
-        "email.ua",
-        "3g.ua",
-        "meta.ua",
-        "ua.fm",
-        "yandex.com",
-        "yandex.ru",
-        "yandex.by",
-        "yandex.kz",
-        "ya.ru",
-        "mail.ru",
-        "inbox.ru",
-        "list.ru",
-        "bk.ru",
-        "internet.ru",
-        "myrambler.ru",
-        "rambler.ru",
-        "autorambler.ru",
-        "lenta.ru",
-        "rambler.ua",
-        "ro.ru",
-        "zoho.com",
-        "mailbox.org",
-        "firemail.eu",
-        "firemail.de",
-        "firemail.at",
-        "123mail.org",
-        "runbox.com",
-        "runbox.me",
-        "runbox.email",
-        "mailhost.work",
-        "mailhouse.biz",
-        "softbank.jp",
-        "startmail.com"
-        "gazeta.pl",
-        "int.pl",
-        "o2.pl",
-        "wp.pl",
-        "me.com",
-        "onmail.com",
-        "mail.com",
-        "europe.com",
-        "usa.com",
-        "iname.com",
-        "writeme.com",
-        "asia.com",
-        "engineer.com",
-        "post.com",
-        "dr.com",
-        "myself.com",
-        "coolsite.net",
-        "consultant.com",
-        "cheerful.com",
-        "accountant.com",
-        "cash4u.com",
-        "cyberservices.com",
-        "worker.com",
-        "workmail.com",
-        "europemail.com",
-        "germanymail.com",
-        "moscowmail.com",
-        "mexicomail.com",
-        "italymail.com",
-        "programmer.net",
-        "null.net",
-        ]
-    try:
-        for domain in data:
-            email = f"{user}@{domain}"
-            try:
-                response = requests.get(f"{validator_url}validate?{email}", timeout=15).text
-                if "ok::1" in response: print(f"{space}{B} DONE {w} Status: {g}valided{w} Email: {email}")
-                else: print(f"{space}{R} FAIL {w} Status: {g}invalid{w} Email: {email}")
-            except Timeout: print(f"{space}{Y} EXIT {w} Status: {g}timeout{w} Email: {email}")
-    except KeyboardInterrupt:
-        print("\r"),;sys.stdout.flush()
 
 def mailfinder(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list):
     if not name or not first: return terminal("e", "You must define the name and surname.")
@@ -752,6 +654,6 @@ def reverseWhois(email):
     auto()
     ...
 
-def search_email(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list):
+def main(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list):
     banner()
     selecttype(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
