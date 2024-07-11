@@ -1,6 +1,6 @@
 import src.lib.colors as cl
 from src.lib.config import config
-from ...utils.basics import cls, terminal
+from src.utils.basics import cls, terminal
 from .model import model
 from .help import help
 def main(option, helpParam):

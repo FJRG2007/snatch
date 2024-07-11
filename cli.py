@@ -1,9 +1,9 @@
 import click, pyfiglet
 from src.lib.config import config
 from src.utils.snatch import Snatch
+from textual.widgets import Markdown
 from src.utils.basics import terminal
 from src.lib import data, colors as cl
-from textual.widgets import Markdown
 from textual.app import App, ComposeResult
 
 # Functionalities.

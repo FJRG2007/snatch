@@ -1,11 +1,9 @@
 import os, time, math, datetime
 from selenium import webdriver
 from src.lib.config import config
-from ...utils.basics import terminal
+from src.utils.basics import terminal
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import NoSuchWindowException
-from selenium.common.exceptions import NoSuchElementException
-from selenium.common.exceptions import InvalidArgumentException
+from selenium.common.exceptions import NoSuchWindowException, NoSuchElementException, InvalidArgumentException
 
 class Logs():
     @staticmethod

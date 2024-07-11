@@ -1,8 +1,7 @@
-import re
-import os
+import re, os
 from ..downloader import downloader
 from pytube import YouTube, Playlist
-from ....utils.basics import terminal
+from src.utils.basics import terminal
 from ..converters import convert_mp4_to_audio
 
 def sanitize_url(url): return re.sub(r'android-app://com.google.android.youtube/http/|ios-app://544007664/vnd.youtube/', 'https://', url)  # Remove mobile app prefixes and convert to standard URL format.

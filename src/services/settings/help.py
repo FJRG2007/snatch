@@ -1,7 +1,7 @@
 import os, sys
 from src.lib import data
 import src.lib.colors as cl
-from ...utils.basics import cls, terminal, getPositive
+from src.utils.basics import cls, terminal, getPositive
 
 # Options.
 from .model import model

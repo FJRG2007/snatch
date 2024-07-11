@@ -4,7 +4,7 @@ import src.lib.data as data
 from statistics import mean
 from datetime import datetime
 import os, sys, socket, subprocess
-from ...utils.basics import terminal
+from src.utils.basics import terminal
 from threading import Thread, Semaphore
 
 class InvalidPortException(Exception): pass

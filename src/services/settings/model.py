@@ -1,7 +1,7 @@
 import os, sys, time
 import src.lib.colors as cl
 from src.lib.data import AI
-from ...utils.basics import cls, terminal
+from src.utils.basics import cls, terminal
 
 def restart():
     terminal("iom")

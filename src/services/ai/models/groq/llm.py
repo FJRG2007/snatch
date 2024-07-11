@@ -1,7 +1,6 @@
-import json
+import os, json
 from groq import Groq
 from ... import tools
-from os import getenv
 from rich import print as rprint
 from src.lib.config import config
 from src.utils.basics import terminal
@@ -9,7 +8,7 @@ from src.utils.basics import terminal
 class LLM:
 
     def __init__(self, context = []):
-        self.client = Groq(api_key=getenv("GROQ_API_KEY"))
+        self.client = Groq(api_key=os.getenv("GROQ_API_KEY"))
         self.tools = tools.get_tools()
         self.system = "You are a helpful pentesting assistant. You will assist the user by performing the pentesting functions for them."
         self.context = context

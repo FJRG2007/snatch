@@ -1,6 +1,6 @@
 import os
 from urllib.parse import urlparse
-from ...utils.basics import terminal
+from src.utils.basics import terminal
 from moviepy.editor import VideoFileClip
 
 

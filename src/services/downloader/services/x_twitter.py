@@ -1,13 +1,9 @@
-
-import os
-import re
-import bs4
-import requests
 from tqdm import tqdm
+import os, re, bs4, requests
 from src.lib.config import config
 from urllib.parse import urlparse
 from ..downloader import downloader
-from ....utils.basics import terminal
+from src.utils.basics import terminal
 
 def download_video(url, path, file_name) -> None:
     response = requests.get(url, stream=True)

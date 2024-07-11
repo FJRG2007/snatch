@@ -1,9 +1,7 @@
-import os
-import requests
+import os, requests
 from datetime import datetime
-from ...utils.basics import terminal
-from ...utils.basics import validTarget
-from ...lib.data import requestsHeaders
+from src.lib.data import requestsHeaders
+from src.utils.basics import terminal, validTarget
 
 def main(target, wordlist):
     try:

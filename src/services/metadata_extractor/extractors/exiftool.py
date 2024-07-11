@@ -1,5 +1,4 @@
-import os
-import subprocess
+import os, subprocess
 import src.lib.colors as cl
 from src.utils.basics import terminal  # Assuming terminal function handles output
 

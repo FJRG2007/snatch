@@ -1,7 +1,6 @@
-import os
-import requests
+import os, requests
 from bs4 import BeautifulSoup
-from ...utils.basics import terminal
+from src.utils.basics import terminal
 from urllib.parse import urljoin, urlparse
 
 def downloader(url):
