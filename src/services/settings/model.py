@@ -1,7 +1,11 @@
 import os, sys, time
 import src.lib.colors as cl
 from src.lib.data import AI
-from ...utils.basics import cls, terminal, restart
+from ...utils.basics import cls, terminal
+
+def restart():
+    terminal("iom")
+    model()
 
 def show_models(provider):
     cls()  # Clear the screen.

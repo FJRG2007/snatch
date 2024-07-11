@@ -15,11 +15,10 @@ def auto():
 def banner():
     print(f'\n{cl.des_space}{cl.b}>> {cl.w}To find the username you need, write your last name and \n{cl.des_space}{cl.b}>> {cl.w}first name in different ways. For example: vuiko, vuikoo, vu\n{cl.des_space}{cl.b}>> {cl.w}It still takes a long time to find your e-mail.\n')
 
-def restart():
-    terminal("e", "You forgot to write something...")
-    time.sleep(2)
-    cls()
-    os.execl(sys.executable, sys.executable, *sys.argv)
+def restart(*args):
+    terminal("iom")
+    banner()
+    selecttype(*args)
 
 def selecttype(username, saveonfile):
     print(f"{cl.space}{cl.b}[{cl.w}1{cl.b}]{cl.w} Search in social media")
@@ -34,7 +33,7 @@ def selecttype(username, saveonfile):
     elif type == "3" or type == "03": ...
     elif type == "4" or type == "04": ...
     elif type == "5" or type == "05": ...
-    else: restart()
+    else: restart(username, saveonfile)
 
 
 

@@ -89,9 +89,10 @@ def portscan(target, ports, threads, saveonfile):
 
 @cli.command()
 @click.argument("option", required=True)
-def settings(option):
+@click.option("--help", is_flag=True, type=bool, help="Displays help on this command.")
+def settings(option, help):
     if not option: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} settings --help\" for further help.")
-    settingsWorker(option)
+    settingsWorker(option, help)
 
 @cli.command()
 @click.argument("username", required=True)
@@ -105,4 +106,6 @@ def wifiscan():
     wifiscanWorker()
 
 if __name__ == "__main__":
-    cli()
+    try:
+        cli()
+    except KeyboardInterrupt as e: terminal(KeyboardInterrupt)

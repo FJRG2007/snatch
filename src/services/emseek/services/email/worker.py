@@ -1,11 +1,16 @@
 from ..scanner import scanner
 import os, sys, time, requests
 from src.lib.config import config
-from src.utils.basics import cls, terminal, restart
-from src.lib.colors import g, y, b, w, R, Y, B, space, des_space, lines
+from src.utils.basics import cls, terminal
+from src.lib.colors import g, y, b, w, Y, B, space, des_space, lines
 
 validator_url = "https://ftp-mj-washer-maritime.trycloudflare.com/" # https://raw.githubusercontent.com/mishakorzik/MailFinder/main/.validator
 headers = {"User-Agent":"Opera/9.80 (J2ME/MIDP; Opera Mini/9.80 (S60; SymbOS; Opera Mobi/23.334; U; id) Presto/2.5.25 Version/10.54"}
+
+def restart(*args):
+    terminal("iom")
+    banner()
+    selecttype(*args)
 
 def banner():
     print(f'\n{des_space}{b}>> {w}To find the email you need, write your last name and \n{des_space}{b}>> {w}first name in different ways. For example: vuiko, vuikoo, vu\n{des_space}{b}>> {w}It still takes a long time to find your e-mail.\n')
@@ -21,7 +26,7 @@ def selecttype(email, name, first, last, birthdate, addinfo, username, company, 
     elif type == "2" or type == "02": scanner(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
     elif type == "3" or type == "03": mailfinder(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
     elif type == "4" or type == "04": reverseWhois(email)
-    else: restart()
+    else: restart(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
 
 def auto():
     cls()
@@ -83,9 +88,9 @@ def mailfinder(email, name, first, last, birthdate, addinfo, username, company, 
     else: data.append(type)
     print("")
     surname = first + last
-    if not data: restart()
-    if not name: restart()
-    if not surname: restart()
+    if not data: restart(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
+    if not name: restart(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
+    if not surname: restart(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
     fullname = name + surname
     a_name = name
     a_surname = surname

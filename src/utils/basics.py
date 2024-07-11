@@ -11,9 +11,8 @@ def cls() -> None:
     if sys.platform == 'win32': os.system('cls')
     else: os.system('clear')
 
-def restart():
-    terminal("e", "You forgot to write something...")
-    os.execl(sys.executable, sys.executable, *sys.argv)
+def getPositive(q):
+    return q.lower() in ["", "y", "yes", "yeah", "continue", "s", "si", "sí", "oui", "wa", "ja"]
 
 def validURL(url):
     try:
@@ -39,7 +38,8 @@ def validTarget(target):
     # Validate domain.
     return re.compile(r"^(?=.{1,253}$)(?:(?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,10}$").match(target)
 
-def terminal(typeMessage, string="", exitScript=False):
+def terminal(typeMessage, string="", exitScript=False, clear="n"):
+    if (clear == "b" or typeMessage == "iom"): cls()
     if isinstance(typeMessage, str):
         if typeMessage == "e": print(f"{cl.R} ERROR {cl.w} {string}") # X or ❌
         if typeMessage == "s": rprint(f"[green]✅ {string}[/green]") # ✓ or ✅
@@ -48,11 +48,16 @@ def terminal(typeMessage, string="", exitScript=False):
         if typeMessage == "h": print(f"{cl.B}💡 TIP {cl.w} {string}") # X or ❌
         if typeMessage == "nmi": print(f"{cl.R} ERROR {cl.w} Could not install {string}. Please install it manually.")
         if typeMessage == "nei": print(f"{cl.R} ERROR {cl.w} {string} is not installed or not found in PATH. Please install it manually.")
+        if typeMessage == "l": print("This may take a few seconds...")
+        if typeMessage == "iom": 
+            print(f"{cl.R} ERROR {cl.w} Please enter a valid option.")
+            time.sleep(2)
     elif isinstance(typeMessage, type) and issubclass(typeMessage, BaseException):
         if typeMessage == KeyboardInterrupt: print(f"{cl.R} ERROR {cl.w} Exiting Program: Canceled by user.")
         sys.exit(1)
     else: print("Unhandled typeMessage:", typeMessage)
     if (exitScript): sys.exit(1)
+    if (clear == "a" or typeMessage == "iom"): cls()
     
 def progressBar():
     class IndeterminateProgressBar(App[None]):
