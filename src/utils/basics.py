@@ -19,8 +19,7 @@ def validURL(url):
     try:
         r = urlparse(url)
         return all([r.scheme, r.netloc])
-    except ValueError:
-        return False
+    except ValueError: return False
     
 def getTypeString(v):
     if re.match(r'^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$', v): return "email"
@@ -38,8 +37,7 @@ def validTarget(target):
         parts = target.split(".")
         if all(0 <= int(part) <= 255 for part in parts): return True
     # Validate domain.
-    if re.compile(r"^(?=.{1,253}$)(?:(?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,10}$").match(target): return True
-    return False
+    return re.compile(r"^(?=.{1,253}$)(?:(?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,10}$").match(target)
 
 def terminal(typeMessage, string="", exitScript=False):
     if isinstance(typeMessage, str):

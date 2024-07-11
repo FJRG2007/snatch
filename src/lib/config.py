@@ -25,8 +25,7 @@ class Config:
             with open("./config.json", "r") as file:
                 config_dict = json.load(file)
             self.config = DictToObj(config_dict)
-            if os.path.exists(data.dirs["temporal"]):
-                shutil.rmtree(data.dirs["temporal"])
+            if os.path.exists(data.dirs["temporal"]): shutil.rmtree(data.dirs["temporal"])
             os.makedirs(data.dirs["temporal"])
         except FileNotFoundError: terminal("e", "\"config.json\" file not found.")
         except json.JSONDecodeError: terminal("e", "Invalid JSON format in \"config.json\" file.")
@@ -44,8 +43,7 @@ class Config:
 
 config = None
 
-try:
-    config = Config()
+try: config = Config()
 except Exception as e:
     terminal("e", e)
     exit(1)
