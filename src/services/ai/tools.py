@@ -3,7 +3,7 @@ import importlib
 
 tools = [
     {
-        "worker": "src.services.portscanner.worker", # worker module path
+        "worker": "src.services.portscanner.worker", # Worker module path.
         "type": "function",
         "function": {
             "name": "scan_ports",
@@ -13,11 +13,11 @@ tools = [
                 "properties": {
                     "target": {
                         "type": "string",
-                        "description": "the target host to scan, example: 1.1.1.1 or example.com",
+                        "description": "The target host to scan, example: 1.1.1.1 or example.com",
                     },
                     "ports": {
                         "type": "string",
-                        "description": "the range of ports to scan, example: 1-100 or 1,2,3 or 1-100,200-300 or 1-100,200",
+                        "description": "The range of ports to scan, example: 1-100 or 1,2,3 or 1-100,200-300 or 1-100,200. For common ports set the value common instead of defining them yourself. (1,2,3 or 16-24 or *-24 or 24-* or * or common)",
                     },
                 },
                 "required": ["target", "ports"]

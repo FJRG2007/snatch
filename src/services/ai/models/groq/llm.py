@@ -1,5 +1,5 @@
 import json
-import openai
+from groq import Groq
 from ... import tools
 from os import getenv
 from rich import print as rprint
@@ -9,7 +9,7 @@ from src.utils.basics import terminal
 class LLM:
 
     def __init__(self, context = []):
-        self.client = openai.OpenAI(api_key=getenv("OPENAI_API_KEY"))
+        self.client = Groq(api_key=getenv("GROQ_API_KEY"))
         self.tools = tools.get_tools()
         self.system = "You are a helpful pentesting assistant. You will assist the user by performing the pentesting functions for them."
         self.context = context
@@ -56,6 +56,4 @@ class LLM:
                 messages.append(message.model_dump())
                 return message.content, messages
             rprint(f"[bold magenta]AI: {message.content}[/bold magenta]")
-        except openai.NotFoundError as e: terminal("e", f"Define a valid AI model.")
-        except openai.RateLimitError as e: terminal("e", f"Check your OpenAI plan and billing details.")
-        except openai.AuthenticationError as e: terminal("e", f"OpenAI API KEY invalid.")
+        except Exception as e: terminal("e", e)

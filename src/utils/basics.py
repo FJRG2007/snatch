@@ -1,4 +1,4 @@
-import os, re, sys
+import os, re, sys, time
 import src.lib.colors as cl
 from textual.timer import Timer
 from rich import print as rprint
@@ -10,6 +10,10 @@ from textual.widgets import Footer, ProgressBar
 def cls() -> None:
     if sys.platform == 'win32': os.system('cls')
     else: os.system('clear')
+
+def restart():
+    terminal("e", "You forgot to write something...")
+    os.execl(sys.executable, sys.executable, *sys.argv)
 
 def validURL(url):
     try:

@@ -21,6 +21,14 @@
 </details>
 
 <details>
+  <summary>Which AI model should I use?</summary>
+  
+  You can use any of the available models, if price is not an issue we recommend you to use the <b>OpenAI</b> provided models, otherwise you can use <b>Llama3 locally</b> on your computer or use the <b>Groq</b> API which offers quite good and fast models with free layers.
+
+  This is not to say that the other models do not work properly, it is just our opinion.
+</details>
+
+<details>
   <summary>Under what licensing does Snatch operate?</summary>
   
   Snatch operates under the <a href="../../LICENSE">AGPL-3.0 license</a>, ensuring that its source code remains open and accessible to users and developers alike.

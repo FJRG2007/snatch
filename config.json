@@ -3,8 +3,8 @@
     "maxFileSize": "",
     "ignoreFileTypes": [],
     "ai": {
-        "provider": "openai",
-        "model": "gpt-3.5-turbo",
+        "provider": "groq",
+        "model": "llama3-8b-8192",
         "temperature": 0.75,
         "max_tokens": 1024
     }

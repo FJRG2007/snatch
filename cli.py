@@ -14,6 +14,7 @@ from src.services.emseek.worker import main as emseekWorker
 from src.services.metadata_extractor.worker import main as exdataWorker
 from src.services.directory_listing.worker import main as directoryListing
 from src.services.portscanner.worker import main as portscanner
+from src.services.settings.worker import main as settingsWorker
 from src.services.whatsapp.worker import main as whatsappWorker
 from src.services.wifiscanner.worker import main as wifiscanWorker
 from src.services.ai.worker import main as aiWoker
@@ -85,6 +86,12 @@ def dirlist(target, wordlist):
 def portscan(target, ports, threads, saveonfile):
     if not target: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} portscan --help\" for further help.")
     portscanner(target, ports, threads, saveonfile)
+
+@cli.command()
+@click.argument("option", required=True)
+def settings(option):
+    if not option: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} settings --help\" for further help.")
+    settingsWorker(option)
 
 @cli.command()
 @click.argument("username", required=True)

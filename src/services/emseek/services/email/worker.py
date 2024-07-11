@@ -1,18 +1,11 @@
 from ..scanner import scanner
 import os, sys, time, requests
 from src.lib.config import config
-from .....utils.basics import cls, terminal
-from requests.exceptions import Timeout
+from src.utils.basics import cls, terminal, restart
 from src.lib.colors import g, y, b, w, R, Y, B, space, des_space, lines
 
 validator_url = "https://ftp-mj-washer-maritime.trycloudflare.com/" # https://raw.githubusercontent.com/mishakorzik/MailFinder/main/.validator
 headers = {"User-Agent":"Opera/9.80 (J2ME/MIDP; Opera Mini/9.80 (S60; SymbOS; Opera Mobi/23.334; U; id) Presto/2.5.25 Version/10.54"}
-
-def restart():
-    terminal("e", "You forgot to write something...")
-    time.sleep(2)
-    cls()
-    os.execl(sys.executable, sys.executable, *sys.argv)
 
 def banner():
     print(f'\n{des_space}{b}>> {w}To find the email you need, write your last name and \n{des_space}{b}>> {w}first name in different ways. For example: vuiko, vuikoo, vu\n{des_space}{b}>> {w}It still takes a long time to find your e-mail.\n')

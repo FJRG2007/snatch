@@ -48,12 +48,13 @@ Coming Soon.
 
 ### Supported AI Models
 
-| Provider                       | Models                                        | Execution   | Rating  |
+| Provider                       | Models (Assorted)                             | Execution   | Rating  |
 |--------------------------------|-----------------------------------------------|-------------|---------|
 | Anthropic                      | Claude                                        | API         | None    |
 | TPEOficial                     | Dymo AGI, ELA                                 | API         | None    |
 | Google                         | Gemini                                        | API         | None    |
-| Meta                           | LLama3                                        | Local/API   | None    |
+| Groq                           | Llama3, Gemma, Whisper                        | API         | None    |
+| Meta                           | Llama3                                        | Local/API   | None    |
 | OpenAI                         | GPT-4o, GPT-4, GPT-3.5 Turbo, GPT-3.5         | API         | None    |
 | Perplexity                     | Llama3, Mixtral                               | API         | None    |
 

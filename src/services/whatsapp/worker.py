@@ -38,14 +38,10 @@ def study_user(driver, user, language):
 
 	x_arg = str()
 	# Now, we continuously check for their online status:
-	if language == "en" or language == "de" or language == "pt":
-		x_arg = "//span[@title=\"{}\"]".format("online")
-	elif language == "es":
-		x_arg = "//span[@title=\"{}\"]".format("en línea")
-	elif language == "fr":
-		x_arg = "//span[@title=\"{}\"]".format("en ligne")
-	elif language == "cat":
-		x_arg = "//span[@title=\"{}\"]".format("en línia")
+	if language == "en" or language == "de" or language == "pt": x_arg = "//span[@title=\"{}\"]".format("online")
+	elif language == "es": x_arg = "//span[@title=\"{}\"]".format("en línea")
+	elif language == "fr": x_arg = "//span[@title=\"{}\"]".format("en ligne")
+	elif language == "cat": x_arg = "//span[@title=\"{}\"]".format("en línia")
 
 	print("Trying to find: {} in user {}".format(x_arg, user))
 	
