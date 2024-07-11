@@ -37,7 +37,7 @@ pip install -r requirements.txt
 | [Claude](https://claude.ai/)                         | AI model               | ❌       |
 | [Gemini](https://gemini.google.com/app)              | AI model               | ❌       |
 
-### Dependent Accounts/Platforms
+### Dependent accounts/platforms
 
 | Name                                                          | Required |
 |---------------------------------------------------------------|----------|
