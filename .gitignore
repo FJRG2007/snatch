@@ -1,8 +1,9 @@
 # Python files.
+build
+snatch.egg-info
 venv
 env
 __pycache__
-
 # Project development files.
 .env
 output

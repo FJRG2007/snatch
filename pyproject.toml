@@ -14,4 +14,4 @@ keywords = ["artificial intelligence", "osint", "reconnaissance", "information g
 "Bug Tracker" = "https://github.com/FJRG2007/snatch/issues"
 
 [project.scripts]
-snatch = "src.worker:main"
+snatch = "src.cli:main"

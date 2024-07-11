@@ -1,5 +1,4 @@
-import os
-import importlib
+import os, importlib
 
 # Import all modules into services automatically.
 for filename in os.listdir(os.path.dirname(__file__)):
