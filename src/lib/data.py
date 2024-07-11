@@ -1,4 +1,4 @@
-pre_cmd = "python cli.py"
+pre_cmd = "snatch"
 version = "0.0.1-alpha"
 dirs = {
     "temporal": "./temporal"
