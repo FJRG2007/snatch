@@ -20,7 +20,7 @@ It's important to emphasize that **Snatch** is a work in progress, and all opera
 ### Use
 Coming Soon.
 
-### Main Features
+### Main Features (Modules)
 
 | Name                              | Status              | Active |
 |-----------------------------------|---------------------|--------|
