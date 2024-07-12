@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: Snatch
+message: "\U0001F4E5 AI OSINT - Capture, download, and enjoy."
+type: software
+authors:
+  - given-names: FJRG2007
+    email: fjrg2007@tpeoficial.com
+repository-code: 'https://github.com/FJRG2007/snatch'
+url: 'https://status.tpeoficial.com/development'
+abstract: >-
+  Snatch is a versatile tool crafted for cybersecurity and
+  hacking enthusiasts. Developed in Python and currently in
+  active development, Snatch aims to serve as a powerful
+  multipurpose tool for OSINT (Open Source Intelligence)
+  tasks, leveraging Artificial Intelligence to enhance task
+  efficiency and speed.
+keywords:
+  - osint
+  - artificial intelligence
+  - information gathering
+  - reconnaissance
+license: AGPL-3.0-or-later
+version: Coming Soon

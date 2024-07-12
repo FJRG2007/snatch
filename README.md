@@ -3,6 +3,9 @@
 # Snatch
 
 ### 📥 AI OSINT - Capture, download, and enjoy.
+
+![](https://img.shields.io/badge/Stage-In_development-blue)
+
 </div>
 
 **Snatch** is a versatile tool crafted for cybersecurity and hacking enthusiasts. Developed in Python and currently in active development, **Snatch** aims to serve as a powerful multipurpose tool for OSINT (Open Source Intelligence) tasks, leveraging Artificial Intelligence to enhance task efficiency and speed.
