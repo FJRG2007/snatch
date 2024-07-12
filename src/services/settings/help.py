@@ -12,6 +12,8 @@ def restart():
     help()
 
 def help():
+    terminal("info", 
+        f"""Welcome to the Snatch help center, select an option below to continue.""")
     providers = [
         ("1", "Set up AI model"),
         ("2", "Verify Snatch version and files")
@@ -23,9 +25,17 @@ def help():
     selector = input(f"{cl.space}{cl.b}[{cl.w}?{cl.b}]{cl.w} Select a number:{cl.b} ").lower()
     cls()
     if selector == "1":
-        print(f'{cl.space}{cl.b}>> {cl.w}To set up an AI model, set the API Key if necessary (most cases), and run the "{data.pre_cmd} settings model" command to choose your preferred model.')
-        if getPositive(input(f'{cl.space}{cl.b}[{cl.w}?{cl.b}]{cl.w} Do you want me to execute the command for you? (y/n): ')):
+        terminal("info", 
+        f"""To set up an **AI model**, set the API Key if necessary (most cases), and run the `{data.pre_cmd} settings model` command to choose your preferred model.  
+Do you want me to execute the command for you? (y/n): """)
+        if getPositive(input(f'{cl.b}[{cl.w}?{cl.b}]{cl.w} You: ')):
             cls()
             model()
-    elif selector == "2": verifySnatch()
+    elif selector == "2":
+        terminal("info", 
+        f"""To verify the Snatch files, run the `{data.pre_cmd} settings verify`.  
+Do you want me to execute the command for you? (y/n): """)
+        if getPositive(input(f'{cl.b}[{cl.w}?{cl.b}]{cl.w} You: ')):
+            cls()
+            verifySnatch()
     else: restart()
