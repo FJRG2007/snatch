@@ -79,7 +79,7 @@ def scanner(input_data, name, first, last, birthdate, addinfo, username, company
                 {cl.b}> {cl.w} Gibberish: {setColor(data_email['gibberish'])}
                 {cl.b}> {cl.w} MX Records: {setColor(data_email['mx_records'])}
                 {cl.b}> {cl.w} SMTP Server: {setColor(data_email['smtp_server'])}
-                {cl.b}> {cl.w} SMTP Check": {setColor(data_email['smtp_check'])}
+                {cl.b}> {cl.w} SMTP Check: {setColor(data_email['smtp_check'])}
                 {cl.b}> {cl.w} Domain: {data_email['domain']}
                 {cl.b}> {cl.w} Pwned: {setColor(data_email['pwned'])}
                 {cl.b}> {cl.w} Block: {setColor(data_email['block'])}

@@ -54,5 +54,5 @@ class LLM:
                 message = second_response.choices[0].message
                 messages.append(message.model_dump())
                 return message.content, messages
-            rprint(f"[bold magenta]AI: {message.content}[/bold magenta]")
+            terminal("ai", f"[bold magenta]AI: {message.content}[/bold magenta]")
         except Exception as e: terminal("e", e)

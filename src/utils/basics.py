@@ -1,11 +1,17 @@
 import os, re, sys, time
 import src.lib.colors as cl
+from rich.panel import Panel
+from rich.syntax import Syntax
 from textual.timer import Timer
+from rich.console import Console
+from rich.markdown import Markdown
 from rich import print as rprint
 from urllib.parse import urlparse
 from textual.app import App, ComposeResult
 from textual.containers import Center, Middle
 from textual.widgets import Footer, ProgressBar
+
+console = Console()
 
 def cls() -> None:
     if sys.platform == 'win32': os.system('cls')
@@ -49,6 +55,7 @@ def terminal(typeMessage, string="", exitScript=False, clear="n"):
         if typeMessage == "nmi": print(f"{cl.R} ERROR {cl.w} Could not install {string}. Please install it manually.")
         if typeMessage == "nei": print(f"{cl.R} ERROR {cl.w} {string} is not installed or not found in PATH. Please install it manually.")
         if typeMessage == "l": print("This may take a few seconds...")
+        if typeMessage == "ai": console.print(Panel(Markdown(string), title="Model's Response", title_align="left", expand=False))
         if typeMessage == "iom": 
             print(f"{cl.R} ERROR {cl.w} Please enter a valid option.")
             time.sleep(2)
