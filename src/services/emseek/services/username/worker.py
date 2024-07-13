@@ -33,9 +33,6 @@ def selecttype(username, saveonfile):
     elif type == "5" or type == "05": ...
     else: restart(username, saveonfile)
 
-
-
-
 def search_username(username, saveonfile):
     try:
         try: subprocess.check_output("pip install sherlock-project", shell=True, text=True)

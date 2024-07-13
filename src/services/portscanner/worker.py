@@ -33,12 +33,12 @@ def parse_ports(port_str):
 
 def main(target, ports, threadsNumber=50, saveonfile=False):
     # Add Banner.
-    print(f"{cl.des_space}" + "-" * 50)
-    print(f"{cl.des_space}Scanning Target: {target}")
-    print(f"{cl.des_space}Scanning ports: {'All (65535)' if ports == '*' else ports.capitalize()}")
-    print(f"{cl.des_space}Scanning started at: {str(datetime.now())}")
-    print(f"{cl.des_space}Number of threads: {threadsNumber}")
-    print(f"{cl.des_space}" + "-" * 50 + "\n")
+    print("-" * 50)
+    print(f"Scanning Target: {target}")
+    print(f"canning ports: {'All (65535)' if ports == '*' else ports.capitalize()}")
+    print(f"Scanning started at: {str(datetime.now())}")
+    print(f"Number of threads: {threadsNumber}")
+    print("-" * 50 + f"\n{cl.w}")
     if not isinstance(threadsNumber, int) or threadsNumber < 1 or threadsNumber > 9999: return terminal("e", "Set a valid number of threads between 1 and 9999.")
     # Semaphore to limit the number of simultaneously active threads.
     semaphore = Semaphore(threadsNumber)

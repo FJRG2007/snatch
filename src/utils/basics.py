@@ -1,12 +1,12 @@
 import os, re, sys, time
 import src.lib.colors as cl
 from rich.panel import Panel
-from rich.syntax import Syntax
+# from rich.syntax import Syntax
 from textual.timer import Timer
-from rich.console import Console
-from rich.markdown import Markdown
 from rich import print as rprint
+from rich.console import Console
 from urllib.parse import urlparse
+from rich.markdown import Markdown
 from textual.app import App, ComposeResult
 from textual.containers import Center, Middle
 from textual.widgets import Footer, ProgressBar
@@ -15,11 +15,11 @@ console = Console()
 
 def cls() -> None:
     print(cl.b, end="")
-    if sys.platform == 'win32': os.system('cls')
-    else: os.system('clear')
+    if sys.platform == "win32": os.system("cls")
+    else: os.system("clear")
 
 def getPositive(q):
-    return q.lower() in ["", "y", "yes", "yeah", "continue", "s", "si", "sí", "oui", "wa", "ja"]
+    return q.lower() in ["", "y", "yes", "yeah", "continue", "s", "si", "sí", "oui", "wah", "ja"]
 
 def validURL(url):
     try:

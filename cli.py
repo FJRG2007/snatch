@@ -65,7 +65,7 @@ def emseek(email_or_username, name, first, last, birthdate, addinfo, username, c
     emseekWorker(email_or_username, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
 
 @cli.command()
-@click.option("-t", "--tool", default="snatch", type=str, help="Use an advanced tool [snatch (default), exiftool].")
+@click.option("-t", "--tool", default="snatch", type=str, help="Use an advanced tool [exiftool (default), snatch].")
 @click.option("-s", "--saveonfile", is_flag=True, type=bool, help="Saves the information in a file.")
 def exdata(tool, saveonfile):
     exdataWorker(tool, saveonfile)

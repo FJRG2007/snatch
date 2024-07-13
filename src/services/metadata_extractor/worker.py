@@ -3,7 +3,7 @@ import src.lib.colors as cl
 from datetime import datetime
 from src.utils.basics import terminal
 
-from .extractors.snatch import snatch
+from .extractors.snatch.extractor import snatch
 from .extractors.exiftool import exiftool
 
 def main(tool, saveonfile):
@@ -20,7 +20,7 @@ def main(tool, saveonfile):
             # Tools/Extractors.
             if (tool == "snatch"): result = snatch(filename)
             elif (tool == "exiftool"): result = exiftool(filename)
-            else: return terminal("e", "Enter a valid extractor [snatch (default), exiftool].")
+            else: return terminal("e", "Enter a valid extractor [exiftool (default), snatch].")
             if result:
                 if result == "snatch_exception": return
                 lines = result.splitlines()

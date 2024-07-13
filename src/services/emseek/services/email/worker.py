@@ -1,4 +1,4 @@
-from ..scanner import scanner
+from .scanner import scanner
 import os, sys, time, requests
 from src.lib.config import config
 from src.utils.basics import cls, terminal

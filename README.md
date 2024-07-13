@@ -30,7 +30,7 @@ Coming Soon.
 | AI Prompt                         | In development      |   ⚠️   |
 | OSINT Automation	                | Coming Soon	        |   ❌   |
 | Vulnerability Scanning Algorithm  | Coming Soon         |   ❌   |
-| Email Search & Completion Tool    | In BETA Phase       |   ⚠️   |
+| Data Search & Completion Tool     | In BETA Phase       |   ⚠️   |
 | Ports Scanner                     | Active              |   ✅   |
 | Website/video/data Downloader     | Active              |   ✅   |
 | Directory Listing                 | Active              |   ✅   |
@@ -74,7 +74,7 @@ Coming Soon.
 - Massive metadata extraction.
 - Search for vulnerable paths using directory listing.
 - Get domains registered with an email (reverse whois).
-- Find emails from a username.
+- Find emails, phone numbers from a username.
 
 </details>
 

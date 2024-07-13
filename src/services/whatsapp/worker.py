@@ -1,6 +1,5 @@
-import os, time, math, datetime
 from selenium import webdriver
-from src.lib.config import config
+import os, time, math, datetime
 from src.utils.basics import terminal
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchWindowException, NoSuchElementException, InvalidArgumentException

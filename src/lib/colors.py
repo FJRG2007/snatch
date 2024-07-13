@@ -15,3 +15,12 @@ B = f"{w}\033[1;44m"
 space = "    "
 des_space = "⁣  ⁣⁣  ⁣⁣ "
 lines = space + "—"*85
+
+OKGREEN = '\033[92m'
+WARNING = '\033[93m'
+FAIL = '\033[91m'
+BOLD = '\033[1m'
+ENDC = '\033[0m'
+
+class Terminal:
+    ...
