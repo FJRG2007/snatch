@@ -1,8 +1,9 @@
-import json, importlib
+import importlib
+import json
 
 tools = [
     {
-        "worker": "src.services.portscanner.worker", # Worker module path.
+        "worker": "src.services.portscanner.worker",  # Worker module path.
         "type": "function",
         "function": {
             "name": "scan_ports",
@@ -16,7 +17,9 @@ tools = [
                     },
                     "ports": {
                         "type": "string",
-                        "description": "The range of ports to scan, example: 1-100 or 1,2,3 or 1-100,200-300 or 1-100,200. For common ports set the value common instead of defining them yourself. (1,2,3 or 16-24 or *-24 or 24-* or * or common)",
+                        "description": "The range of ports to scan, example: 1-100 or 1,2,3 or 1-100,200-300 or "
+                                       "1-100,200. For common ports set the value common instead of defining them "
+                                       "yourself. (1,2,3 or 16-24 or *-24 or 24-* or * or common)",
                     },
                 },
                 "required": ["target", "ports"]
@@ -25,12 +28,14 @@ tools = [
     }
 ]
 
+
 def get_tools():
     no_worker_tools = []
     for tool_ in json.loads(json.dumps(tools.copy(), ensure_ascii=False)):
         tool_.pop("worker")
         no_worker_tools.append(tool_)
     return no_worker_tools
+
 
 def get_worker(name):
     return importlib.import_module(list(filter(lambda x: x["function"]["name"] == name, tools))[0]["worker"]).main
