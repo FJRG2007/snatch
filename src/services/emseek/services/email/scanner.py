@@ -28,7 +28,7 @@ def fetch_dymo_data(params):
     except: terminal("e", "Invalid Hunter API Key.")
 def fetch_hunter_data(email):
     try:
-        h_api = config.getAPIKey("HUNTER")
+        h_api = config.get_api_key("HUNTER")
         response = requests.get(f"https://api.hunter.io/v2/email-verifier", params={"email": email, "api_key": h_api})
         data = response.json()
         if not data.get("errors"):

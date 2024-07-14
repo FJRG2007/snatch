@@ -4,6 +4,7 @@ snatch.egg-info
 venv
 env
 __pycache__
+
 # Project development files.
 .env
 output
@@ -12,3 +13,7 @@ customs/*
 !customs/extract_metadata/WHAT_TO_PUT_HERE.txt
 !customs/WHAT_TO_PUT_HERE.txt
 !customs/downloads.json
+
+# IDE configurations
+.idea
+.vscode
