@@ -51,7 +51,7 @@ def checkdomain():
 def emailinfo(email):
     auto()
     try:
-        h_api = config.getAPIKey("HUNTER")
+        h_api = config.get_api_key("HUNTER")
         get = requests.get(f"https://api.hunter.io/v2/email-verifier?email={email}&api_key={h_api}").json()
         data = get['data']
         one = str(data['status'])

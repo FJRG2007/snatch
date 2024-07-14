@@ -6,9 +6,9 @@ from src.utils.basics import cls, noToken, terminal, setColor, getTypeString
 # Utils.
 from .services.proton import main as protonMailManager
 
-def fetch_snatch_data(email):
+def fetch_snatch_data(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list):
     user, domain = email.split("@")
-    if domain in ["protonmail.com", "proton.me", "protonmail.ch", "pm.me"]: protonMailManager(email)
+    if domain in ["protonmail.com", "proton.me", "protonmail.ch", "pm.me"]: protonMailManager(email, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
 
 def fetch_dymo_data(params):
     try:
@@ -28,7 +28,7 @@ def fetch_dymo_data(params):
     except: terminal("e", "Invalid Hunter API Key.")
 def fetch_hunter_data(email):
     try:
-        h_api = config.getAPIKey("HUNTER")
+        h_api = config.get_api_key("HUNTER")
         response = requests.get(f"https://api.hunter.io/v2/email-verifier", params={"email": email, "api_key": h_api})
         data = response.json()
         if not data.get("errors"):
@@ -51,7 +51,7 @@ def scanner(input_data, name, first, last, birthdate, addinfo, username, company
     cls()
     dymo_data = fetch_dymo_data({"email": input_data}) if os.getenv("DYMO_API_KEY") else {"email": {}}
     hunter_data = fetch_hunter_data(input_data)
-    snatch_data = fetch_snatch_data(input_data)
+    snatch_data = fetch_snatch_data(input_data, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
     data_email = {
         "disposable": dymo_data["email"].get("disposable", noToken("Dymo API")),
         "freeSubdomain": dymo_data["email"].get("freeSubdomain", noToken("Dymo API")),

@@ -31,7 +31,7 @@ class Config:
         except json.JSONDecodeError: terminal("e", "Invalid JSON format in \"config.json\" file.")
         except KeyError as e: terminal("e", f"Missing key {e} in \"config.json\" file.")
 
-    def getAPIKey(self, name):
+    def get_api_key(self, name):
         if (name == "HUNTER"):
             api_key = os.getenv("HUNTER_API_KEY")
             if len(api_key) < 7: return random.choice(data.DEFAULT_API_KEYS["HUNTER"])

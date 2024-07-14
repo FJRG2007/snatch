@@ -21,6 +21,9 @@ def cls() -> None:
 def getPositive(q):
     return q.lower() in ["", "y", "yes", "yeah", "continue", "s", "si", "sí", "oui", "wah", "ja"]
 
+def noToken(name): 
+    return f"{cl.y}Set up your {name} token.{cl.w}"
+
 def validURL(url):
     try:
         r = urlparse(url)
