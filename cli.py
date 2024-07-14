@@ -25,11 +25,13 @@ def cli():
 
 @cli.command()
 def info():
-    class MarkdownExampleApp(App):
-        def compose(self) -> ComposeResult:
-            yield Markdown(data.INFO_MARKDOWN)
-    app = MarkdownExampleApp()
-    app.run()
+    with open("README.md", "r", encoding="utf-8") as file:
+        content = file.read()
+        class MarkdownExampleApp(App):
+            def compose(self) -> ComposeResult:
+                yield Markdown(content)
+        app = MarkdownExampleApp()
+        app.run()
 
 @cli.command()
 @click.argument("prompt", required=True)
