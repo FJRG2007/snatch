@@ -43,6 +43,7 @@ class Config:
         except KeyError as error:
             terminal("e", f"Missing key {error} in \"config.json\" file.")
 
+            
     @staticmethod
     def get_api_key(name):
         if name == "HUNTER":
