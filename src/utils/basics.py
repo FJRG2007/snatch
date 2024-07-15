@@ -1,26 +1,26 @@
 import src.lib.colors as cl
 from rich.panel import Panel
+from cartesia import Cartesia
 # from rich.syntax import Syntax
 from textual.timer import Timer
 from rich import print as rprint
 from rich.console import Console
 from urllib.parse import urlparse
+import os, re, sys, time, pyaudio
 from rich.markdown import Markdown
-from cartesia import AsyncCartesia
 from textual.app import App, ComposeResult
 from textual.containers import Center, Middle
 from textual.widgets import Footer, ProgressBar
-import os, re, sys, time, asyncio, pyaudio, concurrent.futures
 
-async def playVoice(prompt) -> None:
+def playVoice(prompt) -> None:
     api_key = os.getenv("CARTESIA_API_KEY")
     if not api_key or len(api_key) < 7: return terminal("h", "You can set Cartesia's API Key to listen to your assistant.")
-    client = AsyncCartesia(api_key=api_key)
+    client = Cartesia(api_key=api_key)
     voice = client.voices.get(id="79a125e8-cd45-4c13-8a67-188112f4dd22")
     p = pyaudio.PyAudio()
     stream = None
     # Generate and stream audio.
-    async for output in await client.tts.sse(
+    for output in client.tts.sse(
         model_id="sonic-english",
         transcript=prompt,
         voice_embedding=voice["embedding"],
@@ -28,14 +28,12 @@ async def playVoice(prompt) -> None:
         output_format={"container": "raw", "encoding": "pcm_f32le", "sample_rate": 44100},
     ):
         buffer = output["audio"]
-
         if not stream: stream = p.open(format=pyaudio.paFloat32, channels=1, rate=44100, output=True)
         # Write the audio data to the stream.
         stream.write(buffer)
     stream.stop_stream()
     stream.close()
     p.terminate()
-    await client.close()
 
 console = Console()
 
@@ -75,7 +73,6 @@ def validTarget(target):
     return re.compile(r"^(?=.{1,253}$)(?:(?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,10}$").match(target)
 
 def terminal(typeMessage, string="", exitScript=False, clear="n"):
-    asyncio.run(playVoice("This is a wonderful test in Snatch"))
     if (clear == "b" or typeMessage == "iom"): cls()
     if isinstance(typeMessage, str):
         if typeMessage == "e": print(f"{cl.R} ERROR {cl.w} {string}") # X or ❌
@@ -88,7 +85,7 @@ def terminal(typeMessage, string="", exitScript=False, clear="n"):
         if typeMessage == "l": print("This may take a few seconds...")
         if typeMessage == "ai": 
             console.print(Panel(Markdown(string), title="Model's Response", title_align="left", expand=False, style="bold white"))
-            playVoice(string)
+            # playVoice(string) -> Coming Soon
         if typeMessage == "info": console.print(Panel(Markdown(string), title="Snatch", title_align="left", expand=False, style="bold white"))
         if typeMessage == "iom": 
             print(f"{cl.R} ERROR {cl.w} Please enter a valid option.")
@@ -100,6 +97,8 @@ def terminal(typeMessage, string="", exitScript=False, clear="n"):
     if (exitScript): sys.exit(1)
     if (clear == "a" or typeMessage == "iom"): cls()
     
+terminal("i", "Have Cartesia speak in another second thread.")
+
 def progressBar():
     class IndeterminateProgressBar(App[None]):
         BINDINGS = [("s", "start", "Start")]
