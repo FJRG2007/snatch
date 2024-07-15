@@ -30,6 +30,7 @@ pip install -r requirements.txt
 | Name                                                 | Utility                | Required |
 |------------------------------------------------------|------------------------|----------|
 | [Anthropic](https://www.anthropic.com/)              | AI model               | ❌       |
+| [Cartesia](https://play.cartesia.ai/)                | AI voice model         | ❌       |
 | [Dymo AGI](https://dymo.tpeoficial.com/)             | Data and AI model      | ❌       |
 | [Face Check ID](https://facecheck.id/)               | Visual data search     | ❌       |
 | [Gemini](https://gemini.google.com/app)              | AI model               | ❌       |

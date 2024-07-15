@@ -1,5 +1,6 @@
 # Tasks to do in Snatch / Changelog
 
+ - [ ] Have Cartesia speak in another second thread.
  - [ ] Improve **Emseek**'s structure.
  - [ ] Improve the `Config` class of the file `src/lib/config.py`.
  - [ ] Improve the **Groq** connection so that it does not give an error at the end of the connection.
