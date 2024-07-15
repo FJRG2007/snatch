@@ -34,10 +34,13 @@ pip install -r requirements.txt
 | [Face Check ID](https://facecheck.id/)               | Visual data search     | ❌       |
 | [Gemini](https://gemini.google.com/app)              | AI model               | ❌       |
 | [Groq](https://console.groq.com/)                    | AI model               | ❌       |
+| [Hacker Target](https://hackertarget.com/)           | Information search     | ❌       |
 | [Have I Been Pwned](https://haveibeenpwned.com/)     | Email data             | ❌       |
 | [Hunter](https://hunter.io/)                         | Email data             | ❌       |
 | [OpenAI](https://openai.com/)                        | AI model               | ❌       |
 | [Perplexity](https://perplexity.ai/)                 | AI model               | ❌       |
+| [WhoisFreacks](https://whoisfreaks.com/)             | Information search     | ✅       |
+| [Whois XML API](https://whoisxmlapi.com/)            | Information search     | ✅       |
 
 ### Dependent accounts/platforms
 
