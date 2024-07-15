@@ -96,8 +96,6 @@ def terminal(typeMessage, string="", exitScript=False, clear="n"):
     else: print("Unhandled typeMessage:", typeMessage)
     if (exitScript): sys.exit(1)
     if (clear == "a" or typeMessage == "iom"): cls()
-    
-terminal("i", "Have Cartesia speak in another second thread.")
 
 def progressBar():
     class IndeterminateProgressBar(App[None]):
