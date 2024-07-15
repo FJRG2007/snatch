@@ -1,4 +1,5 @@
 import click, pyfiglet
+from dotenv import load_dotenv
 from src.lib.config import config
 from src.utils.snatch import Snatch
 from textual.widgets import Markdown
@@ -22,6 +23,7 @@ from src.services.ai.worker import main as aiWoker
 def cli():
     print(pyfiglet.figlet_format("SNATCH"))
     print(f'\n{cl.des_space}{cl.b}>> {cl.w}Welcome to Snatch, remember to use it responsibly. \n{cl.des_space}{cl.b}>> {cl.w}Join to our Discord server on tpeoficial.com/dsc\n{cl.des_space}{cl.b}>> {cl.w}Version: {data.version}\n')
+    load_dotenv(override=True)
 
 @cli.command()
 def info():
@@ -34,10 +36,8 @@ def info():
         app.run()
 
 @cli.command()
-@click.argument("prompt", required=True)
-def ai(prompt):
-    if not prompt: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} ai --help\" for further help.")
-    aiWoker(prompt)
+def ai():
+    aiWoker()
 
 @cli.command()
 @click.argument("url", required=False)

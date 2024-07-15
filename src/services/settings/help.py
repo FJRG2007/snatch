@@ -1,4 +1,3 @@
-import os, sys
 from src.lib import data
 import src.lib.colors as cl
 from src.utils.basics import cls, terminal, getPositive

@@ -87,7 +87,7 @@ def whois_search(domain):
 # Site Certificate search with CRT.SH
 def crt_sh(domain_name):
     try:
-        r = requests.get("https://crt.sh/", params={'q': query, 'output': 'json'}, timeout=timeout)
+        r = requests.get("https://crt.sh/", params={'q': domain_name, 'output': 'json'})
         r.raise_for_status()
         nameparser = re.compile("([a-zA-Z]+)=(\"[^\"]+\"|[^,]+)")
         certs = []
