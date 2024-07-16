@@ -10,12 +10,13 @@ def main(userId):
             userId = quest("Discord User ID", newline=True)
     api_key = os.getenv("DISCORD_API_KEY")
     if not api_key or len(api_key) < 7: return terminal("e", "Invalid Discord API Key.")
-    response = requests.get(f"https://discord.com/api/v10/users/{userId}", 
+    try:
+        response = requests.get(f"https://discord.com/api/v10/users/{userId}", 
         headers={ "Authorization": f"Bot {os.getenv("DISCORD_API_KEY")}"
-    })
-    if response.status_code == 200:
-        data = response.json()
-        print(f"""
+        })
+        if response.status_code == 200:
+            data = response.json()
+            print(f"""
         Discord User:
             {cl.b}> {cl.w} ID: {userId}
             {cl.b}> {cl.w} Username: {data["username"]}
@@ -33,4 +34,5 @@ def main(userId):
             {cl.b}> {cl.w} Banner color: {coloredText(f"#{data['banner_color']}", data["banner_color"])}
             {cl.b}> {cl.w} Clan: {data["clan"]}
 """)
-    else: print(f"Failed to retrieve data: {response}")
+        else: terminal("e", f"Failed to retrieve data: {response}")
+    except Exception as e: terminal("e", f"Failed to retrieve data: {e}")
