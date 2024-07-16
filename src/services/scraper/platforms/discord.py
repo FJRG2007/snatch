@@ -1,6 +1,5 @@
 import os, requests
 import src.lib.colors as cl
-from termcolor import colored
 from src.utils.basics import quest, terminal, colored_text
 
 def main(userId):
