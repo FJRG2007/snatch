@@ -31,6 +31,7 @@ pip install -r requirements.txt
 |------------------------------------------------------|------------------------|----------|
 | [Anthropic](https://www.anthropic.com/)              | AI model               | ❌       |
 | [Cartesia](https://play.cartesia.ai/)                | AI voice model         | ❌       |
+| [Discord](https://discord.com/)                      | Information gathering  | ✅       |
 | [Dymo AGI](https://dymo.tpeoficial.com/)             | Data and AI model      | ❌       |
 | [Face Check ID](https://facecheck.id/)               | Visual data search     | ❌       |
 | [Gemini](https://gemini.google.com/app)              | AI model               | ❌       |
