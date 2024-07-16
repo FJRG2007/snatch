@@ -26,14 +26,14 @@ def help():
     if selector == "1":
         terminal("info", 
         f"""To set up an **AI model**, set the API Key if necessary (most cases), and run the `{data.pre_cmd} settings model` command to choose your preferred model.  
-Do you want me to execute the command for you? (y/n): """)
+Do you want me to execute the command for you? [Y]/N: """)
         if getPositive(input(f'{cl.b}[{cl.w}?{cl.b}]{cl.w} You: ')):
             cls()
             model()
     elif selector == "2":
         terminal("info", 
         f"""To verify the Snatch files, run the `{data.pre_cmd} settings verify`.  
-Do you want me to execute the command for you? (y/n): """)
+Do you want me to execute the command for you? [Y]/N: """)
         if getPositive(input(f'{cl.b}[{cl.w}?{cl.b}]{cl.w} You: ')):
             cls()
             verifySnatch()

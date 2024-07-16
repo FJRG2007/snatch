@@ -36,7 +36,7 @@ Coming Soon.
 | Ports Scanner                     | Active              |   ✅   |
 | Website/video/data Downloader     | Active              |   ✅   |
 | Directory Listing                 | Active              |   ✅   |
-| Password List Generation          | In development      |   ⚠️   |
+| Password List Generation          | Active              |   ✅   |
 | WhatsApp Basic OSINT              | Active              |   ✅   |
 | Wifi Scanner                      | Relatively Soon     |   ❌   |
 | Geolocation Tools	                | Coming Soon	        |   ❌   |

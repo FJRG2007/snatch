@@ -42,8 +42,14 @@ def cls() -> None:
     if sys.platform == "win32": os.system("cls")
     else: os.system("clear")
 
-def getPositive(q):
-    return q.lower() in ["", "y", "yes", "yeah", "continue", "s", "si", "sí", "oui", "wah", "ja"]
+def quest(prompt, newline=False, lowercase=False) -> str:
+    response = input(f"{'\n' if newline else ''}{cl.b}[{cl.w}?{cl.b}]{cl.w} {prompt}: ")
+    return response.lower() if lowercase else response
+
+def getPositive(q, default=True) -> bool:
+    positive_responses = ["y", "yes", "yeah", "continue", "s", "si", "sí", "oui", "wa", "ja"]
+    if default: positive_responses.append("")
+    return q.lower() in positive_responses
 
 def noToken(name): 
     return f"{cl.y}Set up your {name} token.{cl.w}"
@@ -72,28 +78,28 @@ def validTarget(target):
     # Validate domain.
     return re.compile(r"^(?=.{1,253}$)(?:(?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,10}$").match(target)
 
-def terminal(typeMessage, string="", exitScript=False, clear="n"):
+def terminal(typeMessage, string="", exitScript=False, clear="n", newline=True):
     if (clear == "b" or typeMessage == "iom"): cls()
     if isinstance(typeMessage, str):
-        if typeMessage == "e": print(f"{cl.R} ERROR {cl.w} {string}") # X or ❌
-        if typeMessage == "s": rprint(f"[green]✅ {string}[/green]") # ✓ or ✅
-        if typeMessage == "i": rprint(f"[cyan]{string}[/cyan]")
-        if typeMessage == "w": rprint(f"[bold yellow]Warning:[/bold yellow] [yellow]{string}[/yellow]")
-        if typeMessage == "h": print(f"{cl.B}💡 TIP {cl.w} {string}") # X or ❌
-        if typeMessage == "nmi": print(f"{cl.R} ERROR {cl.w} Could not install {string}. Please install it manually.")
-        if typeMessage == "nei": print(f"{cl.R} ERROR {cl.w} {string} is not installed or not found in PATH. Please install it manually.")
-        if typeMessage == "l": print("This may take a few seconds...")
+        if typeMessage == "e": print(f"\n{cl.R} ERROR {cl.w} {string}") # X or ❌
+        if typeMessage == "s": rprint(f"\n[green]✅ {string}[/green]") # ✓ or ✅
+        if typeMessage == "i": rprint(f"{'\n' if newline else ''}[cyan]{string}[/cyan]")
+        if typeMessage == "w": rprint(f"\n[bold yellow]Warning:[/bold yellow] [yellow]{string}[/yellow]")
+        if typeMessage == "h": print(f"\n{cl.B}💡 TIP {cl.w} {string}") # X or ❌
+        if typeMessage == "nmi": print(f"\n{cl.R} ERROR {cl.w} Could not install {string}. Please install it manually.")
+        if typeMessage == "nei": print(f"\n{cl.R} ERROR {cl.w} {string} is not installed or not found in PATH. Please install it manually.")
+        if typeMessage == "l": print("\nThis may take a few seconds...")
         if typeMessage == "ai": 
             console.print(Panel(Markdown(string), title="Model's Response", title_align="left", expand=False, style="bold white"))
             # playVoice(string) -> Coming Soon
         if typeMessage == "info": console.print(Panel(Markdown(string), title="Snatch", title_align="left", expand=False, style="bold white"))
         if typeMessage == "iom": 
-            print(f"{cl.R} ERROR {cl.w} Please enter a valid option.")
+            print(f"\n{cl.R} ERROR {cl.w} Please enter a valid option.")
             time.sleep(2)
     elif isinstance(typeMessage, type) and issubclass(typeMessage, BaseException):
-        if typeMessage == KeyboardInterrupt: print(f"{cl.R} ERROR {cl.w} Exiting Program: Canceled by user.")
+        if typeMessage == KeyboardInterrupt: print(f"\n{cl.R} ERROR {cl.w} Exiting Program: Canceled by user.")
         sys.exit(1)
-    else: print("Unhandled typeMessage:", typeMessage)
+    else: print(f"\nUnhandled typeMessage: {typeMessage}")
     if (exitScript): sys.exit(1)
     if (clear == "a" or typeMessage == "iom"): cls()
 

@@ -3,16 +3,18 @@ import click, pyfiglet, importlib
 from src.lib.config import config
 from src.utils.snatch import Snatch
 from textual.widgets import Markdown
-from src.utils.basics import terminal
+from src.utils.basics import cls, terminal
 from src.lib import data, colors as cl
 from textual.app import App, ComposeResult
 
 def get_function(module_name, function_name="main"):
     module = importlib.import_module(f"src.services.{module_name}.worker")
+    cls()
     return getattr(module, function_name)
 
 @click.group()
 def cli():
+    cls()
     print(pyfiglet.figlet_format("SNATCH"))
     print(f'\n{cl.des_space}{cl.b}>> {cl.w}Welcome to Snatch, remember to use it responsibly. \n{cl.des_space}{cl.b}>> {cl.w}Join to our Discord server on tpeoficial.com/dsc\n{cl.des_space}{cl.b}>> {cl.w}Version: {data.version}\n')
     load_dotenv(override=True)
@@ -81,11 +83,8 @@ def portscan(target, ports, threads, saveonfile):
     get_function("portscanner")(target, ports, threads, saveonfile)
 
 @cli.command()
-@click.option("-c", "--characters", default="a", type=str, help="...")
-@click.option("-l", "--length", default=20, type=int, help="...")
-@click.option("-i", "--iterations", default=50, type=int, help="...")
-def pwdgen(characters, length, iterations):
-    get_function("pwd_generator")(characters, length, iterations)
+def pwdgen():
+    get_function("pwd_generator")()
 
 @cli.command()
 @click.argument("option", required=True)

@@ -33,15 +33,14 @@ def init_model(prompt):
 
 def main():
     terminal("info", f"""Remember to give me all the information I need to take the necessary actions. If you think you need **tips**, write "tips".""")
-    prompt = input(f'{cl.b}[{cl.w}?{cl.b}]{cl.w} You: ')
+    prompt = input(f"{cl.b}[{cl.w}?{cl.b}]{cl.w} You: ")
     if prompt.lower() == "tips" or prompt.lower() == "tip": 
         cls()
         terminal("info", 
-f"""{cl.b}>> {cl.w}Write down all the **relevant information** you know.
-
-{cl.b}>> {cl.w}We recommend writing the prompt in **English**.
-
-{cl.b}>> {cl.w}**Structure your prompt** well and keep it from being confusing.""")
+f"""We believe these tips can help you improve your results with Snatch.
+* Write down all the **relevant information** you know.
+* We recommend writing the prompt in **English**.
+* **Structure your prompt** well and keep it from being confusing.""")
         main()
     elif len(prompt) > 10: init_model(prompt)
     else: terminal("e", "Please enter a valid prompt, it must be at least 10 characters long.", clear="b")
