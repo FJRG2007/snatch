@@ -46,7 +46,7 @@ Coming Soon.
 | Advanced Social Media Analytics   | Coming Soon	        |   ❌   |
 | Real-time Data Monitoring	        | Coming Soon	        |   ❌   |
 | Metadata Extractor	              | In development	    |   ⚠️   |
-| Personal Data Scraper             | Relatively Soon     |   ❌   |
+| Personal Data Scraper             | In development      |   ⚠️   |
 
 > [!IMPORTANT]\
 > Due to the sensitive nature of OSINT tools, full versions of some tools will not be provided. For example, the WhatsApp LOGS tool is only available in a basic version.

@@ -87,6 +87,12 @@ def pwdgen():
     get_function("pwd_generator")()
 
 @cli.command()
+@click.option("-p", "--platforms", default="all", type=str, help="Platforms to scrape [all (default)...]")
+@click.option("--dscuserid", type=str, help="ID of the Discord user to investigate.")
+def scraper(platforms, dscuserid):
+    get_function("scraper")(platforms, dscuserid)
+
+@cli.command()
 @click.argument("option", required=True)
 @click.option("--help", is_flag=True, type=bool, help="Displays help on this command.")
 def settings(option, help):

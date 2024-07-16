@@ -70,15 +70,15 @@ def scanner(input_data, name, first, last, birthdate, addinfo, username, company
     result = f"""
         Email: {input_data}
             {cl.b}> {cl.w} Valid: {cl.g}True{cl.w}
-            {cl.b}> {cl.w} Disposable or Scam: {setColor(data_email['disposable'])}
-            {cl.b}> {cl.w} Free Subdomain: {setColor(data_email['freeSubdomain'])}
+            {cl.b}> {cl.w} Disposable or scam: {setColor(data_email['disposable'])}
+            {cl.b}> {cl.w} Free subdomain: {setColor(data_email['freeSubdomain'])}
             {cl.b}> {cl.w} Corporate: {setColor(data_email['corporate'])}
             {cl.b}> {cl.w} User: {data_email['user']}
-            {cl.b}> {cl.w} Role Account: {setColor(data_email['roleAccount'])}
+            {cl.b}> {cl.w} Role account: {setColor(data_email['roleAccount'])}
             {cl.b}> {cl.w} Gibberish: {setColor(data_email['gibberish'])}
-            {cl.b}> {cl.w} MX Records: {setColor(data_email['mx_records'])}
-            {cl.b}> {cl.w} SMTP Server: {setColor(data_email['smtp_server'])}
-            {cl.b}> {cl.w} SMTP Check: {setColor(data_email['smtp_check'])}
+            {cl.b}> {cl.w} MX records: {setColor(data_email['mx_records'])}
+            {cl.b}> {cl.w} SMTP server: {setColor(data_email['smtp_server'])}
+            {cl.b}> {cl.w} SMTP check: {setColor(data_email['smtp_check'])}
             {cl.b}> {cl.w} Domain: {data_email['domain']}
             {cl.b}> {cl.w} Pwned: {setColor(data_email['pwned'])}
             {cl.b}> {cl.w} Block: {setColor(data_email['block'])}
