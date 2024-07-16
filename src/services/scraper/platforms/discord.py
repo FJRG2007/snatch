@@ -26,7 +26,7 @@ def main(userId):
             {cl.b}> {cl.w} Public flags: {data["public_flags"]}
             {cl.b}> {cl.w} Flags: {data["flags"]}
             {cl.b}> {cl.w} Banner: {data["banner"]}
-            {cl.b}> {cl.w} Banner Url: https://cdn.discordapp.com/banners/{userId}/{data["banner"]}
+            {cl.b}> {cl.w} Banner Url: {f"https://cdn.discordapp.com/banners/{userId}/{data["banner"]}" if data["banner"] else setColor("Does not exist") }
             {cl.b}> {cl.w} Accent color: {coloredText(f"#{str(data['accent_color'])}", f"#{str(data['accent_color'])}")}
             {cl.b}> {cl.w} Global name: {data["global_name"]}
             {cl.b}> {cl.w} Avatar decoration asset: {data["avatar_decoration_data"]["asset"] if data["avatar_decoration_data"] else setColor("Does not exist")}
