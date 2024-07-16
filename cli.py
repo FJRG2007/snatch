@@ -1,5 +1,5 @@
-import click, pyfiglet
 from dotenv import load_dotenv
+import click, pyfiglet, importlib
 from src.lib.config import config
 from src.utils.snatch import Snatch
 from textual.widgets import Markdown
@@ -7,18 +7,9 @@ from src.utils.basics import terminal
 from src.lib import data, colors as cl
 from textual.app import App, ComposeResult
 
-# Functionalities.
-from src.services.ai.worker import main as aiWoker
-from src.services.downloader.worker import main as downloaderWorker
-from src.services.emseek.worker import main as emseekWorker
-from src.services.metadata_extractor.worker import main as exdataWorker
-from src.services.directory_listing.worker import main as directoryListing
-from src.services.portscanner.worker import main as portscanner
-from src.services.pwd_generator.worker import main as pwdGeneratorWorker
-from src.services.settings.worker import main as settingsWorker
-from src.services.whatsapp.worker import main as whatsappWorker
-from src.services.wifiscanner.worker import main as wifiscanWorker
-from src.services.ai.worker import main as aiWoker
+def get_function(module_name, function_name="main"):
+    module = importlib.import_module(f"src.services.{module_name}.worker")
+    return getattr(module, function_name)
 
 @click.group()
 def cli():
@@ -38,7 +29,7 @@ def info():
 
 @cli.command()
 def ai():
-    aiWoker()
+    get_function("ai")()
 
 @cli.command()
 @click.argument("url", required=False)
@@ -47,8 +38,8 @@ def ai():
 @click.option("-f", "--format", default="auto", type=str, help="In case of reloading a resource, choose the format.")
 def download(url, local, dtype, format):
     if not url and not local: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} download --help\" for further help.")
-    if (url): downloaderWorker(url, dtype, format)
-    elif (local): downloaderWorker(local, dtype, format)
+    if (url): get_function("downloader")(url, dtype, format)
+    elif (local): get_function("downloader")(local, dtype, format)
 
 @cli.command()
 @click.argument("email_or_username", required=False)
@@ -65,20 +56,20 @@ def download(url, local, dtype, format):
 @click.option("--datalist", help="File containing list of emails", type=str)
 def emseek(email_or_username, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, datalist):
     if not email_or_username: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} emseek --help\" for further help.")
-    emseekWorker(email_or_username, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, datalist)
+    get_function("emseek")(email_or_username, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, datalist)
 
 @cli.command()
 @click.option("-t", "--tool", default="snatch", type=str, help="Use an advanced tool [exiftool (default), snatch].")
 @click.option("-s", "--saveonfile", is_flag=True, type=bool, help="Saves the information in a file.")
 def exdata(tool, saveonfile):
-    exdataWorker(tool, saveonfile)
+    get_function("metadata_extractor")(tool, saveonfile)
 
 @cli.command()
 @click.argument("target", required=True)
 @click.option("--wordlist", default="./src/lib/files/directory_listing.txt", type=str, help="Dictionary with routes.")
 def dirlist(target, wordlist):
     if not target: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} dirlist --help\" for further help.")
-    directoryListing(target, wordlist)
+    get_function("directory_listing")(target, wordlist)
 
 @cli.command()
 @click.argument("target", required=True)
@@ -87,37 +78,36 @@ def dirlist(target, wordlist):
 @click.option("-s", "--saveonfile", is_flag=True, type=bool, help="Saves the open ports in a file.")
 def portscan(target, ports, threads, saveonfile):
     if not target: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} portscan --help\" for further help.")
-    portscanner(target, ports, threads, saveonfile)
+    get_function("portscanner")(target, ports, threads, saveonfile)
 
 @cli.command()
 @click.option("-c", "--characters", default="a", type=str, help="...")
 @click.option("-l", "--length", default=20, type=int, help="...")
 @click.option("-i", "--iterations", default=50, type=int, help="...")
 def pwdgen(characters, length, iterations):
-    pwdGeneratorWorker(characters, length, iterations)
+    get_function("pwd_generator")(characters, length, iterations)
 
 @cli.command()
 @click.argument("option", required=True)
 @click.option("--help", is_flag=True, type=bool, help="Displays help on this command.")
 def settings(option, help):
     if not option: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} settings --help\" for further help.")
-    settingsWorker(option, help)
+    get_function("settings")(option, help)
 
 @cli.command()
 @click.argument("username", required=True)
 @click.argument("language", required=True)
 def whatsapp(username, language):
     if not username or not language: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} whatsapp --help\" for further help.")
-    whatsappWorker(username, language)
+    get_function("whatsapp")(username, language)
 
 @cli.command()
 def wifiscan():
-    wifiscanWorker()
+    get_function("wifiscanner")()
 
 def main():
     try: cli()
     except KeyboardInterrupt as e: terminal(KeyboardInterrupt)
     except Snatch.InvalidOption as e: terminal("iom")
-
 if __name__ == "__main__":
     main()
