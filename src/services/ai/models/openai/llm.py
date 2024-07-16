@@ -10,7 +10,7 @@ class LLM:
     def __init__(self, context = []):
         self.client = openai.OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
         self.tools = tools.get_tools()
-        self.system = AI["defaultSystemPrompt"]
+        self.system = AI["systemPrompt"]
         self.context = context
         
     def process_request(self, prompt):

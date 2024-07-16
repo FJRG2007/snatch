@@ -14,6 +14,7 @@ from src.services.emseek.worker import main as emseekWorker
 from src.services.metadata_extractor.worker import main as exdataWorker
 from src.services.directory_listing.worker import main as directoryListing
 from src.services.portscanner.worker import main as portscanner
+from src.services.pwd_generator.worker import main as pwdGeneratorWorker
 from src.services.settings.worker import main as settingsWorker
 from src.services.whatsapp.worker import main as whatsappWorker
 from src.services.wifiscanner.worker import main as wifiscanWorker
@@ -61,10 +62,10 @@ def download(url, local, dtype, format):
 @click.option("-p", "--providers", help="Email provider domains", nargs="+")
 @click.option("-s", "--saveonfile", is_flag=True, type=bool, help="Saves the information in a file.")
 @click.option("-v","--validate", help="Check which emails are valid and returns information of each one")
-@click.option("--list", help="File containing list of emails", type=str)
-def emseek(email_or_username, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list):
+@click.option("--datalist", help="File containing list of emails", type=str)
+def emseek(email_or_username, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, datalist):
     if not email_or_username: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} emseek --help\" for further help.")
-    emseekWorker(email_or_username, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list)
+    emseekWorker(email_or_username, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, datalist)
 
 @cli.command()
 @click.option("-t", "--tool", default="snatch", type=str, help="Use an advanced tool [exiftool (default), snatch].")
@@ -87,6 +88,13 @@ def dirlist(target, wordlist):
 def portscan(target, ports, threads, saveonfile):
     if not target: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} portscan --help\" for further help.")
     portscanner(target, ports, threads, saveonfile)
+
+@cli.command()
+@click.option("-c", "--characters", default="a", type=str, help="...")
+@click.option("-l", "--length", default=20, type=int, help="...")
+@click.option("-i", "--iterations", default=50, type=int, help="...")
+def pwdgen(characters, length, iterations):
+    pwdGeneratorWorker(characters, length, iterations)
 
 @cli.command()
 @click.argument("option", required=True)

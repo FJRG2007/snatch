@@ -18,6 +18,7 @@ blis==0.7.11
 bs4==0.0.2
 cachetools==5.3.3
 camelot-py==0.11.0
+cartesia==1.0.6
 catalogue==2.0.10
 certifi==2023.11.17
 cffi==1.16.0
@@ -86,8 +87,10 @@ idna==3.6
 imageio==2.34.0
 imageio-ffmpeg==0.5.1
 imbalanced-learn==0.12.3
+iniconfig==2.0.0
 ipykernel==6.27.1
 ipython==8.18.1
+iterators==0.2.0
 itsdangerous==2.1.2
 jedi==0.19.1
 Jinja2==3.1.2
@@ -130,6 +133,7 @@ pdfminer.six==20240706
 pefile==2023.2.7
 pillow==10.2.0
 platformdirs==4.1.0
+pluggy==1.5.0
 preshed==3.0.9
 proglog==0.1.10
 prompt-toolkit==3.0.41
@@ -166,6 +170,8 @@ PyQt5-sip==12.13.0
 PyRect==0.2.0
 PyScreeze==0.1.30
 PySocks==1.7.1
+pytest==8.2.2
+pytest-asyncio==0.23.7
 python-dateutil==2.8.2
 python-dotenv==1.0.1
 python-nmap==0.7.1
