@@ -1,15 +1,14 @@
 import os, json
-from groq import Groq
+import groq
 from ... import tools
 from src.lib.data import AI
-from rich import print as rprint
 from src.lib.config import config
 from src.utils.basics import terminal
 
 class LLM:
     
     def __init__(self, context = []):
-        self.client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+        self.client = groq.Groq(api_key=os.getenv("GROQ_API_KEY"))
         self.tools = tools.get_tools()
         self.system = AI["systemPrompt"]
         self.context = context
@@ -56,4 +55,7 @@ class LLM:
                 messages.append(message.model_dump())
                 return message.content, messages
             terminal("ai", f"[bold magenta]AI: {message.content}[/bold magenta]")
+        except groq.NotFoundError as e: terminal("e", f"Define a valid AI model.")
+        except groq.RateLimitError as e: terminal("e", f"Check your Groq plan and billing details.")
+        except groq.AuthenticationError as e: terminal("e", f"Groq API KEY invalid.")
         except Exception as e: terminal("e", e)
