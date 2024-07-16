@@ -19,7 +19,7 @@ Version: {version}
 """
 
 AI = {
-    "defaultSystemPrompt": "You are a helpful pentesting assistant. You will assist the user by performing the pentesting functions for them.",
+    "systemPrompt": "You are a helpful pentesting assistant. You will assist the user by performing the pentesting functions for them.",
     "providers": [
         {
             "name": "Anthropic",

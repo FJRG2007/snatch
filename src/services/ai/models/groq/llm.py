@@ -7,7 +7,6 @@ from src.lib.config import config
 from src.utils.basics import terminal
 
 class LLM:
-
     def __init__(self, context = []):
         self.client = Groq(api_key=os.getenv("GROQ_API_KEY"))
         self.tools = tools.get_tools()
