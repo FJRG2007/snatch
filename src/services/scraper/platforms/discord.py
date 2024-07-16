@@ -1,11 +1,7 @@
 import os, requests
 import src.lib.colors as cl
 from termcolor import colored
-from src.utils.basics import quest, terminal
-
-def colored_text(word, hex_color):
-    rgb = tuple(int(hex_color.lstrip("#")[i:i+2], 16) for i in (0, 2, 4))
-    return f"\033[38;2;{rgb[0]};{rgb[1]};{rgb[2]}m{word}\033[0m"
+from src.utils.basics import quest, terminal, colored_text
 
 def main(userId):
     if not userId: 

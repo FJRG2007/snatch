@@ -42,6 +42,10 @@ def cls() -> None:
     if sys.platform == "win32": os.system("cls")
     else: os.system("clear")
 
+def colored_text(word, hex_color) -> str:
+    rgb = tuple(int(hex_color.lstrip("#")[i:i+2], 16) for i in (0, 2, 4))
+    return f"\033[38;2;{rgb[0]};{rgb[1]};{rgb[2]}m{word}\033[0m"
+
 def quest(prompt, newline=False, lowercase=False) -> str:
     response = input(f"{'\n' if newline else ''}{cl.b}[{cl.w}?{cl.b}]{cl.w} {prompt}: ")
     return response.lower() if lowercase else response
