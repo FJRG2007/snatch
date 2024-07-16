@@ -1,6 +1,6 @@
 import os, requests
 import src.lib.colors as cl
-from src.utils.basics import quest, terminal, colored_text
+from src.utils.basics import quest, terminal, setColor, coloredText
 
 def main(userId):
     if not userId: 
@@ -26,11 +26,11 @@ def main(userId):
             {cl.b}> {cl.w} Flags: {data["flags"]}
             {cl.b}> {cl.w} Banner: {data["banner"]}
             {cl.b}> {cl.w} Banner Url: https://cdn.discordapp.com/banners/{userId}/{data["banner"]}
-            {cl.b}> {cl.w} Accent color: {colored_text(data["accent_color"], f"#{data['accent_color']}")}
+            {cl.b}> {cl.w} Accent color: {coloredText(f"#{str(data['accent_color'])}", f"#{str(data['accent_color'])}")}
             {cl.b}> {cl.w} Global name: {data["global_name"]}
-            {cl.b}> {cl.w} Avatar decoration asset: {data["avatar_decoration_data"]["asset"]}
-            {cl.b}> {cl.w} Avatar decoration Sku Id: {data["avatar_decoration_data"]["sku_id"]}
-            {cl.b}> {cl.w} Banner color: {colored_text(data["banner_color"], data["banner_color"])}
+            {cl.b}> {cl.w} Avatar decoration asset: {data["avatar_decoration_data"]["asset"] if data["avatar_decoration_data"] else setColor("Does not exist")}
+            {cl.b}> {cl.w} Avatar decoration Sku Id: {data["avatar_decoration_data"]["sku_id"] if data["avatar_decoration_data"] else setColor("Does not exist")}
+            {cl.b}> {cl.w} Banner color: {coloredText(f"#{data['banner_color']}", data["banner_color"])}
             {cl.b}> {cl.w} Clan: {data["clan"]}
 """)
     else: print(f"Failed to retrieve data: {response}")

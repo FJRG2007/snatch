@@ -42,9 +42,11 @@ def cls() -> None:
     if sys.platform == "win32": os.system("cls")
     else: os.system("clear")
 
-def colored_text(word, hex_color) -> str:
-    rgb = tuple(int(hex_color.lstrip("#")[i:i+2], 16) for i in (0, 2, 4))
-    return f"\033[38;2;{rgb[0]};{rgb[1]};{rgb[2]}m{word}\033[0m"
+def coloredText(word, hex_color) -> str:
+    try:
+        rgb = tuple(int(hex_color.lstrip("#")[i:i+2], 16) for i in (0, 2, 4))
+        return f"\033[38;2;{rgb[0]};{rgb[1]};{rgb[2]}m{str(word)}\033[0m"
+    except: return word
 
 def quest(prompt, newline=False, lowercase=False) -> str:
     response = input(f"{'\n' if newline else ''}{cl.b}[{cl.w}?{cl.b}]{cl.w} {prompt}: ")
@@ -70,9 +72,10 @@ def getTypeString(v):
     else: return "unknown"
     
 def setColor(v):
-    if (v == "True" or v == True): return f"{cl.g}True{cl.w}"
-    elif (v == "False" or v == False): return f"{cl.r}False{cl.w}"
-    else: return f"{v}"
+    return f"{cl.g}True{cl.w}" if v == "True" or v == True else \
+           f"{cl.r}False{cl.w}" if v == "False" or v == False else \
+           f"{cl.r}{v}{cl.w}" if any(term in str(v).lower() for term in ["not", "error"]) else \
+           f"{v}"
 
 def validTarget(target):
     # Validate IP address (IPv4).
