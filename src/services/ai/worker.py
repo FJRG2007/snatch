@@ -18,7 +18,7 @@ def init_model(prompt):
     model = config.ai.model.lower()
     for prov in AI["providers"]:
         if prov["name"].lower() == provider:
-            if model in [m.lower() for m in prov["models"]]:
+            if model in [m["name"].lower() for m in prov["models"]]:
                 if provider == "anthropic": ... #return AnthropicLLM().process_request(prompt)
                 elif provider == "dymo": ... #return DymoLLM().process_request(prompt)
                 elif provider == "google": return GoogleLLM().process_request(prompt)
@@ -31,16 +31,19 @@ def init_model(prompt):
             else: return terminal("e", f"Model '{model}' not found for provider '{provider}'.")        
     return terminal("e", "Provider not recognized or model not found.")
 
-def main():
-    terminal("info", f"""Remember to give me all the information I need to take the necessary actions. If you think you need **tips**, write "tips".""")
-    prompt = input(f"{cl.b}[{cl.w}?{cl.b}]{cl.w} You: ")
-    if prompt.lower() == "tips" or prompt.lower() == "tip": 
-        cls()
-        terminal("info", 
+def main(prompt):
+    if prompt and len(prompt) < 10: terminal("e", "Please enter a valid prompt, it must be at least 10 characters long.", clear="b")
+    elif prompt: init_model(prompt)
+    else:
+        terminal("info", f"""Remember to give me all the information I need to take the necessary actions. If you think you need **tips**, write "tips".""")
+        prompt = input(f"{cl.b}[{cl.w}?{cl.b}]{cl.w} You: ")
+        if prompt.lower() == "tips" or prompt.lower() == "tip": 
+            cls()
+            terminal("info", 
 f"""We believe these tips can help you improve your results with Snatch.
 * Write down all the **relevant information** you know.
 * We recommend writing the prompt in **English**.
 * **Structure your prompt** well and keep it from being confusing.""")
-        main()
-    elif len(prompt) > 10: init_model(prompt)
-    else: terminal("e", "Please enter a valid prompt, it must be at least 10 characters long.", clear="b")
+            main()
+        elif len(prompt) > 10: init_model(prompt)
+        else: terminal("e", "Please enter a valid prompt, it must be at least 10 characters long.", clear="b")

@@ -11,8 +11,9 @@ def show_models(provider):
     cls()  # Clear the screen.
     provider_data = next((prov for prov in AI["providers"] if prov["name"] == provider), None)
     if not provider_data: return terminal("e", "Provider not found.")
-    for i, model_name in enumerate(provider_data["models"], 1):
-        print(f"{cl.space}{cl.b}[{cl.w}{i}{cl.b}]{cl.w} {model_name}")
+    for i, model in enumerate(provider_data["models"], 1):
+        tag = model.get("tag", "")
+        print(f"{cl.space}{cl.b}[{cl.w}{i}{cl.b}]{cl.w} {f"{model['name']}{f' - {cl.y}{tag}{cl.w}' if tag else ''}"}")
          # Add separator for visual clarity every 3 items.
         if i % 3 == 0 and i != len(provider_data["models"]): print(f"{cl.space} {cl.w}|")
     try:

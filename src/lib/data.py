@@ -23,35 +23,92 @@ AI = {
     "providers": [
         {
             "name": "Anthropic",
-            "models": ["claude"]
+            "models": [
+                {
+                    "name": "claude"
+                }
+            ]
         },
         {
             "name": "Dymo",
-            "models": ["dymo", "ela"]
+            "models": [
+                {
+                    "name": "dymo"
+                },
+                {
+                    "name": "ela"
+                }
+            ]
         },
         {
             "name": "Google",
-            "models": ["gemini"]
+            "models": [
+                {
+                    "name": "gemini"
+                }
+            ]
         },
         {
             "name": "Groq",
-            "models": ["llama3-8b-8192", "llama3-70b-8192", "mixtral-8x7b-32768", "gemma-7b-it", "gemma2-9b-it", "whisper-large-v3"]
+            "models": [
+                {
+                    "name": "llama3-8b-8192"
+                },
+                {
+                    "name": "llama3-70b-8192",
+                    "tag": "Only model we currently recommend"
+                },
+                {
+                    "name": "mixtral-8x7b-32768"
+                },
+                {
+                    "name": "gemma-7b-it"
+                },
+                {
+                    "name": "gemma2-9b-it"
+                },
+                {
+                    "name": "whisper-large-v3"
+                }
+            ]
         },
         {
             "name": "Meta",
-            "models": ["llama3"]
+            "models": [
+                {
+                    "name": "llama3"
+                }
+            ]
         },
         {
             "name": "Ollama",
-            "models": ["llama3"]
+            "models": [
+                {
+                    "name": "llama3"
+                }
+            ]
         },
         {
             "name": "OpenAI",
-            "models": ["gpt-4o", "gpt-4", "gpt-3.5-turbo"]
+            "models": [
+                {
+                    "name": "gpt-4o"
+                },
+                {
+                    "name": "gpt-4"
+                },
+                {
+                    "name": "gpt-3.5-turbo"
+                }
+            ]
         },
         {
             "name": "Perplexity",
-            "models": ["llama3"]
+            "models": [
+                {
+                    "name": "llama3"
+                }
+            ]
         }
     ]
 }

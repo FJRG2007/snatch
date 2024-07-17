@@ -30,8 +30,9 @@ def info():
         app.run()
 
 @cli.command()
-def ai():
-    get_function("ai")()
+@click.argument("prompt", required=False)
+def ai(prompt):
+    get_function("ai")(prompt)
 
 @cli.command()
 @click.argument("url", required=False)

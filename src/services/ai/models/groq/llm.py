@@ -30,7 +30,9 @@ class LLM:
             )
         
             message = response.choices[0].message
-            messages.append(message.model_dump())
+            message_dict = message.model_dump()
+            message_dict.pop("function_call")
+            messages.append(message_dict)
             if message.tool_calls is not None:
                 for tool_call in message.tool_calls:
                     tool_name = tool_call.function.name
@@ -45,16 +47,19 @@ class LLM:
                         "name": tool_name,
                         "tool_call_id": tool_call.id
                     })
-                second_response = self.client.chat.completions.create(
-                    model=config.ai.model,
-                    messages=messages,
-                    temperature=config.ai.temperature,
-                    max_tokens=config.ai.max_tokens
-                )
-                message = second_response.choices[0].message
-                messages.append(message.model_dump())
-                return message.content, messages
-            terminal("ai", f"[bold magenta]AI: {message.content}[/bold magenta]")
+                if config.ai.second_response:
+                    second_response = self.client.chat.completions.create(
+                        model=config.ai.model,
+                        messages=messages,
+                        temperature=config.ai.temperature,
+                        max_tokens=config.ai.max_tokens
+                    )
+                    message = second_response.choices[0].message
+                    message_dict = message.model_dump()
+                    message_dict.pop("function_call")
+                    messages.append(message_dict)
+                    terminal("ai", message.content)
+                    return message.content, messages
         except groq.NotFoundError as e: terminal("e", f"Define a valid AI model.")
         except groq.RateLimitError as e: terminal("e", f"Check your Groq plan and billing details.")
         except groq.AuthenticationError as e: terminal("e", f"Groq API KEY invalid.")

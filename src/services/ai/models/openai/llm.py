@@ -44,16 +44,17 @@ class LLM:
                         "name": tool_name,
                         "tool_call_id": tool_call.id
                     })
-                second_response = self.client.chat.completions.create(
-                    model=config.ai.model,
-                    messages=messages,
-                    temperature=config.ai.temperature,
-                    max_tokens=config.ai.max_tokens
-                )
-                message = second_response.choices[0].message
-                messages.append(message.model_dump())
-                return message.content, messages
-            terminal("ai", f"[bold magenta]AI: {message.content}[/bold magenta]")
+                if config.ai.second_response:
+                    second_response = self.client.chat.completions.create(
+                        model=config.ai.model,
+                        messages=messages,
+                        temperature=config.ai.temperature,
+                        max_tokens=config.ai.max_tokens
+                    )
+                    message = second_response.choices[0].message
+                    messages.append(message.model_dump())
+                    terminal("ai", message.content)
+                    return message.content, messages
         except openai.NotFoundError as e: terminal("e", f"Define a valid AI model.")
         except openai.RateLimitError as e: terminal("e", f"Check your OpenAI plan and billing details.")
         except openai.AuthenticationError as e: terminal("e", f"OpenAI API KEY invalid.")
