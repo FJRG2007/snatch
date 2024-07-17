@@ -8,9 +8,8 @@ from src.lib import data, colors as cl
 from textual.app import App, ComposeResult
 
 def get_function(module_name, function_name="main"):
-    module = importlib.import_module(f"src.services.{module_name}.worker")
     cls()
-    return getattr(module, function_name)
+    return getattr(importlib.import_module(f"src.services.{module_name}.worker"), function_name)
 
 @click.group()
 def cli():
@@ -85,7 +84,7 @@ def portscan(target, ports, threads, saveonfile):
 
 @cli.command()
 def pwdgen():
-    get_function("pwd_generator")()
+    get_function("pwd_generator")() # Add args here too.
 
 @cli.command()
 @click.option("-p", "--platforms", default="all", type=str, help="Platforms to scrape [all (default)...]")
@@ -95,10 +94,11 @@ def scraper(platforms, dscuserid):
 
 @cli.command()
 @click.argument("option", required=True)
+@click.argument("suboption", required=False)
 @click.option("--help", is_flag=True, type=bool, help="Displays help on this command.")
-def settings(option, help):
+def settings(option, suboption, help):
     if not option: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} settings --help\" for further help.")
-    get_function("settings")(option, help)
+    get_function("settings")(option, suboption, help)
 
 @cli.command()
 @click.argument("username", required=True)

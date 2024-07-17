@@ -16,7 +16,31 @@ class DictToObj:
         if name in ["_parent", "_path"]: super().__setattr__(name, value)
         else:
             self.__dict__[name] = value
-            if self._parent: self._parent._update_config(self._path, self)
+            if self._parent: self._parent._update_config(self._path, value)
+            self._save_to_file()
+    
+    def _update_config(self, key, value):
+        if isinstance(value, DictToObj): value = value.__dict__
+        self.__dict__[key] = value
+        if self._parent: self._parent._update_config(self._path, self)
+        else: self._save_to_file()
+
+    def _save_to_file(self):
+        # Save the entire configuration to file
+        with open("./config.json", "r+") as file:
+            data = json.load(file)
+            self._update_data(data, self.__dict__)
+            file.seek(0)
+            json.dump(data, file, indent=4)
+            file.truncate()
+
+    def _update_data(self, data, updates):
+        for key, value in updates.items():
+            if isinstance(value, DictToObj): value = value.__dict__
+            if key in data:
+                if isinstance(data[key], dict) and isinstance(value, dict): self._update_data(data[key], value)
+                else: data[key] = value
+            else: data[key] = value
 
 class Config:
     def __init__(self):

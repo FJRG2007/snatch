@@ -13,10 +13,10 @@ def clone_repo(temp_dir):
 def load_gitignore(local_dir):
     # Loads and parses the .gitignore file.
     gitignore_file = Path(local_dir) / ".gitignore"
-    if gitignore_file.exists():
-        with open(gitignore_file) as f:
-            return parse_gitignore(f.read())
-    return None
+    if not gitignore_file.exists(): return None
+    with open(gitignore_file) as f:
+        return parse_gitignore(f.read())
+    
 
 def compare_directories(repo_dir, local_dir, gitignore_rule):
     # Compares files in two directories, applying the .gitignore rules.

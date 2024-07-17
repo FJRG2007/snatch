@@ -50,6 +50,7 @@ AI = {
         },
         {
             "name": "Groq",
+            "tag": "Recommended",
             "models": [
                 {
                     "name": "llama3-8b-8192"
@@ -82,6 +83,7 @@ AI = {
         },
         {
             "name": "Ollama",
+            "tag": "Local",
             "models": [
                 {
                     "name": "llama3"

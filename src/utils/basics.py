@@ -1,16 +1,11 @@
 import src.lib.colors as cl
 from rich.panel import Panel
 from cartesia import Cartesia
-# from rich.syntax import Syntax
-from textual.timer import Timer
 from rich import print as rprint
 from rich.console import Console
 from urllib.parse import urlparse
 import os, re, sys, time, pyaudio
 from rich.markdown import Markdown
-from textual.app import App, ComposeResult
-from textual.containers import Center, Middle
-from textual.widgets import Footer, ProgressBar
 
 def playVoice(prompt) -> None:
     api_key = os.getenv("CARTESIA_API_KEY")
@@ -38,7 +33,7 @@ def playVoice(prompt) -> None:
 console = Console()
 
 def cls() -> None:
-    print(cl.b, end="")
+    print(f"{cl.b}{cl.ENDC}", end="")
     if sys.platform == "win32": os.system("cls")
     else: os.system("clear")
 
@@ -48,8 +43,8 @@ def coloredText(word, hex_color) -> str:
         return f"\033[38;2;{rgb[0]};{rgb[1]};{rgb[2]}m{str(word)}\033[0m"
     except: return word
 
-def quest(prompt, newline=False, lowercase=False) -> str:
-    response = input(f"{'\n' if newline else ''}{cl.b}[{cl.w}?{cl.b}]{cl.w} {prompt}: ")
+def quest(prompt, newline=False, lowercase=False, tab=False) -> str:
+    response = input(f"{'\n' if newline else ''}{'\t' if tab else ''}{cl.b}[{cl.w}?{cl.b}]{cl.w} {prompt}: ")
     return response.lower() if lowercase else response
 
 def getPositive(q, default=True) -> bool:
@@ -57,16 +52,16 @@ def getPositive(q, default=True) -> bool:
     if default: positive_responses.append("")
     return q.lower() in positive_responses
 
-def noToken(name): 
+def noToken(name) -> str: 
     return f"{cl.y}Set up your {name} token.{cl.w}"
 
-def validURL(url):
+def validURL(url) -> bool:
     try:
         r = urlparse(url)
         return all([r.scheme, r.netloc])
     except ValueError: return False
     
-def getTypeString(v):
+def getTypeString(v) -> str:
     if re.match(r'^[\w\.-]+@[a-zA-Z\d\.-]+\.[a-zA-Z]{2,}$', v): return "email"
     elif re.match(r'^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$', v): return "tel"
     else: return "unknown"
@@ -77,7 +72,7 @@ def setColor(v):
            f"{cl.r}{v}{cl.w}" if any(term in str(v).lower() for term in ["not", "error"]) else \
            f"{v}"
 
-def validTarget(target):
+def validTarget(target) -> bool:
     # Validate IP address (IPv4).
     if re.compile(r"^(\d{1,3}\.){3}\d{1,3}$").match(target):
         parts = target.split(".")
@@ -85,11 +80,11 @@ def validTarget(target):
     # Validate domain.
     return re.compile(r"^(?=.{1,253}$)(?:(?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,10}$").match(target)
 
-def terminal(typeMessage, string="", exitScript=False, clear="n", newline=True):
+def terminal(typeMessage, string="", exitScript=False, clear="n", newline=True) -> None:
     if (clear == "b" or typeMessage == "iom"): cls()
     if isinstance(typeMessage, str):
         if typeMessage == "e": print(f"\n{cl.R} ERROR {cl.w} {string}") # X or ❌
-        if typeMessage == "s": rprint(f"\n[green]✅ {string}[/green]") # ✓ or ✅
+        if typeMessage == "s": print(f"\n{cl.g}✅ {string}{cl.w}") # ✓ or ✅
         if typeMessage == "i": rprint(f"{'\n' if newline else ''}[cyan]{string}[/cyan]")
         if typeMessage == "w": rprint(f"\n[bold yellow]Warning:[/bold yellow] [yellow]{string}[/yellow]")
         if typeMessage == "h": print(f"\n{cl.B}💡 TIP {cl.w} {string}") # X or ❌
@@ -109,29 +104,3 @@ def terminal(typeMessage, string="", exitScript=False, clear="n", newline=True):
     else: print(f"\nUnhandled typeMessage: {typeMessage}")
     if (exitScript): sys.exit(1)
     if (clear == "a" or typeMessage == "iom"): cls()
-
-def progressBar():
-    class IndeterminateProgressBar(App[None]):
-        BINDINGS = [("s", "start", "Start")]
-        progress_timer: Timer
-        """Timer to simulate progress happening."""
-        def compose(self) -> ComposeResult:
-            with Center():
-                with Middle():
-                    yield ProgressBar()
-            yield Footer()
-
-        def on_mount(self) -> None:
-            """Set up a timer to simulate progess happening."""
-            self.progress_timer = self.set_interval(1 / 10, self.make_progress, pause=True)
-
-        def make_progress(self) -> None:
-            """Called automatically to advance the progress bar."""
-            self.query_one(ProgressBar).advance(1)
-
-        def action_start(self) -> None:
-            """Start the progress tracking."""
-            self.query_one(ProgressBar).update(total=100)
-            self.progress_timer.resume()
-
-    IndeterminateProgressBar().run()
