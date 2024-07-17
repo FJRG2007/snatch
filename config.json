@@ -8,10 +8,5 @@
         "temperature": 0.75,
         "max_tokens": 1024,
         "second_response": true
-    },
-    "provider": "groq",
-    "model": "llama3-70b-8192",
-    "temperature": 0.75,
-    "max_tokens": 1024,
-    "second_response": true
+    }
 }

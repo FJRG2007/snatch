@@ -36,7 +36,7 @@ def ai(prompt):
 @cli.command()
 @click.argument("url", required=False)
 @click.argument("local", type=click.File("rb"), required=False)
-@click.option("-dt", "--dtype", default="source", type=str, help="Download type [source (default), video, audio...]")
+@click.option("-d", "--dtype", default="source", type=str, help="Download type [source (default), video, audio...]")
 @click.option("-f", "--format", default="auto", type=str, help="In case of reloading a resource, choose the format.")
 def download(url, local, dtype, format):
     if not url and not local: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} download --help\" for further help.")

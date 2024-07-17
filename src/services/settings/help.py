@@ -29,7 +29,7 @@ def help():
 Do you want me to execute the command for you? [Y]/N: """)
         if getPositive(quest(f"You")):
             cls()
-            model()
+            model("models")
     elif selector == "2":
         terminal("info", 
         f"""To verify the Snatch files, run the `{data.pre_cmd} settings verify`.  
