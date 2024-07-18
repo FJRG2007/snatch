@@ -21,5 +21,12 @@ $ snatch help ai
 * [download](./commands/download.md)
 * [emseek](./commands/emseek.md)
 * [help](./welcome.md)
+* [info](../../README.md)
+* [exdata](./commands/exdata.md)
+* [portscan](./commands/portscan.md)
+* [pwdgen](./commands/pwdgen.md)
+* [scraper](./commands/scraper.md)
 * [settings](./commands/settings.md)
+* [whatsapp](./commands/whatsapp.md)
+* [wifiscan](./wifiscan.md)
 * Coming Soon

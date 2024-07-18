@@ -17,6 +17,7 @@
 * `-s` or `--saveonfile` (optional): Saves the information in a file.
 * `-v` or `--validate` (optional): Check which emails/other inputs are valid and returns information of each one.
 * `--datalist` (optional): File containing list of emails.
+* `--help` (optional): Display help information for the command.
 
 > [!IMPORTANT]
 > Emeseek works and extracts more data as more APIs are connected.

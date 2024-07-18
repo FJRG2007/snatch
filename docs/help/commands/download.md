@@ -1,22 +1,37 @@
-# Command: dirlist
+# Command: download
 
-**Description**: Verify the existence of vulnerable paths using dictionaries.
+**Description**: Easily download content from the Internet.
 
 **Arguments**:
-* `target` (required): Domain or IP address from where we will start listing the directories (do not include HTTP/S protocol).
+* `url` (optional): Url from where to download the content. If it is not defined, it will go to the configuration file `customs/snatch/downloads.json`.
 
 **Options**:
-* `-w` or `--wordlist` (optional): Dictionary with the routes to verify (by default Snatch includes its own)..
-
-> [!IMPORTANT]  
-> If the whole list gives error, it is because the web has anti directory listing protections.
+* `-d` or `--dtype` (optional): Download type [source (default), video, audio...].
+* `-f` or `--format` (optional): In case of reloading a resource, choose the format.
+* `--help` (optional): Display help information for the command.
 
 ## Examples
 
 This command will download everything found in that link including videos.
 ```bash
-# Listing Google directories with the default dictionary.
-$ snatch dir list google.com
-# Listing Google directories with its own dictionary (Dicc in snatch/customs/directory_listing/my_dicc.txt).
-$ snatch dir list google.com -w my_dicc.txt
+# Downloading all content linked to a URL.
+$ snatch download https://www.youtube.com/watch?v=7PAk1wsy3VI
+# Or (technically correct option).
+$ snatch download "https://www.youtube.com/watch?v=7PAk1wsy3VI"
 ```
+
+In this mode, you ask questions directly to Snatch without going through the prompt "interface".
+```bash
+# Downloading a video in mp4 format (default) from Snatch supported websites.
+$ snatch download https://www.youtube.com/watch?v=7PAk1wsy3VI -d video
+# Downloading a playlist in mp3 format from Snatch supported websites.
+$ snatch download https://www.youtube.com/watch?v=qW96515QG6Y&list=PLrFPX1Vfqk3ehZKSFeb9pVIHqxqrNW8Sy -d video -f mp3
+```
+
+### Supported websites for "native" download
+
+> [!NOTE]  
+> If the website is not a native download in Snatch, then only public files accessible from the provided URL will be downloaded.
+
+* [x] X/Twitter
+* [x] YouTube

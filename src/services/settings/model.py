@@ -64,5 +64,4 @@ Select one of the advanced options to configure the AI model.
         if selector == "1": 
             config.ai.second_response = getPositive(quest(f"Do you want to {cl.BOLD}{"enable" if config.ai.second_response else "disable"}{cl.ENDC} second response? [Y]/N"))
             terminal("s", f"You have {"enabled" if config.ai.second_response else "disabled"} the second response for the AI model.")
-
     else: return terminal("e", "Select a valid option.")

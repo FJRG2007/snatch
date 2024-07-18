@@ -7,6 +7,7 @@
 
 **Options**:
 * `-w` or `--wordlist` (optional): Dictionary with the routes to verify (by default Snatch includes its own).
+* `--help` (optional): Display help information for the command.
 
 > [!IMPORTANT]  
 > If the whole list gives error, it is because the web has anti directory listing protections.

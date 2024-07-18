@@ -56,15 +56,9 @@ def main(target, ports, threadsNumber=50, saveonfile=False):
                     print(f"{cl.G} T-{thread_id:04} {cl.w} Open port {port}.")
                 s.close()
                 semaphore.release()  # Releasing the semaphore after port scanning.
-        except KeyboardInterrupt:
-            terminal("e", KeyboardInterrupt)
-            sys.exit()
-        except socket.gaierror:
-            terminal("e", "Hostname Could Not Be Resolved.")
-            sys.exit()
-        except socket.error:
-            terminal("e", "Server not responding.")
-            sys.exit()
+        except KeyboardInterrupt: terminal("e", KeyboardInterrupt)
+        except socket.gaierror: terminal("e", "Hostname Could Not Be Resolved.")
+        except socket.error: terminal("e", "Server not responding.")
 
     def ping_avg_time(target):
         try:
