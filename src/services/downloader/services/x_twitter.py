@@ -36,7 +36,7 @@ def download_twitter_video(url):
     else:
         ...
 
-def x_twitter(url, dtype, format):
+def download(url, dtype, format):
     if (dtype == "source"): downloader(url)
     elif (dtype == "video"):
         if (format in ["mp4"] or format == "auto"): download_twitter_video(url)

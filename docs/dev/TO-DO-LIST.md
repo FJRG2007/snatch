@@ -8,4 +8,5 @@
  - [ ] Restructure the initialization of `cli.py` commands to their corresponding files.
  - [ ] Wifi Scanner.
  - [ ] Improve metadata strat.
- - [ ] YouTube downloader not working.
+ - [x] YouTube downloader not working.
+ - [ ] Finish the terminal help documentation.

@@ -5,8 +5,8 @@
 ### 📥 AI OSINT - Capture, download, and enjoy.
 
 <img src="https://img.shields.io/badge/Python-purple?style=for-the-badge&logo=python&logoColor=white"/> 
-<a href="https://github.com/FJRG2007"> <img alt="GitHub" src="https://img.shields.io/badge/GitHub-purple?style=for-the-badge&logo=github&logoColor=white"/>
-<a href="https://ko-fi.com/fjrg2007"> <img alt="Kofi" src="https://img.shields.io/badge/Ko--fi-purple?style=for-the-badge&logo=ko-fi&logoColor=white">
+<a href="https://github.com/FJRG2007"> <img alt="GitHub" src="https://img.shields.io/badge/GitHub-purple?style=for-the-badge&logo=github&logoColor=white"/></a>
+<a href="https://ko-fi.com/fjrg2007"> <img alt="Kofi" src="https://img.shields.io/badge/Ko--fi-purple?style=for-the-badge&logo=ko-fi&logoColor=white"></a>
 
 </div>
 
@@ -22,8 +22,26 @@ It's important to emphasize that **Snatch** is a work in progress, and all opera
 
 <img src="./docs/images/basic-diagram.jpeg" loading="lazy" />
 
-### Use
-Coming Soon.
+### Use (for development)
+
+First clone the repository:
+```bash
+$ git clone https://github.com/FJRG2007/snatch.git
+$ cd snatch
+```
+
+Now install the requirements:
+```bash
+$ pip install -r requirements.txt
+```
+
+Then, replace the `.env.example` file to `.env` and fill in the tokens you need.
+```bash
+# For production (not available yet).
+$ snatch help
+# For development (replace snatch with python cli.py).
+$ python cli.py help
+```
 
 ### Main Features (Modules)
 
@@ -90,10 +108,6 @@ Requirements available at [`REQUIREMENTS`](./docs/REQUIREMENTS.md).
 To contribute to the project visit the requirements at [`CONTRIBUTING`](./docs/dev/CONTRIBUTING.md).
 
 ![Alt](https://repobeats.axiom.co/api/embed/752f1062974e1799dfb603d420343078a9e4a378.svg "Snatch analytics image")
-
-<a href="https://github.com/FJRG2007/snatch/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=FJRG2007/snatch&anon=1&v=3" class="not-center" loading="lazy" />
-</a>
 
 **Note**: If you are a contributor and do not appear here, wait a little while until the image is reloaded.
 

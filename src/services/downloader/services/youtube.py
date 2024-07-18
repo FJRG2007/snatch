@@ -26,7 +26,7 @@ def typeLink(url):
     # If the link does not match any pattern, return None.
     return {"type": "web" }
 
-def youtube(url, dtype, format):
+def download(url, dtype, format):
     url = sanitize_url(url)
     type = typeLink(url)
     if (dtype == "source"):

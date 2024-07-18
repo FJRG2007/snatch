@@ -9,10 +9,12 @@ __pycache__
 .env
 output
 customs/*
+!customs/directory_listing
+!customs/directory_listing/WHAT_TO_PUT_HERE.txt
 !customs/extract_metadata
 !customs/extract_metadata/WHAT_TO_PUT_HERE.txt
 !customs/WHAT_TO_PUT_HERE.txt
-!customs/downloads.json
+!customs/snatch
 
 # IDE configurations.
 .idea
