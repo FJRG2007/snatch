@@ -1,13 +1,18 @@
 <div align="center">
-
-# Snatch
-
-### 📥 AI OSINT - Capture, download, and enjoy.
-
-<img src="https://img.shields.io/badge/Python-purple?style=for-the-badge&logo=python&logoColor=white"/> 
-<a href="https://github.com/FJRG2007"> <img alt="GitHub" src="https://img.shields.io/badge/GitHub-purple?style=for-the-badge&logo=github&logoColor=white"/></a>
-<a href="https://ko-fi.com/fjrg2007"> <img alt="Kofi" src="https://img.shields.io/badge/Ko--fi-purple?style=for-the-badge&logo=ko-fi&logoColor=white"></a>
-
+  <h1>Snatch</h1>
+  <h3>AI OSINT - Capture, download, and enjoy.</h3>
+  <img src="https://img.shields.io/badge/Python-purple?style=for-the-badge&logo=python&logoColor=white"/> 
+  <a href="https://github.com/FJRG2007"> <img alt="GitHub" src="https://img.shields.io/badge/GitHub-purple?style=for-the-badge&logo=github&logoColor=white"/></a>
+  <a href="https://ko-fi.com/fjrg2007"> <img alt="Kofi" src="https://img.shields.io/badge/Ko--fi-purple?style=for-the-badge&logo=ko-fi&logoColor=white"></a>
+  <br />
+  <br />
+  <a href="https://github.com/FJRG2007/snatch/blob/main/docs/getting-started/quickstart.md">Quickstart</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://tpeoficial.com/dsc">Discord</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://github.com/FJRG2007/snatch/blob/main/docs/community/FAQ.md">FAQ</a>
+  <br />
+  <hr />
 </div>
 
 **Snatch** is a versatile tool crafted for cybersecurity and hacking enthusiasts. Developed in Python and currently in active development, **Snatch** aims to serve as a powerful multipurpose tool for OSINT (Open Source Intelligence) tasks, leveraging Artificial Intelligence to enhance task efficiency and speed.
@@ -110,16 +115,6 @@ To contribute to the project visit the requirements at [`CONTRIBUTING`](./docs/d
 ![Alt](https://repobeats.axiom.co/api/embed/752f1062974e1799dfb603d420343078a9e4a378.svg "Snatch analytics image")
 
 **Note**: If you are a contributor and do not appear here, wait a little while until the image is reloaded.
-
-<div align="left">
-  <a href="https://tpeoficial.com/dsc" target="_blank">
-    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/discord/default.svg" width="52" height="40" alt="discord logo"  />
-  </a>
-</div>
-
-#### Useful Links
-
-- [FAQ](./docs/community/FAQ.md)
 
 #### License
 The founder of the project, [FJRG2007](https://github.com/FJRG2007/), reserves the right to modify the license at any time.

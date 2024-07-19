@@ -8,10 +8,14 @@ __pycache__
 # Project development files.
 .env
 output
+
+# Customs folder.
 customs/*
-!customs/directory_listing
+!customs/directory_listing/
+!customs/extract_metadata/
+customs/directory_listing/*
 !customs/directory_listing/WHAT_TO_PUT_HERE.txt
-!customs/extract_metadata
+customs/extract_metadata/*
 !customs/extract_metadata/WHAT_TO_PUT_HERE.txt
 !customs/WHAT_TO_PUT_HERE.txt
 !customs/snatch
