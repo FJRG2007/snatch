@@ -9,4 +9,4 @@
  - [ ] Wifi Scanner.
  - [ ] Improve metadata strat.
  - [x] YouTube downloader not working.
- - [ ] Finish the terminal help documentation.
+ - [x] Finish the terminal help documentation.

@@ -4,7 +4,7 @@
 
 **Arguments**:
 * `username` (required): Contact name to be scraped.
-* `language` (required): WhatsApp language (only supported [en, de, pt, es, fr, cat]).
+* `language` (required): WhatsApp language (only supported [en, es, fr, pt, de, cat]).
 
 **Options**:
 * `--help` (optional): Display help information for the command.

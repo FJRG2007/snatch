@@ -1,6 +1,6 @@
 # Command: emseek
 
-**Description**: Extracts and validates data such as emails, usernames, domains, telephone numbers, ips, etc.
+**Description**: Extracts and validates data such as emails, usernames, domains, phone numbers, ips, etc.
 
 **Arguments**:
 * `input_data` (optional): Domain/email/username/phone/ip you want to extract information from.

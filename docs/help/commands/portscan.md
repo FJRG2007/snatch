@@ -13,32 +13,35 @@
 
 ## Examples
 
+> [!IMPORTANT]  
+> For demonstration purposes, only the ports on the user's local machine will be scanned. Scanning ports on external machines might not be legal or appropriate.
+
 Scans all ports of a domain.
 ```bash
 # Scans all ports of a domain (all ports by default).
-$ snatch portscan example.com
+$ snatch portscan localhost
 # Specified, scan all ports.
-$ snatch portscan example.com -p "*"
+$ snatch portscan localhost -p "*"
 ```
 
 Scans the common ports of a domain.
 ```bash
-$ snatch portscan example.com -p common
+$ snatch portscan localhost -p common
 ```
 
 Scan ports 80 and 443.
 ```bash
-$ snatch portscan example.com -p "80, 443"
+$ snatch portscan localhost -p "80, 443"
 ```
 
 Scan ports by ranges
 ```bash
 # Scan first 300 ports.
-$ snatch portscan example.com -p "*-300"
+$ snatch portscan localhost -p "*-300"
 
 # Scans all ports from 30000 and upwards. We set twice as many threads by default, to go faster.
-$ snatch portscan example.com -p "30000-*" -t 100
+$ snatch portscan localhost -p "30000-*" -t 1000
 
 # Scans ports 80 to 443.
-$ snatch portscan example.com -p "80-443"
+$ snatch portscan localhost -p "80-443"
 ```
