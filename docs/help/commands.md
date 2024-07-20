@@ -23,6 +23,7 @@ $ snatch help ai
 * [help](./welcome.md)
 * [info](../../README.md)
 * [exdata](./commands/exdata.md)
+* [imganal](./commands/imganal.md)
 * [portscan](./commands/portscan.md)
 * [pwdgen](./commands/pwdgen.md)
 * [scraper](./commands/scraper.md)

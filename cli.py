@@ -62,6 +62,11 @@ def help(section):
     get_function("help")(section)
 
 @cli.command()
+@click.option("-s", "--saveonfile", is_flag=True, type=bool, help="Saves the information in a file.")
+def imganal(saveonfile):
+    get_function("image_analysis")(saveonfile)
+
+@cli.command()
 def info():
     with open("README.md", "r", encoding="utf-8") as file:
         content = file.read()

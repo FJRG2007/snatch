@@ -63,15 +63,13 @@ def main(target, ports, threadsNumber=50, saveonfile=False):
     def ping_avg_time(target):
         try:
             output = subprocess.check_output(['ping', '-c', '3', target])
-            lines = output.decode('utf-8').splitlines()
             times = []
-            for line in lines:
-                if 'time=' in line: times.append(float(line.split('time=')[-1].split(' ')[0]))
-            if times: return mean(times)
-            else: return 0.0
+            for line in output.decode('utf-8').splitlines():
+                if "time=" in line: times.append(float(line.split("time=")[-1].split(" ")[0]))
+            return mean(times) if times else 0.0
         except subprocess.CalledProcessError: return 0.0
         except Exception as e:
-            print(f"Error while pinging {target}: {e}")
+            terminal("e", f"Error while pinging {target}: {e}")
             return 0.0
     # Validating and preparing the ports to be scanned.
     try: ports = parse_ports(ports)

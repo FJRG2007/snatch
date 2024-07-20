@@ -10,6 +10,8 @@
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
   <a href="https://tpeoficial.com/dsc">Discord</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://github.com/FJRG2007/snatch/blob/main/docs/REQUIREMENTS.md">Requirements</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
   <a href="https://github.com/FJRG2007/snatch/blob/main/docs/community/FAQ.md">FAQ</a>
   <br />
   <hr />
@@ -63,7 +65,7 @@ $ python cli.py help
 | WhatsApp Basic OSINT              | Active              |   ✅   |
 | Wifi Scanner                      | Relatively Soon     |   ❌   |
 | Geolocation Tools	                | Coming Soon	        |   ❌   |
-| Image Analysis	                  | Coming Soon	        |   ❌   |
+| Image Analysis	                  | In development	    |   ⚠️   |
 | Dark Web Monitoring	              | Coming Soon	        |   ❌   |
 | Blockchain Investigation	        | Coming Soon	        |   ❌   |
 | Advanced Social Media Analytics   | Coming Soon	        |   ❌   |
@@ -95,7 +97,7 @@ $ python cli.py help
 - Download web content, including videos, and other resources nested to a website.
 - Generate customized and automated dictionaries with possible passwords or e-mails based on your target.
 - Mass and/or controlled port scanning.
-- Search people from an image or video.
+- Search people from an image or video (facial detection and recognition).
 - Massive metadata extraction.
 - Search for vulnerable paths using directory listing.
 - Get domains registered with an email (reverse whois).

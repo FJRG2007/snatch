@@ -28,8 +28,7 @@ def study_user(driver, user, language):
 		
 		x_arg = f"//span[contains(text(), \"{user}\")]"
 		print(f"Trying to find: {x_arg}")
-		element = driver.find_element(by=By.XPATH, value = x_arg)
-		element.click()
+		driver.find_element(by=By.XPATH, value = x_arg).click()
 		terminal("s", "Found and clicked.")
 	except NoSuchElementException: return terminal("e", f"{user} is not found. Returning...")
 
@@ -48,7 +47,7 @@ def study_user(driver, user, language):
 	# It will be printed.
 	while True:
 		try:
-			element = driver.find_element(by=By.XPATH, value = x_arg)
+			driver.find_element(by=By.XPATH, value = x_arg)
 			if previous_state == "OFFLINE":
 				input = ("[{}][ONLINE] {}".format(
 					datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
