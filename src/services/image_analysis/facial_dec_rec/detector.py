@@ -21,9 +21,6 @@ def test_image(image_to_check, saveonfile):
                 with open(os.path.join("output/image_analysis/detector/", f"{os.path.basename(image_to_check)}.txt"), "w") as f:
                     f.write(",".join(map(str, face_location)))
 
-def image_files_in_folder(folder):
-    return [os.path.join(folder, f) for f in os.listdir(folder) if re.match(r".*\.(jpg|jpeg|png)", f, flags=re.I)]
-
 def process_images_in_process_pool(images_to_check, number_of_cpus, model, upsample):
     if number_of_cpus == -1: processes = None
     else: processes = number_of_cpus
@@ -41,5 +38,4 @@ def main(saveonfile):
     # Multi-core processing only supported on Python 3.4 or greater.
     if (sys.version_info < (3, 4)): return terminal("w", "Multi-processing support requires Python 3.4 or greater. Falling back to single-threaded processing!")
     for filename in os.listdir("customs/image_analysis"):
-        if filename.lower().endswith((".png", ".jpg", ".jpeg", ".gif", ".bmp")):
-            test_image(os.path.join("customs/image_analysis", filename), saveonfile)
+        if filename.lower().endswith((".png", ".jpg", ".jpeg", ".gif", ".bmp")): test_image(os.path.join("customs/image_analysis", filename), saveonfile)
