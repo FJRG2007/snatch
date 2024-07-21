@@ -123,5 +123,6 @@ def main():
     try: cli()
     except KeyboardInterrupt as e: terminal(KeyboardInterrupt)
     except Snatch.InvalidOption as e: terminal("iom")
+
 if __name__ == "__main__":
     main()
