@@ -60,7 +60,7 @@ $ python cli.py help
 | Data Search & Completion Tool     | In BETA Phase       |   ⚠️   |
 | Ports Scanner                     | Active              |   ✅   |
 | Website/video/data Downloader     | Active              |   ✅   |
-| Directory Listing                 | Active              |   ✅   |
+| Directory & Subdomain Listing     | Active              |   ✅   |
 | Password List Generation          | Active              |   ✅   |
 | WhatsApp Basic OSINT              | Active              |   ✅   |
 | Wifi Scanner                      | Relatively Soon     |   ❌   |

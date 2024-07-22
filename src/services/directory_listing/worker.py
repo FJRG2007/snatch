@@ -19,7 +19,7 @@ def parse_hide_codes(hide):
     
     return hide_codes
 
-def main(target, wordlist, hide):
+def main(target, method, wordlist, hide):
     try:
         # Add Banner.
         print("-" * 50)
@@ -28,6 +28,7 @@ def main(target, wordlist, hide):
         print(f"Scanning started at: {str(datetime.now())}")
         print("-" * 50)
         if not validTarget(target): return terminal("e", "Enter a valid URL.")
+        if not method in ["directory", "subdomain"]: return terminal("e", "Invalid method.", exitScript=True)
         try: hide = parse_hide_codes(hide)
         except: return terminal("e", "Invalid range for \"hide codes\".", exitScript=True)
         # Validate that "wordlist" is a .txt file inside the "customs" folder.
@@ -36,27 +37,29 @@ def main(target, wordlist, hide):
             if not (os.path.isfile(custom_path) and custom_path.endswith(".txt")): return terminal("e", "\"wordlist\" must be a .txt file inside the \"customs\" folder.")
             else: terminal("s", f"Using custom wordlist: {custom_path}")
         else: terminal("i", "Using auto wordlist.")
-
-        if not validTarget(target): return terminal("e", "Enter a valid URL.")
         # Read the wordlist file.
         with open(wordlist, "r") as file:
             scraper = cloudscraper.create_scraper()
             for line in file:
                 word = line.strip()
                 # Check if HTTPS or HTTP is used.
-                url = f"https://{target}/{word}"
+                if method == "directory": url = f"https://{target}/{word}"
+                elif method == "subdomain": url = f"https://{word}.{target}"
                 try:
                     response = scraper.get(url, headers={**requestsHeaders, "referer": url})
                     if response.status_code in hide: continue
                     if response.status_code == 200: terminal("s", f"Found: {url} - {response.status_code}")
                     else: terminal("w", f"Found: {url} - {response.status_code}")
+                except requests.exceptions.ConnectionError: pass
                 except requests.exceptions.RequestException:
-                    url = f"http://{target}/{word}"
+                    if method == "directory": url = f"http://{target}/{word}"
+                    elif method == "subdomain": url = f"http://{word}.{target}"
                     try:
                         response = scraper.get(url, headers={**requestsHeaders, "referer": url})
                         if response.status_code in hide: continue
                         if response.status_code == 200: terminal("s", f"Found: {url} - {response.status_code}")
                         else: terminal("s", f"Found: {url} - {response.status_code}")
+                    except requests.exceptions.ConnectionError: pass
                     except requests.exceptions.RequestException as e: terminal("e", e)
     except KeyboardInterrupt: terminal(KeyboardInterrupt)
     except requests.exceptions.RequestException as e: terminal("e", e)

@@ -6,17 +6,13 @@ from collections import OrderedDict
 
 try: from HTMLParser import HTMLParser
 except ImportError:
-    if sys.version_info >= (3, 4):
-        import html
-    else:
-        from html.parser import HTMLParser
+    if sys.version_info >= (3, 4): import html
+    else: from html.parser import HTMLParser
 
 try: from urlparse import urlparse, urljoin
-except ImportError:
-    from urllib.parse import urlparse, urljoin
+except ImportError: from urllib.parse import urlparse, urljoin
 
 from .exceptions import (CloudflareCode1020, CloudflareIUAMError, CloudflareSolveError, CloudflareChallengeError, CloudflareCaptchaError, CloudflareCaptchaProvider)
-
 from .captcha import Captcha
 from .interpreters import JavaScriptInterpreter
 
@@ -24,11 +20,7 @@ class Cloudflare():
 
     def __init__(self, cloudscraper):
         self.cloudscraper = cloudscraper
-
     
-    # Unescape / decode html entities
-    
-
     @staticmethod
     def unescape(html_text):
         if sys.version_info >= (3, 0):
@@ -70,7 +62,7 @@ class Cloudflare():
         except AttributeError: pass
         return False
     
-    # Wrapper for is_Captcha_Challenge, is_IUAM_Challenge, is_Firewall_Blocked
+    # Wrapper for is_Captcha_Challenge, is_IUAM_Challenge, is_Firewall_Blocked.
 
     def is_Challenge_Request(self, resp):
         if self.is_Firewall_Blocked(resp):

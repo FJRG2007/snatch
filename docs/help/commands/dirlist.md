@@ -6,6 +6,7 @@
 * `target` (required): Domain or IP address from where we will start listing the directories (do not include HTTP/S protocol).
 
 **Options**:
+* `-m` or `--method` (optional): Listing method [directory (default), subdomain].
 * `-w` or `--wordlist` (optional): Dictionary with the routes to verify (by default Snatch includes its own).
 * `-h` or `--hide` (optional): Codes to hide [default None, ex: 5XX or 5XX, 404].
 * `--help` (optional): Display help information for the command.
@@ -29,4 +30,12 @@ In this command we hide otuput that irelevants.
 $ snatch dirlist google.com -h 4XX
 # We can also specify a specific error.
 $ snatch dirlist google.com -h "400, 404, 500" # or "4XX, 5XX"
+```
+
+Here are listed the subdomains from the default dictionary.
+```bash
+# Listing Google subdomains with the default dictionary.
+$ snatch dirlist google.com -m subdomain
+# Listing Google subdomains with its own dictionary (Dicc in snatch/customs/directory_listing/my_dicc.txt).
+$ snatch dirlist google.com -m subdomain -h "400, 404, 500" # or "4XX, 5XX"
 ```

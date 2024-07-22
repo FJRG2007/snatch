@@ -25,11 +25,12 @@ def ai(prompt):
 
 @cli.command()
 @click.argument("target", required=True)
+@click.option("-m", "--method", default="directory", type=str, help="Listing method [directory (default), subdomain].")
 @click.option("-w", "--wordlist", default="./src/lib/files/directory_listing.txt", type=str, help="Dictionary with routes.")
 @click.option("-h", "--hide", default="", type=str, help="Codes to hide [default None, ex: 5XX or 5XX, 404].")
-def dirlist(target, wordlist, hide):
+def dirlist(target, method, wordlist, hide):
     if not target: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} dirlist --help\" for further help.")
-    get_function("directory_listing")(target, wordlist, hide)
+    get_function("directory_listing")(target, method, wordlist, hide)
 
 @cli.command()
 @click.argument("url", required=False)
