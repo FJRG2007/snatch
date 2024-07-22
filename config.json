@@ -1,13 +1,1 @@
-{
-    "output_dir": "",
-    "max_file_size": "",
-    "ignore_file_types": [],
-    "ai": {
-        "provider": "groq",
-        "model": "llama3-70b-8192",
-        "temperature": 0.75,
-        "max_tokens": 1024,
-        "second_response": true,
-        "text_to_speech": false
-    }
-}
+{"output_dir": "", "max_file_size": "", "ignore_file_types": [], "ai": {"provider": "groq", "model": "llama3-70b-8192", "temperature": 0.75, "max_tokens": 1024, "second_response": true, "text_to_speech": false}}

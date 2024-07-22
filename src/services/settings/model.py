@@ -1,3 +1,4 @@
+import time
 import src.lib.colors as cl
 from src.lib.data import AI
 from src.lib.config import config
@@ -22,11 +23,13 @@ def show_models(provider):
         selector = int(quest("Select a number"))
         if 1 <= selector <= len(provider_data["models"]): 
             terminal("s", f"You have selected model: {provider_data['models'][selector - 1]['name']}")
-            config.ai.provider = provider_data["name"]
+            config.ai.provider = provider_data["name"].lower()
             config.ai.model = provider_data['models'][selector - 1]["name"]
+            config.save_config()
         else: terminal("e", "Invalid selection.")
     except ValueError: terminal("e", "Invalid input. Please enter a number.")
 def model(opt):
+    cls()
     if opt == "default" or opt == "models":
         terminal("info", f"Select a provider to continue to select the model.")
         # Show available providers.
@@ -52,7 +55,8 @@ def model(opt):
     elif opt == "advanced":
         terminal("info", f"Select one of the advanced options to configure the AI model.")
         advanced = [
-            ("1", "Second response (Default: enabled)")
+            ("1", "Second response (Default: enabled)"),
+            ("2", "Speech to text (Default: disabled)")
         ]
         for i, (number, name) in enumerate(advanced, 1):
             print(f"{cl.b}[{cl.w}{number}{cl.b}]{cl.w} {name}")
@@ -62,6 +66,17 @@ def model(opt):
         selector = quest(f"Select a number")
 
         if selector == "1": 
-            config.ai.second_response = getPositive(quest(f"Do you want to {cl.BOLD}{"enable" if config.ai.second_response else "disable"}{cl.ENDC} second response? [Y]/N"))
+            if getPositive(quest(f"Do you want to {cl.BOLD}{"disable" if config.ai.second_response else "enable"}{cl.ENDC} second response? [Y]/N")):
+                config.ai.second_response = not config.ai.second_response
+                config.save_config()
             terminal("s", f"You have {"enabled" if config.ai.second_response else "disabled"} the second response for the AI model.")
+        elif selector == "2":
+            if getPositive(quest(f"Do you want to {cl.BOLD}{"disable" if config.ai.text_to_speech else "enable"}{cl.ENDC} \"text-to-speech\" transcription? [Y]/N")):
+                config.ai.text_to_speech = not config.ai.text_to_speech
+                config.save_config()
+            terminal("s", f"You have {"enabled" if config.ai.text_to_speech else "disabled"} \"text-to-speech\" transcription for the AI model.")
+        else: 
+            terminal("e", "Select a valid option.")
+            time.sleep(1.25)
+            model(opt)
     else: return terminal("e", "Select a valid option.")

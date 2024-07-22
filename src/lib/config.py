@@ -4,11 +4,17 @@ from types import SimpleNamespace
 from src.utils.basics import terminal
 
 class Config:
-    def __init__(self):
+
+    path: str
+    config: SimpleNamespace
+
+    def __init__(self, path: str = "./config.json"):
         # Read config.json file.
         with open("./config.json", "r") as file:
             upd = file.read()
             self.config = json.loads(upd, object_hook=lambda d: SimpleNamespace(**d))
+        self.path = path
+        self.read_config()
 
     def get_api_key(self, name):
         if (name == "HUNTER"):
@@ -19,26 +25,28 @@ class Config:
 
     def __getattr__(self, name):
         return getattr(self.config, name)
-
-    def __setattr__(self, name, value):
-        if name == "config": super().__setattr__(name, value)
-        else:
-            setattr(self.config, name, value)
-            self._save_config()
     
-    def _save_config(self):
+    def read_config(self):
+        # Read config.json file.
+        with open(self.path, "r") as file:
+            upd = file.read()
+            # print(f"Read {self.path}: {upd}") # Dev mode.
+            self.config = json.loads(
+                upd, object_hook=lambda d: SimpleNamespace(**d))
+        return self.config
+    
+    def save_config(self):
         # Convert the SimpleNamespace object back to a dictionary.
-        config_dict = self._to_dict(self.config)
-        upd = json.dumps(config_dict, indent=2)
-        print(upd)
-        with open("./config.json", "w") as file:
+        upd = self._to_dict(self.config)
+        # print(f"Update {self.path}: ", upd) # Dev mode.
+        with open(self.path, "w") as file:
             file.write(upd)
+        # update self.config
+        self.read_config()
+        return self.config
 
-    def _to_dict(self, obj):
-        # Helper method to convert SimpleNamespace to dict.
-        if isinstance(obj, SimpleNamespace): return {k: self._to_dict(v) for k, v in obj.__dict__.items()}
-        elif isinstance(obj, list): return [self._to_dict(i) for i in obj]
-        else: return obj
+    def _to_dict(self, obj: SimpleNamespace):
+        return json.dumps(obj, default=lambda o: o.__dict__)
 
 config = None
 
