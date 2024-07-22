@@ -11,6 +11,7 @@ def show_models(provider):
     cls()  # Clear the screen.
     provider_data = next((prov for prov in AI["providers"] if prov["name"] == provider), None)
     if not provider_data: return terminal("e", "Provider not found.")
+    terminal("info", f"Select a model to finish.")
     for i, model in enumerate(provider_data["models"], 1):
         tag = model.get("tag", "")
         print(f"{cl.b}[{cl.w}{i}{cl.b}]{cl.w} {f"{model['name']}{f' - {cl.y}{tag}{cl.w}' if tag else ''}"}")
@@ -27,7 +28,7 @@ def show_models(provider):
     except ValueError: terminal("e", "Invalid input. Please enter a number.")
 def model(opt):
     if opt == "default" or opt == "models":
-        terminal("info", f"""Select a provider to continue to select the model.""")
+        terminal("info", f"Select a provider to continue to select the model.")
         # Show available providers.
         for i, provider in enumerate(AI["providers"]):
             tag = provider.get("tag", "")
@@ -36,21 +37,20 @@ def model(opt):
             if i % 3 == 0 and i != len(AI["providers"]): print(f" {cl.w}|")
         print(f" {cl.w}|")
         selector = quest(f"Select a number")
-        provider_map = {
+        provider_map = { # Removing and using the object names from data.py.
             "1": "Anthropic",
             "2": "Dymo",
             "3": "Google",
             "4": "Groq",
             "5": "Meta",
-            "6": "OpenAI",
-            "7": "Perplexity"
+            "6": "Ollama",
+            "7": "OpenAI",
+            "8": "Perplexity"
         }
         if selector in provider_map: show_models(provider_map[selector])
         else: restart()
     elif opt == "advanced":
-        terminal("info", f"""
-Select one of the advanced options to configure the AI model.
-""")
+        terminal("info", f"Select one of the advanced options to configure the AI model.")
         advanced = [
             ("1", "Second response (Default: enabled)")
         ]

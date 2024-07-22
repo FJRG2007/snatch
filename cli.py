@@ -96,9 +96,11 @@ def pwdgen():
 
 @cli.command()
 @click.option("-p", "--platforms", default="all", type=str, help="Platforms to scrape [all (default)...]")
-@click.option("--dscuserid", type=str, help="ID of the Discord user to investigate.")
-def scraper(platforms, dscuserid):
-    get_function("scraper")(platforms, dscuserid)
+@click.option("--dscuserid", type=str, help="Discord: User ID to investigate.")
+@click.option("--drkquery", type=str, help="Dorks: Searching with Dorks")
+@click.option("--drkengine", type=str, help="Dorks: Engine to use [all, bing, ecosia, duckduckgo, google, yandex, yahoo].")
+def scraper(platforms, dscuserid, drkquery, drkengine):
+    get_function("scraper")(platforms, dscuserid, drkquery, drkengine)
 
 @cli.command()
 @click.argument("option", required=True)

@@ -1,8 +1,7 @@
-from requests import get
 from pprint import pprint
 from dateutil.parser import parse
+from src.utils.basics import cls, terminal
 import os, re, sys, time, json, whois, socket, requests
-from src.utils.basics import cls, noToken, terminal, setColor
 
 # Get domain IP Address.
 def domain_ip(domain):

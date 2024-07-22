@@ -88,7 +88,7 @@ def whatsapp_login():
 			# Coming Soon.
 			...
 		else: driver.get("https://web.whatsapp.com")
-		assert "WhatsApp" in driver.title 
+		assert "WhatsApp" in driver.title
 		input("Press any key when you are at the chat menu...")
 		return driver
 	except InvalidArgumentException:

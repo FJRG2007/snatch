@@ -26,10 +26,9 @@ def playVoice(prompt) -> None:
         stream=True,
         output_format={"container": "raw", "encoding": "pcm_f32le", "sample_rate": 44100},
     ):
-        buffer = output["audio"]
         if not stream: stream = p.open(format=pyaudio.paFloat32, channels=1, rate=44100, output=True)
         # Write the audio data to the stream.
-        stream.write(buffer)
+        stream.write(output["audio"])
     stream.stop_stream()
     stream.close()
     p.terminate()
@@ -43,6 +42,7 @@ def cls() -> None:
 
 def coloredText(word, hex_color) -> str:
     try:
+        if not word.startswith("#"): word = f"#{str(word)}"
         rgb = tuple(int(hex_color.lstrip("#")[i:i+2], 16) for i in (0, 2, 4))
         return f"\033[38;2;{rgb[0]};{rgb[1]};{rgb[2]}m{str(word)}\033[0m"
     except: return word
@@ -74,6 +74,7 @@ def setColor(v):
     return f"{cl.g}True{cl.w}" if v == "True" or v == True else \
            f"{cl.r}False{cl.w}" if v == "False" or v == False else \
            f"{cl.r}{v}{cl.w}" if any(term in str(v).lower() for term in ["not", "error"]) else \
+           f"{cl.y}{v}{cl.w}" if any(term in str(v).lower() for term in ["coming soon"]) else \
            f"{v}"
 
 def validTarget(target) -> bool:

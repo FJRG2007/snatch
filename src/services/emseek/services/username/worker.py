@@ -1,7 +1,7 @@
 import src.lib.colors as cl
 from src.utils.snatch import Snatch
 from requests.exceptions import Timeout
-from src.utils.basics import cls, terminal
+from src.utils.basics import cls, quest, terminal
 import os, sys, time, json, requests, subprocess
 
 validator_url = "https://ftp-mj-washer-maritime.trycloudflare.com/" # https://raw.githubusercontent.com/mishakorzik/MailFinder/main/.validator
@@ -25,7 +25,7 @@ def selecttype(username, saveonfile):
     print(f"{cl.space}{cl.b}[{cl.w}3{cl.b}]{cl.w} Scanner")
     print(f"{cl.space}{cl.b}[{cl.w}4{cl.b}]{cl.w} Search e-mail via fullname")
     print(f"{cl.space} {cl.w}|")
-    type = str(input(f"{cl.space}{cl.b}[{cl.w}?{cl.b}]{cl.w} Select a number:{cl.b} ").lower())
+    type = str(quest(f"{cl.space}{cl.b}[{cl.w}?{cl.b}]{cl.w} Select a number:{cl.b} ").lower())
     if type == "1" or type == "01": search_username(username, saveonfile)
     elif type == "2" or type == "02": validator(username)
     elif type == "3" or type == "03": ...

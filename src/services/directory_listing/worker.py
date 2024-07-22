@@ -2,6 +2,7 @@ import os, requests
 from datetime import datetime
 from src.lib.data import requestsHeaders
 from src.utils.basics import terminal, validTarget
+import src.utils.bypasses.cloudscraper as cloudscraper
 
 def parse_hide_codes(hide):
     hide_codes = set()
@@ -39,19 +40,20 @@ def main(target, wordlist, hide):
         if not validTarget(target): return terminal("e", "Enter a valid URL.")
         # Read the wordlist file.
         with open(wordlist, "r") as file:
+            scraper = cloudscraper.create_scraper()
             for line in file:
                 word = line.strip()
                 # Check if HTTPS or HTTP is used.
                 url = f"https://{target}/{word}"
                 try:
-                    response = requests.get(url, headers={**requestsHeaders, "referer": url})
+                    response = scraper.get(url, headers={**requestsHeaders, "referer": url})
                     if response.status_code in hide: continue
                     if response.status_code == 200: terminal("s", f"Found: {url} - {response.status_code}")
                     else: terminal("w", f"Found: {url} - {response.status_code}")
                 except requests.exceptions.RequestException:
                     url = f"http://{target}/{word}"
                     try:
-                        response = requests.get(url, headers={**requestsHeaders, "referer": url})
+                        response = scraper.get(url, headers={**requestsHeaders, "referer": url})
                         if response.status_code in hide: continue
                         if response.status_code == 200: terminal("s", f"Found: {url} - {response.status_code}")
                         else: terminal("s", f"Found: {url} - {response.status_code}")

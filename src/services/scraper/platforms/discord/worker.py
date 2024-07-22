@@ -19,6 +19,7 @@ def main(userId):
             print(f"""
         Discord User:
             {cl.b}> {cl.w} ID: {userId}
+            {cl.b}> {cl.w} IP Address: {setColor("Coming Soon")}
             {cl.b}> {cl.w} Username: {data["username"]}
             {cl.b}> {cl.w} Avatar: {data["avatar"]}
             {cl.b}> {cl.w} Avatar Url: https://cdn.discordapp.com/avatars/{userId}/{data["avatar"]}.webp?size=2048
@@ -30,8 +31,9 @@ def main(userId):
             {cl.b}> {cl.w} Accent color: {coloredText(f"#{str(data['accent_color'])}", f"#{str(data['accent_color'])}")}
             {cl.b}> {cl.w} Global name: {data["global_name"]}
             {cl.b}> {cl.w} Avatar decoration asset: {data["avatar_decoration_data"]["asset"] if data["avatar_decoration_data"] else setColor("Does not exist")}
+            {cl.b}> {cl.w} Avatar decoration asset Url: {f"https://cdn.discordapp.com/avatar-decoration-presets/{data["avatar_decoration_data"]["asset"]}?size=512" if data["avatar_decoration_data"] else setColor("Does not exist")}
             {cl.b}> {cl.w} Avatar decoration Sku Id: {data["avatar_decoration_data"]["sku_id"] if data["avatar_decoration_data"] else setColor("Does not exist")}
-            {cl.b}> {cl.w} Banner color: {coloredText(f"#{data['banner_color']}", data["banner_color"])}
+            {cl.b}> {cl.w} Banner color: {coloredText(f"{data['banner_color']}", data["banner_color"])}
             {cl.b}> {cl.w} Clan: {data["clan"]}
 """)
         else: terminal("e", f"Failed to retrieve data: {response}")

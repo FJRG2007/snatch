@@ -33,10 +33,12 @@ AI = {
             "name": "Dymo",
             "models": [
                 {
-                    "name": "dymo"
+                    "name": "dymo",
+                    "tag": "Coming Soon"
                 },
                 {
-                    "name": "ela"
+                    "name": "ela",
+                    "tag": "Coming Soon"
                 }
             ]
         },
@@ -94,10 +96,12 @@ AI = {
             "name": "OpenAI",
             "models": [
                 {
-                    "name": "gpt-4o"
+                    "name": "gpt-4o",
+                    "tag": "Application required to OpenAI"
                 },
                 {
-                    "name": "gpt-4"
+                    "name": "gpt-4",
+                    "tag": "Application required to OpenAI"
                 },
                 {
                     "name": "gpt-3.5-turbo"
