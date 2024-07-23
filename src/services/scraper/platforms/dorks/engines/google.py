@@ -82,7 +82,6 @@ def main(query, num_results, saveonfile):
     for key, value in query.items():
         if value: formatted_query += f'{key}:"{value}" '
     formatted_query = formatted_query.strip()
-    print(formatted_query)
     if not formatted_query: return terminal("e", "Please specify a query.", exitScript=True)
     try:
         requ = 0

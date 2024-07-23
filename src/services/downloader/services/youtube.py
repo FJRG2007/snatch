@@ -9,28 +9,21 @@ def sanitize_url(url): return re.sub(r'android-app://com.google.android.youtube/
 def typeLink(url):
     # Sanitize the URL first.
     url = sanitize_url(url)
-    # Regular expression patterns for video and playlist URLs.
-    video_pattern = r'^https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}).*$'
-    playlist_pattern = r'^https?://(?:www\.)?youtube\.com/(?:watch\?v=\w+&list=|playlist\?list=)([a-zA-Z0-9_-]{10,}).*$'
-    
     # Verify if the link matches the video pattern.
-    video_match = re.match(video_pattern, url)
+    video_match = re.match(r'^https?://(?:www\.)?(?:youtube\.com/watch\?v=|youtu\.be/)([a-zA-Z0-9_-]{11}).*$', url)
     if video_match:
         video_id = video_match.group(1)
         return {"type": "video", "id": video_id}
-    
     # Check if the link matches the playlist pattern.
-    playlist_match = re.match(playlist_pattern, url)
+    playlist_match = re.match(r'^https?://(?:www\.)?youtube\.com/(?:watch\?v=\w+&list=|playlist\?list=)([a-zA-Z0-9_-]{10,}).*$', url)
     if playlist_match: return {"type": "playlist", "id": playlist_match.group(1)}
-    
     # If the link does not match any pattern, return None.
     return {"type": "web" }
 
 def download(url, dtype, format):
     url = sanitize_url(url)
     type = typeLink(url)
-    if (dtype == "source"):
-        downloader(url)
+    if (dtype == "source"): downloader(url)
     elif (dtype == "video"):
         if (type["type"] == "video"):
             if (format in ["mp4", "mp3", "wav"] or format == "auto"):

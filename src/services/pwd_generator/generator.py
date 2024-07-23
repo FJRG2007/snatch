@@ -88,7 +88,7 @@ def generate_wordlist_from_profile(profile):
 
     word = profile["words"] + wordsup
 
-    # reverse a name
+    # Reverse a name.
 
     rev_name = profile["name"][::-1]
     rev_nameup = nameup[::-1]

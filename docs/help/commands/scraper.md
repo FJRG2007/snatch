@@ -12,7 +12,7 @@
 * `--filetype` (optional): Dorks: Search by file type.
 * `--ext` (optional): Dorks: Search by extension type.
 
-* `--numresults`, (optional): Dorks: Number of results to display (default=50).
+* `--numresults`, (optional): Dorks: Number of results to display (default 50).
 * `-s` or `--saveonfile` (optional): Saves the information in a file.
 * `--help` (optional): Display help information for the command.
 
@@ -26,12 +26,18 @@ $ snatch scraper
 $ snatch scraper -p all
 ```
 
-Extracting data from Discord
+Extracting data from Discord.
 ```bash
 # Data extraction from Discord (Snatch will ask for data).
 $ snatch scraper -p discord
 # Data extraction from Discord.
 $ snatch scraper -p discord --userid "269617876036616193"
+```
+
+In this command, a search is performed on CIA public content using Google Dorks.
+```bash
+# Search for files from the domain "cia.gov" containing the word "confidential".
+$ snatch scraper -p dorks --engine google --site cia.gov --intext "confidential"
 ```
 
 ### Supported platforms

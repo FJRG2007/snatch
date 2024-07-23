@@ -25,7 +25,6 @@ def study_user(driver, user, language):
 		logs_date = datetime.datetime.now().strftime("%Y-%m-%d")
 		logs.create_log(user, logs_date)
 		terminal("s", f"There has been created in the folder \"output/whatsapp/\" a text file to log every connection and disconnection of the user {user}")
-		
 		x_arg = f"//span[contains(text(), \"{user}\")]"
 		print(f"Trying to find: {x_arg}")
 		driver.find_element(by=By.XPATH, value = x_arg).click()
@@ -49,9 +48,7 @@ def study_user(driver, user, language):
 		try:
 			driver.find_element(by=By.XPATH, value = x_arg)
 			if previous_state == "OFFLINE":
-				input = ("[{}][ONLINE] {}".format(
-					datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-					user))
+				input = ("[{}][ONLINE] {}".format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), user))
 				print(input)
 				logs.update_log(input, user, logs_date)	
 				first_online = time.time()
@@ -64,17 +61,11 @@ def study_user(driver, user, language):
 				if total_online_time < 0: # This means that the user was typing instead of going offline.
 					continue # Skip the rest of this iteration. Do nothing.
 				cumulative_session_time += total_online_time
-				input = ("[{}][DISCONNECTED] {} was online for {} seconds. Session total: {} seconds".format(
-					datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-					user,
-					math.floor(total_online_time),
-					math.floor(cumulative_session_time)))
+				input = ("[{}][DISCONNECTED] {} was online for {} seconds. Session total: {} seconds".format(datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"), user, math.floor(total_online_time), math.floor(cumulative_session_time)))
 				print(input)
 				logs.update_log(input, user, logs_date)	
 				previous_state = "OFFLINE"
-		except NoSuchWindowException: 
-			terminal("e", "Your WhatsApp window has been minimized or closed, try running the code again, shutting down...")
-			exit()
+		except NoSuchWindowException: terminal("e", "Your WhatsApp window has been minimized or closed, try running the code again, shutting down...", exitScript=True)
 		time.sleep(1)
 
 def whatsapp_login():
@@ -92,8 +83,7 @@ def whatsapp_login():
 		input("Press any key when you are at the chat menu...")
 		return driver
 	except InvalidArgumentException:
-		terminal("e", "You may already have a Selenium navegator running in the background, close the window and run the code again, shutting down...")
-		exit()
+		terminal("e", "You may already have a Selenium navegator running in the background, close the window and run the code again, shutting down...", exitScript=True)
 
 def main(username, language):
 	if (language not in ["en", "es", "fr", "pt", "de", "cat"]): return terminal("e", "Enter a valid supported language -> en, es, fr, pt, de, cat.")

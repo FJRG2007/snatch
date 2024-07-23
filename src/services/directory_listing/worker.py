@@ -16,7 +16,6 @@ def parse_hide_codes(hide):
         else:
             if not r.isdigit(): raise ValueError(f"Invalid code: {r}")
             hide_codes.add(int(r))
-    
     return hide_codes
 
 def main(target, method, wordlist, hide):
