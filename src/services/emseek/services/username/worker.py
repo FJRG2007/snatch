@@ -19,13 +19,13 @@ def restart(*args):
     selecttype(*args)
 
 def selecttype(username, saveonfile):
-    print(f"{cl.space}{cl.b}[{cl.w}1{cl.b}]{cl.w} Search in social media")
-    print(f"{cl.space}{cl.b}[{cl.w}2{cl.b}]{cl.w} Check username on emails domains")
-    print(f"{cl.space} {cl.w}|")
-    print(f"{cl.space}{cl.b}[{cl.w}3{cl.b}]{cl.w} Scanner")
-    print(f"{cl.space}{cl.b}[{cl.w}4{cl.b}]{cl.w} Search e-mail via fullname")
-    print(f"{cl.space} {cl.w}|")
-    type = str(quest(f"{cl.space}{cl.b}[{cl.w}?{cl.b}]{cl.w} Select a number:{cl.b} ").lower())
+    print(f"{cl.b}[{cl.w}1{cl.b}]{cl.w} Search in social media")
+    print(f"{cl.b}[{cl.w}2{cl.b}]{cl.w} Check username on emails domains")
+    print(f" {cl.w}|")
+    print(f"{cl.b}[{cl.w}3{cl.b}]{cl.w} Scanner")
+    print(f"{cl.b}[{cl.w}4{cl.b}]{cl.w} Search e-mail via fullname")
+    print(f" {cl.w}|")
+    type = str(quest(f"Select a number").lower())
     if type == "1" or type == "01": search_username(username, saveonfile)
     elif type == "2" or type == "02": validator(username)
     elif type == "3" or type == "03": ...

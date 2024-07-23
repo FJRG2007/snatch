@@ -47,9 +47,16 @@ def coloredText(word, hex_color) -> str:
         return f"\033[38;2;{rgb[0]};{rgb[1]};{rgb[2]}m{str(word)}\033[0m"
     except: return word
 
-def quest(prompt, newline=False, lowercase=False, tab=False) -> str:
-    response = input(f"{'\n' if newline else ''}{'\t' if tab else ''}{cl.b}[{cl.w}?{cl.b}]{cl.w} {prompt}: ")
-    return response.lower() if lowercase else response
+def quest(prompt, newline=False, lowercase=False, tab=False, format_type=str):
+    prefix = f"\n" if newline else ''
+    prefix += f"\t" if tab else ''
+    while True:
+        try:
+            response = input(f"{prefix}{cl.b}[{cl.w}?{cl.b}]{cl.w} {prompt}: ")
+            if format_type == int: return int(response)
+            elif format_type == str and lowercase: return response.lower()
+            return response
+        except ValueError: terminal("e", "Enter a valid value.", timer=True)
 
 def getPositive(q, default=True) -> bool:
     positive_responses = ["y", "yes", "yeah", "continue", "s", "si", "sí", "oui", "wa", "ja"]
@@ -84,7 +91,7 @@ def validTarget(target) -> bool:
     # Validate domain.
     return re.compile(r"^(?=.{1,253}$)(?:(?!-)[A-Za-z0-9-]{1,63}(?<!-)\.)+[A-Za-z]{2,10}$").match(target)
 
-def terminal(typeMessage, string="", exitScript=False, clear="n", newline=True) -> None:
+def terminal(typeMessage, string="", exitScript=False, clear="n", newline=True, timer=False) -> None:
     if (clear == "b" or typeMessage == "iom"): cls()
     if isinstance(typeMessage, str):
         if typeMessage == "e": print(f"\n{cl.R} ERROR {cl.w} {string}") # X or ❌
@@ -108,5 +115,12 @@ def terminal(typeMessage, string="", exitScript=False, clear="n", newline=True) 
         if typeMessage == KeyboardInterrupt: print(f"\n{cl.R} ERROR {cl.w} Exiting Program: Canceled by user.")
         sys.exit(1)
     else: print(f"\nUnhandled typeMessage: {typeMessage}")
-    if (exitScript): sys.exit(1 if typeMessage == "e" else 0)
-    if (clear == "a" or typeMessage == "iom"): cls()
+    if exitScript: sys.exit(1 if typeMessage == "e" else 0)
+    if clear == "a" or typeMessage == "iom": cls()
+    if timer: time.sleep(2)
+
+def fileManager(path, filename, create=True):
+    directory = f"output/{path}/{filename}"
+    filename = re.sub(r'[^A-Za-z0-9._@-]', "", filename)
+    if create: os.makedirs(os.path.dirname(directory), exist_ok=True)
+    return directory

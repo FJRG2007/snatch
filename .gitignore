@@ -7,6 +7,7 @@ __pycache__
 
 # Project development files.
 .env
+notes
 output
 
 # Customs folder.

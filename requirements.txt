@@ -261,6 +261,7 @@ uvicorn==0.29.0
 wasabi==1.1.2
 watchdog==4.0.0
 watchfiles==0.21.0
+wayback==0.4.5
 wcwidth==0.2.12
 weasel==0.3.4
 websocket-client==1.7.0

@@ -23,7 +23,7 @@ def main(target, method, wordlist, hide):
     try:
         # Add Banner.
         print("-" * 50)
-        print(f"Scanning Target: {target}")
+        print(f"Scanning target: {target}")
         print(f"Codes that are not displayed: {hide}")
         print(f"Scanning started at: {str(datetime.now())}")
         print("-" * 50)

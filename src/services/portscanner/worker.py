@@ -33,7 +33,7 @@ def parse_ports(port_str):
 def main(target, ports, threadsNumber=50, saveonfile=False):
     # Add Banner.
     print("-" * 50)
-    print(f"Scanning Target: {target}")
+    print(f"Scanning target: {target}")
     print(f"Scanning ports: {'All (65535)' if ports == '*' else ports.capitalize()}")
     print(f"Scanning started at: {str(datetime.now())}")
     print(f"Number of threads: {threadsNumber}")

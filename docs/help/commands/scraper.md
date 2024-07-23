@@ -4,7 +4,16 @@
 
 **Options**:
 * `-p` or `--platforms` (optional): Platforms to scrape [all (default)...].
-* `--dscuserid` (optional): ID of the Discord user to investigate.
+* `--userid` (optional): ID of the Discord user to investigate.
+* `--intitle` (optional): Dorks: Search website by title.
+* `--intext` (optional): Dorks: Search for content within a website.
+* `--site` (optional): Dorks: Search website by domain.
+* `--inurl` (optional): Dorks: Search website by path in url.
+* `--filetype` (optional): Dorks: Search by file type.
+* `--ext` (optional): Dorks: Search by extension type.
+
+* `--numresults`, (optional): Dorks: Number of results to display (default=50).
+* `-s` or `--saveonfile` (optional): Saves the information in a file.
 * `--help` (optional): Display help information for the command.
 
 ## Examples
@@ -22,9 +31,10 @@ Extracting data from Discord
 # Data extraction from Discord (Snatch will ask for data).
 $ snatch scraper -p discord
 # Data extraction from Discord.
-$ snatch scraper -p discord --dscuserid "269617876036616193"
+$ snatch scraper -p discord --userid "269617876036616193"
 ```
 
 ### Supported platforms
 
 * [x] Discord
+* [x] Dorks -> Google.

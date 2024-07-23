@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-import click, pyfiglet, importlib
+import sys, click, pyfiglet, importlib
 from src.lib.config import config
 from src.utils.snatch import Snatch
 from textual.widgets import Markdown
@@ -16,6 +16,7 @@ def cli():
     cls()
     print(pyfiglet.figlet_format("SNATCH"))
     print(f'\n{cl.des_space}{cl.b}>> {cl.w}Welcome to Snatch, remember to use it responsibly. \n{cl.des_space}{cl.b}>> {cl.w}Join to our Discord server on tpeoficial.com/dsc\n{cl.des_space}{cl.b}>> {cl.w}Version: {data.version}\n')
+    if not sys.version[0] in "3": return terminal("e", "Snatch only works properly with Pytnon 3. Please upgrade/use Python 3.", exitScript=True)
     load_dotenv(override=True)
 
 @cli.command()
@@ -97,11 +98,18 @@ def pwdgen():
 
 @cli.command()
 @click.option("-p", "--platforms", default="all", type=str, help="Platforms to scrape [all (default)...]")
-@click.option("--dscuserid", type=str, help="Discord: User ID to investigate.")
-@click.option("--drkquery", type=str, help="Dorks: Searching with Dorks")
-@click.option("--drkengine", type=str, help="Dorks: Engine to use [all, bing, ecosia, duckduckgo, google, yandex, yahoo].")
-def scraper(platforms, dscuserid, drkquery, drkengine):
-    get_function("scraper")(platforms, dscuserid, drkquery, drkengine)
+@click.option("--userid", type=str, help="Discord: User ID to investigate.")
+@click.option("--intitle", type=str, help="Dorks: Search website by title.")
+@click.option("--intext", type=str, help="Dorks: Search for content within a website.")
+@click.option("--site", type=str, help="Dorks: Search website by domain.")
+@click.option("--inurl", type=str, help="Dorks: Search website by path in url.")
+@click.option("--filetype", type=str, help="Dorks: Search by file type.")
+@click.option("--ext", type=str, help="Dorks: Search by extension type.")
+@click.option("--engine", type=str, help="Dorks: Engine to use [all, bing, ecosia, duckduckgo, google, yandex, yahoo].")
+@click.option("--numresults", default=50, type=int, help="Dorks: Number of results to display.")
+@click.option("-s", "--saveonfile", is_flag=True, type=bool, help="Saves the information in a file.")
+def scraper(platforms, userid, intitle, intext, site, inurl, filetype, ext, engine, numresults, saveonfile):
+    get_function("scraper")(platforms, userid, intitle, intext, site, inurl, filetype, ext, engine, numresults, saveonfile)
 
 @cli.command()
 @click.argument("option", required=True)
