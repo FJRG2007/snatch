@@ -10,6 +10,8 @@
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
   <a href="https://tpeoficial.com/dsc">Discord</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+  <a href="https://github.com/FJRG2007/snatch/blob/main/docs/community/features.md">All Features</a>
+  <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
   <a href="https://github.com/FJRG2007/snatch/blob/main/docs/REQUIREMENTS.md">Requirements</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
   <a href="https://github.com/FJRG2007/snatch/blob/main/docs/community/FAQ.md">FAQ</a>
@@ -64,14 +66,12 @@ $ python cli.py help
 | Password List Generation          | Active              |   ✅   |
 | WhatsApp Basic OSINT              | Active              |   ✅   |
 | Wifi Scanner                      | Relatively Soon     |   ❌   |
-| Geolocation Tools	                | Coming Soon	        |   ❌   |
 | Image Analysis	                  | In development	    |   ⚠️   |
 | Dark Web Monitoring	              | Coming Soon	        |   ❌   |
-| Blockchain Investigation	        | Coming Soon	        |   ❌   |
-| Advanced Social Media Analytics   | Coming Soon	        |   ❌   |
-| Real-time Data Monitoring	        | Coming Soon	        |   ❌   |
 | Metadata Extractor	              | In development	    |   ⚠️   |
 | Personal Data Scraper             | In development      |   ⚠️   |
+
+[All Features](./docs/community/features.md)
 
 > [!IMPORTANT]\
 > Due to the sensitive nature of OSINT tools, full versions of some tools will not be provided. For example, the WhatsApp LOGS tool is only available in a basic version.
@@ -88,22 +88,6 @@ $ python cli.py help
 | Ollama                         | Llama3, Gemma                                 | Local       | None    |
 | OpenAI                         | GPT-4o, GPT-4, GPT-3.5 Turbo, GPT-3.5         | API         | None    |
 | Perplexity                     | Llama3, Mixtral                               | API         | None    |
-
-<details open>
-<summary>All Features</summary>
-
-- Get social accounts of an email using multiple sources.
-- Generate LOGS of a person's activity in applications such as WhatsApp.
-- Download web content, including videos, and other resources nested to a website.
-- Generate customized and automated dictionaries with possible passwords or e-mails based on your target.
-- Mass and/or controlled port scanning.
-- Search people from an image or video (facial detection and recognition).
-- Massive metadata extraction.
-- Search for vulnerable paths using directory listing.
-- Get domains registered with an email (reverse whois).
-- Find emails, phone numbers from a username.
-
-</details>
 
 Requirements available at [`REQUIREMENTS`](./docs/REQUIREMENTS.md).
 

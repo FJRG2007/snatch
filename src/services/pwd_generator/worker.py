@@ -64,11 +64,7 @@ def main():
     # Customized words.
     if getPositive(quest("Do you want to add some key words about the victim? Y/[N]"), default=False): profile["words"] = quest("Please enter the words, separated by comma. [i.e. hacker,juice,black], spaces will be removed").replace(" ", "").split(",")
     else: profile["words"] = [""]
-
     profile["spechars1"] = getPositive(quest("Do you want to add special chars at the end of words? Y/[N]"), default=False)
-
     profile["randnum"] = getPositive(quest("Do you want to add some random numbers at the end of words? Y/[N]"), default=False)
-   
     profile["leetmode"] = getPositive(quest("Leet mode? (i.e. leet = 1337) Y/[N]", lowercase=True), default=False)
-
     generate_wordlist_from_profile(profile)

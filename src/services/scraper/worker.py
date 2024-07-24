@@ -7,7 +7,6 @@ def get_function(module_name, function_name="main"):
 def main(platforms, userid, intitle, intext, site, inurl, filetype, ext, engine, num_results, saveonfile):
     # To avoid code repetitions.
     query_dorks = { "intitle": intitle, "intext": intext, "site": site, "inurl": inurl, "filetype": filetype, "ext": ext }
-
     platforms = platforms.strip().lower()
     functions = [
         ("discord", {"userId": userid}),
