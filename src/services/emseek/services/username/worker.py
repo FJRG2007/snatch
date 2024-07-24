@@ -12,6 +12,7 @@ def auto():
     banner()
 
 def banner():
+    cls()
     print(f'\n{cl.des_space}{cl.b}>> {cl.w}To find the username you need, write your last name and \n{cl.des_space}{cl.b}>> {cl.w}first name in different ways. For example: vuiko, vuikoo, vu\n{cl.des_space}{cl.b}>> {cl.w}It still takes a long time to find your e-mail.\n')
 
 def restart(*args):
@@ -34,6 +35,7 @@ def selecttype(username, saveonfile):
     else: restart(username, saveonfile)
 
 def search_username(username, saveonfile):
+    cls()
     try:
         try: subprocess.check_output("pip install sherlock-project", shell=True, text=True)
         except subprocess.CalledProcessError: return terminal("nmi", "Sherlock")

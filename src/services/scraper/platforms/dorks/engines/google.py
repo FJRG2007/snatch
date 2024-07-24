@@ -99,3 +99,4 @@ def main(query, num_results, saveonfile):
                 file.close()
             sleep(0.1)
     except KeyboardInterrupt: terminal(KeyboardInterrupt)
+    except Exception as e: pass
