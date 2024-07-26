@@ -4,11 +4,13 @@ from src.lib.config import config
 from src.utils.basics import cls, noToken, terminal, setColor, getTypeString
 
 # Utils.
-from .services.proton import main as protonMailManager
+from .services.proton.worker import main as protonMailManager
+from .services.google.worker import main as gmailManager
 
 def fetch_snatch_data(email):
     user, domain = email.split("@")
     if domain in ["protonmail.com", "proton.me", "protonmail.ch", "pm.me"]: protonMailManager(email)
+    if domain == "gmail.com": gmailManager(email)
 
 def fetch_dymo_data(params):
     try:
