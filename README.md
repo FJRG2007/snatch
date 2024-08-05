@@ -105,3 +105,5 @@ To contribute to the project visit the requirements at [`CONTRIBUTING`](./docs/d
 #### License
 The founder of the project, [FJRG2007](https://github.com/FJRG2007/), reserves the right to modify the license at any time.
 This project is licensed under the terms of the [GNU Affero General Public License](./LICENSE).
+
+<p align="right"><a href="#top">Back to top 🔼</a></p>
