@@ -27,6 +27,9 @@ Alternatively, you can directly execute commands via your terminal to utilize **
 
 It's important to emphasize that **Snatch** is a work in progress, and all operations are conducted locally. Users should exercise caution as they assume full responsibility for their actions.
 
+> [!NOTE]\
+> All documentation will be migrated to [Dymo Docs](https://tpe.li/D-SNATCH).
+
 **Disclaimer**: This tool are for technical discussion and sharing only. Illegal use is strictly prohibited.
 
 <img src="./docs/images/basic-diagram.jpeg" loading="lazy" />

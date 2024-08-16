@@ -1,4 +1,5 @@
-import re, ipaddress
+import os, re, ipaddress
+from dymoapi import DymoAPI
 from src.utils.basics import cls
 
 from .services.domain.worker import main as mainDomainWorker
@@ -6,6 +7,11 @@ from .services.phone.worker import main as mainPhoneWorker
 from .services.email.worker import main as mainEmailWorker
 from .services.ip_address.worker import main as mainIpAddressWorker
 from .services.username.worker import main as mainUserWorker
+
+dymo = DymoAPI({
+    "organization": os.getenv("DYMO_API_ORGANIZATION_ID"),
+    "api_key": os.getenv("DYMO_API_KEY")
+})
 
 def main(input_data, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list):
     cls()
