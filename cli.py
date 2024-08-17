@@ -64,9 +64,11 @@ def help(section):
     get_function("help")(section)
 
 @cli.command()
+
+@click.option("-l", "--language", default="en", help="Language.")
 @click.option("-s", "--saveonfile", is_flag=True, type=bool, help="Saves the information in a file.")
-def imganal(saveonfile):
-    get_function("image_analysis")(saveonfile)
+def imganal(language, saveonfile):
+    get_function("image_analysis")(language, saveonfile)
 
 @cli.command()
 def info():

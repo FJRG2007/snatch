@@ -3,6 +3,7 @@
 **Description**: Facial detection and recognition.
 
 **Options**:
+* `-l` or `--language` (optional): Language.
 * `-s` or `--saveonfile` (optional): Saves the information in a file.
 * `--help` (optional): Display help information for the command.
 
