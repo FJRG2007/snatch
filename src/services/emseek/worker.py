@@ -8,10 +8,14 @@ from .services.email.worker import main as mainEmailWorker
 from .services.ip_address.worker import main as mainIpAddressWorker
 from .services.username.worker import main as mainUserWorker
 
-dymo = DymoAPI({
-    "organization": os.getenv("DYMO_API_ORGANIZATION_ID"),
-    "api_key": os.getenv("DYMO_API_KEY")
-})
+DYMO_API_ORGANIZATION_ID = os.getenv("DYMO_API_ORGANIZATION_ID")
+DYMO_API_KEY = os.getenv("DYMO_API_KEY")
+
+if DYMO_API_ORGANIZATION_ID and DYMO_API_KEY:
+    dymo = DymoAPI({
+        "organization": os.getenv("DYMO_API_ORGANIZATION_ID"),
+        "api_key": os.getenv("DYMO_API_KEY")
+    })
 
 def main(input_data, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list):
     cls()
