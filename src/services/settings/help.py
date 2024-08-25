@@ -11,8 +11,7 @@ def restart():
     help()
 
 def help():
-    terminal("info", 
-        f"""Welcome to the Snatch help center, select an option below to continue.""")
+    terminal("info", f"""Welcome to the Snatch help center, select an option below to continue.""")
     providers = [
         ("1", "Set up AI model"),
         ("2", "Verify Snatch version and files")
