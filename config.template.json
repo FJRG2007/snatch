@@ -1,0 +1,24 @@
+/*
+* Snatch by FJRG2007.
+* All default settings are the most optimal for Snatch.
+*/
+{
+    "ai": {
+        // Best free model for remote use (via API).
+        "provider": "groq",
+        "model": "llama3-70b-8192",
+        "temperature": 0.75,
+        "max_tokens": 1024,
+        // In case of using a free or local model, there is no reason to disable the second response of the model, which gives additional information.
+        "second_response": true,
+        // Still under development, this feature will allow you to listen to the model in real time.
+        "text_to_speech": false
+    },
+    // Coming soon.
+    "downloader": {
+        "output_dir": "",
+        // Downloader will ignore all files heavier than the following size.
+        "max_file_size": "",
+        "ignore_file_types": []
+    }
+}
