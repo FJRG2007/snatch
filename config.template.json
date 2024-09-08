@@ -1,6 +1,7 @@
 /*
 * Snatch by FJRG2007.
 * All default settings are the most optimal for Snatch.
+* Note: Remember that most configurations can be done from the command line to prevent typos.
 */
 {
     "ai": {
