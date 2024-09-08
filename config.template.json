@@ -7,8 +7,11 @@
     "ai": {
         // Best free model for remote use (via API).
         "provider": "groq",
+        // Model used for AI.
         "model": "llama3-70b-8192",
+        // AI model temperature.
         "temperature": 0.75,
+        // Amount of response tokens.
         "max_tokens": 1024,
         // In case of using a free or local model, there is no reason to disable the second response of the model, which gives additional information.
         "second_response": true,
@@ -17,9 +20,9 @@
     },
     // Coming soon.
     "downloader": {
-        "output_dir": "",
         // Downloader will ignore all files heavier than the following size.
         "max_file_size": "",
+        // List of file types/extensions that the Downloader will ignore.
         "ignore_file_types": []
     }
 }
