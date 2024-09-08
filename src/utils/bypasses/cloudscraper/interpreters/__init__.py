@@ -1,7 +1,4 @@
-import sys
-import logging
-import abc
-
+import abc, sys, logging
 from ..exceptions import CloudflareSolveError
 
 if sys.version_info >= (3, 4): ABC = abc.ABC  # noqa

@@ -1,7 +1,7 @@
 import abc, sys, logging
 
 if sys.version_info >= (3, 4): ABC = abc.ABC  # noqa
-else: ABC = abc.ABCMeta('ABC', (), {})
+else: ABC = abc.ABCMeta("ABC", (), {})
 
 captchaSolvers = {}
 
@@ -14,13 +14,12 @@ class Captcha(ABC):
     def dynamicImport(cls, name):
         if name not in captchaSolvers:
             try:
-                __import__(f'{cls.__module__}.{name}')
-                if not isinstance(captchaSolvers.get(name), Captcha): raise ImportError('The anti captcha provider was not initialized.')
+                __import__(f"{cls.__module__}.{name}")
+                if not isinstance(captchaSolvers.get(name), Captcha): raise ImportError("The anti captcha provider was not initialized.")
             except ImportError as e:
                 sys.tracebacklimit = 0
-                logging.error(f'Unable to load {name} anti captcha provider -> {e}')
+                logging.error(f"Unable to load {name} anti captcha provider -> {e}")
                 raise
-
         return captchaSolvers[name]
 
     @abc.abstractmethod

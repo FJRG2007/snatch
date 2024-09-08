@@ -24,9 +24,7 @@ class Calc(ast.NodeVisitor):
 
     @classmethod
     def doMath(cls, expression):
-        tree = ast.parse(expression)
-        calc = cls()
-        return calc.visit(tree.body[0])
+        return cls().visit(ast.parse(expression).body[0])
 
 class Parentheses(object):
 
@@ -116,9 +114,8 @@ class ChallengeInterpreter(JavaScriptInterpreter):
                 try: kID = re.search(r"\s*k\s*=\s*'(?P<kID>\S+)';", body).group('kID')
                 except IndexError: raise CloudflareSolveError('There was an issue extracting "kID" from the Cloudflare challenge.')
                 try:
-                    r = re.compile(r'<div id="{}(?P<id>\d+)">\s*(?P<jsfuck>[^<>]*)</div>'.format(kID))
                     kValues = {}
-                    for m in r.finditer(body):
+                    for m in re.compile(r'<div id="{}(?P<id>\d+)">\s*(?P<jsfuck>[^<>]*)</div>'.format(kID)).finditer(body):
                         kValues[int(m.group('id'))] = m.group('jsfuck')
                     jsfuckChallenge['k'] = kValues[kJSFUCK]
                 except (AttributeError, IndexError): raise CloudflareSolveError('There was an issue extracting "kValues" from the Cloudflare challenge.')

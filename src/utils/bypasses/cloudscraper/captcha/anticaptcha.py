@@ -22,7 +22,6 @@ class captchaSolver(Captcha):
     @staticmethod
     def checkErrorStatus(response):
         if response.status_code in [500, 502]: raise CaptchaServiceUnavailable(f'anticaptcha: Server Side Error {response.status_code}')
-
         payload = response.json()
         if payload['errorId'] >= 1:
             if 'errorDescription' in payload: raise CaptchaAPIError(payload['errorDescription'])
@@ -33,7 +32,6 @@ class captchaSolver(Captcha):
 
         def _checkRequest(response):
             self.checkErrorStatus(response)
-
             if response.ok and response.json()['status'] == 'ready': return True
             return None
 
@@ -60,7 +58,6 @@ class captchaSolver(Captcha):
     def requestSolve(self, captchaType, url, siteKey):
         def _checkRequest(response):
             self.checkErrorStatus(response)
-
             if response.ok and response.json()['taskId']: return True
             return None
 
@@ -92,24 +89,18 @@ class captchaSolver(Captcha):
         if response: return response.json()['taskId']
         else: raise CaptchaBadJobID('anticaptcha: Error no task id was returned.')
 
-    
-
     def getCaptchaAnswer(self, captchaType, url, siteKey, captchaParams):
         taskID = None
         if not captchaParams.get('clientKey'): raise CaptchaParameter("anticaptcha: Missing clientKey parameter.")
-
         self.clientKey = captchaParams.get('clientKey')
-
         if captchaParams.get('proxy') and not captchaParams.get('no_proxy'):
             hostParsed = urlparse(captchaParams.get('proxy', {}).get('https'))
             if not hostParsed.scheme: raise CaptchaParameter('Cannot parse proxy correctly, bad scheme')
             if not hostParsed.netloc: raise CaptchaParameter('Cannot parse proxy correctly, bad netloc')
-
             ports = {
                 'http': 80,
                 'https': 443
             }
-
             self.proxy = {
                 'proxyType': hostParsed.scheme,
                 'proxyAddress': hostParsed.hostname,

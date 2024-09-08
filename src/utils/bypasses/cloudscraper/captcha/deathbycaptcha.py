@@ -105,9 +105,7 @@ class captchaSolver(Captcha):
 
         if response: return response.json().get('text')
         else: raise CaptchaTimeout("DeathByCaptcha: Error failed to solve reCaptcha.")
-
     
-
     def requestSolve(self, captchaType, url, siteKey):
         def _checkRequest(response):
             if response.ok and response.json().get("is_correct") and response.json().get('captcha'): return response
@@ -179,9 +177,7 @@ class captchaSolver(Captcha):
             self.proxyType = hostParsed.scheme.upper()
             self.proxy = captchaParams.get('proxy', {}).get('https')
         else: self.proxy = None
-
         if captchaType not in self.captchaType: raise CaptchaException(f'DeathByCaptcha: {captchaType} is not supported by this provider.')
-
         try:
             jobID = self.requestSolve(captchaType, url, siteKey)
             return self.requestJob(jobID)
@@ -189,7 +185,6 @@ class captchaSolver(Captcha):
             try:
                 if jobID: self.reportJob(jobID)
             except polling2.TimeoutException: raise CaptchaTimeout(f"DeathByCaptcha: Captcha solve took to long and also failed reporting the job id {jobID}.")
-
             raise CaptchaTimeout(f"DeathByCaptcha: Captcha solve took to long to execute job id {jobID}, aborting.")
 
 captchaSolver()

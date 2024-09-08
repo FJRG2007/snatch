@@ -87,7 +87,6 @@ class captchaSolver(Captcha):
         
         def _checkRequest(response):
             if response.ok and response.json().get('answer') != 'NO DATA': return response
-
             self.checkErrorStatus(response)
             return None
 
@@ -140,16 +139,11 @@ class captchaSolver(Captcha):
         else: raise CaptchaBadJobID('9kw: Error no valid job id was returned.')
 
     def getCaptchaAnswer(self, captchaType, url, siteKey, captchaParams):
-
         if not captchaParams.get('api_key'): raise CaptchaParameter("9kw: Missing api_key parameter.")
-
         self.api_key = captchaParams.get('api_key')
-
         if captchaParams.get('maxtimeout'): self.maxtimeout = captchaParams.get('maxtimeout')
-
         if captchaParams.get('proxy'): self.session.proxies = captchaParams.get('proxies')
         if captchaType not in self.captchaType: raise CaptchaException(f'9kw: {captchaType} is not supported by this provider.')
-
         try: return self.requestJob(self.requestSolve(captchaType, url, siteKey))
         except polling.TimeoutException: raise CaptchaTimeout(f"9kw: solve took to long to execute 'captchaid' {self.requestSolve(captchaType, url, siteKey)}, aborting.")
 

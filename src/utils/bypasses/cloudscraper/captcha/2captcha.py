@@ -100,8 +100,6 @@ class captchaSolver(Captcha):
         if response: return True
         else: raise CaptchaReportError("2Captcha: Error - Failed to report bad Captcha solve.")
 
-    
-
     def requestJob(self, jobID):
         if not jobID: raise CaptchaBadJobID("2Captcha: Error bad job id to request Captcha.")
 

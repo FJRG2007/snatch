@@ -54,8 +54,6 @@ class captchaSolver(Captcha):
             else: return payload['gRecaptchaResponse']
         else: raise CaptchaTimeout("CapMonster: Error failed to solve Captcha.")
 
-    
-
     def requestSolve(self, captchaType, url, siteKey):
         def _checkRequest(response):
             self.checkErrorStatus(response)
@@ -98,12 +96,10 @@ class captchaSolver(Captcha):
             hostParsed = urlparse(captchaParams.get('proxy', {}).get('https'))
             if not hostParsed.scheme: raise CaptchaParameter('Cannot parse proxy correctly, bad scheme')
             if not hostParsed.netloc: raise CaptchaParameter('Cannot parse proxy correctly, bad netloc')
-
             ports = {
                 'http': 80,
                 'https': 443
             }
-
             self.proxy = {
                 'proxyType': hostParsed.scheme,
                 'proxyAddress': hostParsed.hostname,
@@ -112,12 +108,11 @@ class captchaSolver(Captcha):
                 'proxyPassword': hostParsed.password,
             }
         else: self.proxy = None
-
         try:
             taskID = self.requestSolve(captchaType, url, siteKey)
             return self.requestJob(taskID)
         except polling2.TimeoutException:
-            try:
+            try: 
                 if taskID: self.reportJob(taskID)
             except polling2.TimeoutException: raise CaptchaTimeout("CapMonster: Captcha solve took to long and also failed " f"reporting the task with task id {taskID}.")
             raise CaptchaTimeout("CapMonster: Captcha solve took to long to execute " f"task id {taskID}, aborting.")
