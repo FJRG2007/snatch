@@ -56,7 +56,7 @@ def quest(prompt, newline=False, lowercase=False, tab=False, format_type=str):
             if format_type == int: return int(response)
             elif format_type == str and lowercase: return response.lower()
             return response
-        except ValueError: terminal("e", "Enter a valid value.", timer=True)
+        except (ValueError, EOFError): terminal("e", "Enter a valid value.", timer=True)
 
 def getPositive(q, default=True) -> bool:
     positive_responses = ["y", "yes", "yeah", "continue", "s", "si", "sí", "oui", "wa", "ja"]
