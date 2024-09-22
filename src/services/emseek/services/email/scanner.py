@@ -1,6 +1,7 @@
 import os, requests
 import src.lib.colors as cl
 from src.lib.config import config
+from src.lib.clients import dymo_client
 from src.utils.basics import cls, noToken, terminal, setColor, getTypeString
 
 # Utils.
@@ -14,19 +15,10 @@ def fetch_snatch_data(email):
 
 def fetch_dymo_data(params):
     try:
-        response = requests.get("https://api.tpeoficial.com/v1/private/secure/verify", params=params, headers={"Authorization": f"Bearer {os.getenv('DYMO_API_KEY')}"})
-        if response.status_code == 200: 
-            r = response.json()
-            if not (r["error"]): return r
-            elif r["error"] == "❌ Access denied, token expired or incorrect.":
-                terminal("e", "Invalid Dymo API Key.")
-                return {"email": {}}
-            else: 
-                terminal("e", r["error"])
-                return {"email": {}}
-        else: 
-            terminal("e", "An error occurred while making a Dymo API request.")
+        if not dymo_client: 
+            terminal("e", "Invalid Dymo API Key.")
             return {"email": {}}
+        return dymo_client.is_valid_data(params)
     except: terminal("e", "Invalid Hunter API Key.")
 def fetch_hunter_data(email):
     try:
