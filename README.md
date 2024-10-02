@@ -74,7 +74,7 @@ $ python cli.py help
 | Metadata Extractor	              | In development	    |   ⚠️   |
 | Personal Data Scraper             | In development      |   ⚠️   |
 
-[All Features](./docs/community/features.md)
+[All Features](https://docs.tpeoficial.com/docs/snatch/getting-started/modules)
 
 > [!IMPORTANT]\
 > Due to the sensitive nature of OSINT tools, full versions of some tools will not be provided. For example, the WhatsApp LOGS tool is only available in a basic version.
