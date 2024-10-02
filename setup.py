@@ -16,10 +16,10 @@ setup(
     include_package_data=True,
     entry_points={
         "console_scripts": [
-            "snatch = src.cli:main",
-        ],
+            "snatch = src.cli:main"
+        ]
     },
     package_data={
-        "": find_data_files("src"),
-    },
+        "": find_data_files("src")
+    }
 )

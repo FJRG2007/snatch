@@ -45,4 +45,5 @@ def process_images_in_process_pool(images_to_check, known_names, known_face_enco
 def main(known_people_folder, image_to_check, cpus, tolerance, show_distance):
     # Multi-core processing only supported on Python 3.4 or greater.
     if (sys.version_info < (3, 4)): return terminal("w", "Multi-processing support requires Python 3.4 or greater. Falling back to single-threaded processing!")
-    test_image(image_to_check, **scan_known_people(known_people_folder), tolerance, show_distance)
+    known_names, known_face_encodings = scan_known_people(known_people_folder)
+    test_image(image_to_check, known_names, known_face_encodings, tolerance, show_distance)
