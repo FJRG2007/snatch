@@ -48,11 +48,11 @@ def coloredText(word, hex_color) -> str:
     except: return word
 
 def quest(prompt, newline=False, lowercase=False, tab=False, format_type=str):
-    prefix = f"\n" if newline else ''
-    prefix += f"\t" if tab else ''
+    prefix = f"\n" if newline else ""
+    prefix += f"\t" if tab else ""
     while True:
         try:
-            response = input(f"{prefix}{cl.b}[{cl.w}?{cl.b}]{cl.w} {prompt}: ")
+            response = input(f"{prefix}{cl.b}[{cl.w}?{cl.b}]{cl.w} {prompt}: ").strip()
             if format_type == int: return int(response)
             elif format_type == str and lowercase: return response.lower()
             return response
