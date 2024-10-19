@@ -87,3 +87,8 @@ Allows the extraction of metadata from files of any type with different extracti
 <b>Version</b> 0.0.1<br /><b>Status</b> In development<br /><b>Active</b> Partial usable
 
 With the data scraping moudlo, the user can search and analyze information from the different social networks of the target, search with dorks, among other things.
+
+### URL Tracker
+<b>Version</b> 0.0.1<br /><b>Status</b> In development<br /><b>Active</b> Partial usable
+
+Automatic URL tracker, scans redirects, responses, error codes, validations, and much more.

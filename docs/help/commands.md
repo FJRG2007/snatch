@@ -28,6 +28,7 @@ $ snatch help ai
 * [pwdgen](./commands/pwdgen.md)
 * [scraper](./commands/scraper.md)
 * [settings](./commands/settings.md)
+* [trackurl](./commands/trackurl.md)
 * [whatsapp](./commands/whatsapp.md)
 * [wifiscan](./wifiscan.md)
 * Coming Soon

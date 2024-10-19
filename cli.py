@@ -121,6 +121,12 @@ def settings(option, suboption, help):
     get_function("settings")(option, suboption, help)
 
 @cli.command()
+@click.argument("url", required=True)
+def trackurl(url):
+    if not url: terminal("e", f"Enter a valid URL; run \"{data.pre_cmd} trackurl --help\" for further help.")
+    get_function("url_tracker")(url)
+
+@cli.command()
 @click.argument("username", required=True)
 @click.argument("language", required=True)
 def whatsapp(username, language):
