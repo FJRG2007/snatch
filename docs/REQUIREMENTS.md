@@ -27,22 +27,23 @@ pip install -r requirements.txt
 
 ### Dependent APIs
 
-| Name                                                 | Utility                | Required |
-|------------------------------------------------------|------------------------|----------|
-| [Anthropic](https://www.anthropic.com/)              | AI model               | ❌       |
-| [Cartesia](https://play.cartesia.ai/)                | AI voice model         | ❌       |
-| [Discord](https://discord.com/)                      | Information gathering  | ✅       |
-| [Dymo AGI](https://dymo.tpeoficial.com/)             | Data and AI model      | ❌       |
-| [Face Check ID](https://facecheck.id/)               | Visual data search     | ❌       |
-| [Gemini](https://gemini.google.com/app)              | AI model               | ❌       |
-| [Groq](https://console.groq.com/)                    | AI model               | ❌       |
-| [Hacker Target](https://hackertarget.com/)           | Information search     | ❌       |
-| [Have I Been Pwned](https://haveibeenpwned.com/)     | Email data             | ❌       |
-| [Hunter](https://hunter.io/)                         | Email data             | ❌       |
-| [OpenAI](https://openai.com/)                        | AI model               | ❌       |
-| [Perplexity](https://perplexity.ai/)                 | AI model               | ❌       |
-| [WhoisFreacks](https://whoisfreaks.com/)             | Information search     | ✅       |
-| [Whois XML API](https://whoisxmlapi.com/)            | Information search     | ✅       |
+| Name                                                 | Utility                         | Required |
+|------------------------------------------------------|---------------------------------|----------|
+| [Anthropic](https://www.anthropic.com/)              | AI model                        | ❌       |
+| [Cartesia](https://play.cartesia.ai/)                | AI voice model                  | ❌       |
+| [Discord](https://discord.com/)                      | Information gathering           | ✅       |
+| [Dymo AGI](https://dymo.tpeoficial.com/)             | Data and AI model               | ❌       |
+| [Face Check ID](https://facecheck.id/)               | Visual data search              | ❌       |
+| [Gemini](https://gemini.google.com/app)              | AI model                        | ❌       |
+| [GeoSpy](https://geospy.ai)                          | AI model for visual data search | ❌       |
+| [Groq](https://console.groq.com/)                    | AI model                        | ❌       |
+| [Hacker Target](https://hackertarget.com/)           | Information search              | ❌       |
+| [Have I Been Pwned](https://haveibeenpwned.com/)     | Email data                      | ❌       |
+| [Hunter](https://hunter.io/)                         | Email data                      | ❌       |
+| [OpenAI](https://openai.com/)                        | AI model                        | ❌       |
+| [Perplexity](https://perplexity.ai/)                 | AI model                        | ❌       |
+| [WhoisFreacks](https://whoisfreaks.com/)             | Information search              | ✅       |
+| [Whois XML API](https://whoisxmlapi.com/)            | Information search              | ✅       |
 
 ### Dependent accounts/platforms
 
