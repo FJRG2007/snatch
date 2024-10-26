@@ -1,11 +1,12 @@
 
 from . import basics
 from src.utils.basics import terminal
+from src.services.image_analysis.facial_dec_rec.modules.pimeyes.worker import search_on_pim_eyes
 import os, re, sys, numpy as np, PIL.Image, itertools, multiprocessing
-def scan_known_people(known_people_folder):
+def scan_known_people():
     known_names = []
     known_face_encodings = []
-    for file in [os.path.join(known_people_folder, f) for f in os.listdir(known_people_folder) if re.match(r".*\.(jpg|jpeg|png)", f, flags=re.I)]:
+    for file in [os.path.join("customs/image_analysis/known_people_folder", f) for f in os.listdir("customs/image_analysis/known_people_folder") if re.match(r".*\.(jpg|jpeg|png)", f, flags=re.I)]:
         encodings = basics.face_encodings(basics.load_image_file(file))
         if len(encodings) > 1: terminal("w", "More than one face found in {}. Only considering the first face.".format(file))
         if len(encodings) == 0: terminal("w", "No faces found in {}. Ignoring file.".format(file))
@@ -42,8 +43,12 @@ def process_images_in_process_pool(images_to_check, known_names, known_face_enco
         itertools.repeat(show_distance)
     ))
 
-def main(known_people_folder, image_to_check, cpus, tolerance, show_distance):
+def main(tolerance=5, show_distance=True):
     # Multi-core processing only supported on Python 3.4 or greater.
     if (sys.version_info < (3, 4)): return terminal("w", "Multi-processing support requires Python 3.4 or greater. Falling back to single-threaded processing!")
-    known_names, known_face_encodings = scan_known_people(known_people_folder)
-    test_image(image_to_check, known_names, known_face_encodings, tolerance, show_distance)
+    known_names, known_face_encodings = scan_known_people()
+    for filename in os.listdir("customs/image_analysis"):
+        # First we will try to search PimEyes.
+        if filename.lower().endswith((".png", ".jpg", ".jpeg", ".gif", ".bmp")):
+            search_on_pim_eyes(os.path.abspath(os.path.join("customs/image_analysis", filename)), False)
+            test_image(os.path.join("customs/image_analysis", filename), known_names, known_face_encodings, tolerance, show_distance)

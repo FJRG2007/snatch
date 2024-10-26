@@ -15,6 +15,8 @@ customs/*
 !customs/directory_listing/
 !customs/extract_metadata/
 customs/directory_listing/*
+!customs/directory_listing/known_people_folder/WHAT_TO_PUT_HERE.txt
+customs/directory_listing/known_people_folder/*
 !customs/directory_listing/WHAT_TO_PUT_HERE.txt
 customs/extract_metadata/*
 !customs/extract_metadata/WHAT_TO_PUT_HERE.txt

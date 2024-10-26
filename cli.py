@@ -2,9 +2,9 @@ from dotenv import load_dotenv
 from src.utils.snatch import Snatch
 from textual.widgets import Markdown
 from src.lib import data, colors as cl
-import sys, click, pyfiglet, importlib
-from src.utils.basics import cls, terminal
 from textual.app import App, ComposeResult
+import os, sys, click, pyfiglet, importlib, tensorflow as tf
+from src.utils.basics import cls, terminal, set_terminal_title
 
 def get_function(module_name, function_name="main"):
     cls()
@@ -14,9 +14,12 @@ def get_function(module_name, function_name="main"):
 def cli():
     cls()
     print(pyfiglet.figlet_format("SNATCH"))
+    set_terminal_title("SNATCH")
     print(f'\n{cl.des_space}{cl.b}>> {cl.w}Welcome to Snatch, remember to use it responsibly. \n{cl.des_space}{cl.b}>> {cl.w}Join to our Discord server on tpe.li/dsc\n{cl.des_space}{cl.b}>> {cl.w}Version: {data.version}\n')
     if not sys.version[0] in "3": return terminal("e", "Snatch only works properly with Pytnon 3. Please upgrade/use Python 3.", exitScript=True)
     load_dotenv(override=True)
+    os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
+    tf.get_logger().setLevel("ERROR")
 
 @cli.command()
 @click.argument("prompt", required=False)

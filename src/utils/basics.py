@@ -5,7 +5,7 @@ from rich import print as rprint
 from rich.console import Console
 from urllib.parse import urlparse
 from rich.markdown import Markdown
-import os, re, sys, time, pyaudio, importlib, threading
+import os, re, sys, time, ctypes, pyaudio, platform, importlib, threading
 
 # It is imported in this way to avoid the circular import error.
 config_module = importlib.import_module("src.lib.config")
@@ -124,3 +124,9 @@ def fileManager(path, filename, create=True):
     filename = re.sub(r'[^A-Za-z0-9._@-]', "", filename)
     if create: os.makedirs(os.path.dirname(directory), exist_ok=True)
     return directory
+
+def set_terminal_title(title: str):
+    system = platform.system()
+    if system == "Windows": ctypes.windll.kernel32.SetConsoleTitleW(title)
+    elif system in ["Linux", "Darwin"]: print(f"\033]0;{title}\007", end="", flush=True)
+    else: raise OSError(f"Unsupported OS: {system}")

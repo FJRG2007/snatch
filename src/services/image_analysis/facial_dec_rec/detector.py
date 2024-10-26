@@ -2,7 +2,8 @@ from . import basics
 import src.lib.colors as cl
 from src.utils.basics import terminal
 from contextlib import contextmanager
-import os, re, sys, logging, itertools, multiprocessing
+import os, sys, logging, itertools, multiprocessing
+from ..facial_dec_rec.recognizer import main as recognizer
 
 @contextmanager
 def suppress_tensorflow_warnings():
@@ -15,7 +16,9 @@ def suppress_tensorflow_warnings():
 def test_image(image_to_check, saveonfile):
     with suppress_tensorflow_warnings():
         for face_location in basics.face_locations(basics.load_image_file(image_to_check)):
-            print(f"{cl.G} {os.path.basename(image_to_check)} {cl.w} {",".join(map(str, face_location))}")
+            print(f"{cl.g}Recognized face in{cl.ENDC} {cl.G}{os.path.basename(image_to_check)}{cl.w}: {",".join(map(str, face_location))}")
+            terminal("i", "Searching for face on the internet and databases...")
+            recognizer(saveonfile)
             if saveonfile: 
                 os.makedirs(f"output/image_analysis/detector/", exist_ok=True)
                 with open(os.path.join("output/image_analysis/detector/", f"{os.path.basename(image_to_check)}.txt"), "w") as f:

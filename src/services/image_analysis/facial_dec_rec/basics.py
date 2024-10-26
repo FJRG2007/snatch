@@ -1,5 +1,5 @@
-import numpy as np, cv2, mediapipe as mp
 from PIL import Image, ImageFile
+import numpy as np, cv2, mediapipe as mp
 from scipy.spatial.distance import euclidean
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
