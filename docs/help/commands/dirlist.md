@@ -9,6 +9,7 @@
 * `-m` or `--method` (optional): Listing method [directory (default), subdomain].
 * `-w` or `--wordlist` (optional): Dictionary with the routes to verify (by default Snatch includes its own).
 * `-h` or `--hide` (optional): Codes to hide [default None, ex: 5XX or 5XX, 404].
+* `--wordpress-plugins` (optional): Scanning Wordpress plugins [default False].
 * `--help` (optional): Display help information for the command.
 
 > [!IMPORTANT]  
