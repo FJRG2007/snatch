@@ -119,13 +119,13 @@ def crt_sh(domain_name):
 # WebOSINT Subscan (Subdomain Scanner)
 def subdomain_scanner(domain_name):
     subdomains_found = []
-    sdsreq = requests.get(f'https://crt.sh/?q={domain_name}&output=json')
-    if sdsreq.status_code == 200: print('\033[0;32m\033[1m\n\nScanning for subdomains now...')
+    sdsreq = requests.get(f"https://crt.sh/?q={domain_name}&output=json")
+    if sdsreq.status_code == 200: print("\033[0;32m\033[1m\n\nScanning for subdomains now...")
     else:
         print("\033[0;32mThe subdomain scanner tool is currently offline, please try again in a few minutes!\033[0m")
         sys.exit(1)
     for (key, value) in enumerate(sdsreq.json()):
-        subdomains_found.append(value['name_value'])
+        subdomains_found.append(value["name_value"])
     print(f"\n\n\033[0;35m\033[1mYour chosen targeted Domain for the Subdomain scan:\033[0;32m{domain_name}\033[0m\033[0;32m\n")
     subdomains = sorted(set(subdomains_found))
     for sub_link in subdomains:

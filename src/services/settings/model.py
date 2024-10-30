@@ -24,7 +24,7 @@ def show_models(provider):
         if 1 <= selector <= len(provider_data["models"]): 
             terminal("s", f"You have selected model: {provider_data['models'][selector - 1]['name']}")
             config.ai.provider = provider_data["name"].lower()
-            config.ai.model = provider_data['models'][selector - 1]["name"]
+            config.ai.model = provider_data["models"][selector - 1]["name"]
             config.save_config()
         else: terminal("e", "Invalid selection.")
     except ValueError: terminal("e", "Invalid input. Please enter a number.")

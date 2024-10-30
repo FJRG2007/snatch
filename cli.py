@@ -19,6 +19,7 @@ def cli():
     if not sys.version[0] in "3": return terminal("e", "Snatch only works properly with Pytnon 3. Please upgrade/use Python 3.", exitScript=True)
     load_dotenv(override=True)
     os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
+    os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
     tf.get_logger().setLevel("ERROR")
 
 @cli.command()
@@ -29,11 +30,12 @@ def ai(prompt):
 @cli.command()
 @click.argument("target", required=True)
 @click.option("-m", "--method", default="directory", type=str, help="Listing method [directory (default), subdomain].")
-@click.option("-w", "--wordlist", default="./src/lib/files/directory_listing.txt", type=str, help="Dictionary with routes.")
+@click.option("-w", "--wordlist", default="./src/lib/files/directory_listing/directory_listing.txt", type=str, help="Dictionary with routes.")
 @click.option("-h", "--hide", default="", type=str, help="Codes to hide [default None, ex: 5XX or 5XX, 404].")
-def dirlist(target, method, wordlist, hide):
+@click.option("--wordpress-plugins", is_flag=True, default=False, type=bool, help="Scanning Wordpress plugins [default False].")
+def dirlist(target, method, wordlist, hide, wordpress_plugins):
     if not target: terminal("e", f"Enter a valid option; run \"{data.pre_cmd} dirlist --help\" for further help.")
-    get_function("directory_listing")(target, method, wordlist, hide)
+    get_function("directory_listing")(target, method, wordlist, hide, wordpress_plugins)
 
 @cli.command()
 @click.argument("url", required=False)
