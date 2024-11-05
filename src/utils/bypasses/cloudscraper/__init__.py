@@ -1,5 +1,5 @@
-import ssl, sys, logging, requests
 from requests.sessions import Session
+import ssl, sys, time, logging, requests
 from requests_toolbelt.utils import dump
 from requests.adapters import HTTPAdapter
 try: import brotli
@@ -87,7 +87,7 @@ class CloudScraper(Session):
         if "requests" in self.headers["User-Agent"]:
             self.headers = self.user_agent.headers
             if not self.cipherSuite: self.cipherSuite = self.user_agent.cipherSuite
-        if isinstance(self.cipherSuite, list): self.cipherSuite = ':'.join(self.cipherSuite)
+        if isinstance(self.cipherSuite, list): self.cipherSuite = ":".join(self.cipherSuite)
         self.mount("https://", CipherSuiteAdapter(cipherSuite=self.cipherSuite, ecdhCurve=self.ecdhCurve, server_hostname=self.server_hostname, source_address=self.source_address, ssl_context=self.ssl_context))
         copyreg.pickle(ssl.SSLContext, lambda obj: (obj.__class__, (obj.protocol,)))
 
@@ -113,11 +113,33 @@ class CloudScraper(Session):
             else: logging.warning(f'You\'re running urllib3 {requests.packages.urllib3.__version__}, Brotli content detected, ' "Which requires manual decompression, " "But option allow_brotli is set to False, " "We will not continue to decompress.")
         return resp
 
+    def has_cloudflare_waf(self, method, url, *args, **kwargs):
+        try:
+            response = requests.request(method, url, *args, **kwargs)
+            has_cloudflare = "server" in response.headers and "cloudflare" in response.headers["server"].lower()
+            response.has_cloudflare = has_cloudflare
+            return response
+        except requests.RequestException as error:
+            terminal("e", f"An error occurred while bypassing Cloudflare: {error}")
+            class ErrorResponse:
+                has_cloudflare = False
+            return ErrorResponse()
+
     def request(self, method, url, *args, **kwargs):
         domain = urlparse(url).netloc
         if domain not in self.visited_domains:
+            has_cloudflare = self.has_cloudflare_waf(method, url, *args, **kwargs)
+            if not has_cloudflare.has_cloudflare:
+                del has_cloudflare.has_cloudflare
+                return has_cloudflare
+            terminal("i", "I have detected that this site is protected with Cloudflare,\nI will have to bypass your security, it will take a few seconds.\n")
+            start_time = time.time()
             for _ in range(5):
-                print(f"Pre-fetching {domain}... x{_+1}", end="\r")
+                elapsed_time = time.time() - start_time
+                if elapsed_time > 13:
+                    print("Pre-fetching took too long, restarting...")
+                    break
+                print(f"Pre-fetching {domain} for bypassing Cloudflare... x{_+1}", end="\r")
                 self.perform_request(method, url, *args, **kwargs)
             print("\n")
             self.visited_domains.append(domain)
@@ -138,7 +160,7 @@ class CloudScraper(Session):
             if cloudflareV1.is_Challenge_Request(response):
                 if self._solveDepthCnt >= self.solveDepth:
                     _ = self._solveDepthCnt
-                    self.simpleException( CloudflareLoopProtection, f"!!Loop Protection!! We have tried to solve {_} time(s) in a row.")
+                    self.simpleException(CloudflareLoopProtection, f"!!Loop Protection!! We have tried to solve {_} time(s) in a row.")
                 self._solveDepthCnt += 1
                 response = cloudflareV1.Challenge_Response(response, **kwargs)
             elif not response.is_redirect and response.status_code not in [429, 503]: self._solveDepthCnt = 0
