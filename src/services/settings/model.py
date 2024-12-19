@@ -28,7 +28,7 @@ def show_models(provider):
             config.save_config()
         else: terminal("e", "Invalid selection.")
     except ValueError: terminal("e", "Invalid input. Please enter a number.")
-def model(opt):
+def model(opt):    
     cls()
     if opt == "default" or opt == "models":
         terminal("info", f"Select a provider to continue to select the model.")
