@@ -1,6 +1,5 @@
 import src.lib.colors as cl
 from rich.panel import Panel
-from cartesia import Cartesia
 from rich import print as rprint
 from rich.console import Console
 from urllib.parse import urlparse
