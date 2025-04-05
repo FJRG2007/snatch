@@ -6,7 +6,7 @@ bleach==6.1.0
 certifi==2024.8.30
 charset-normalizer==3.3.2
 colorama==0.4.6
-dymoapi==0.0.27
+dymoapi==0.0.28
 decorator==5.1.1
 defusedxml==0.7.1
 docopt==0.6.2
