@@ -3,8 +3,14 @@ from src.utils.snatch import Snatch
 from textual.widgets import Markdown
 from src.lib import data, colors as cl
 from textual.app import App, ComposeResult
-import os, sys, click, pyfiglet, importlib, tensorflow as tf
+import os, sys, click, pyfiglet, importlib
 from src.utils.basics import cls, terminal, set_terminal_title
+
+# Disable Tensorflow logs.
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
+
+import tensorflow as tf
 
 def get_function(module_name, function_name="main"):
     cls()
@@ -18,8 +24,6 @@ def cli():
     print(f'\n{cl.des_space}{cl.b}>> {cl.w}Welcome to Snatch, remember to use it responsibly. \n{cl.des_space}{cl.b}>> {cl.w}Join to our Discord server on tpe.li/dsc\n{cl.des_space}{cl.b}>> {cl.w}Version: {data.version}\n')
     if not sys.version[0] in "3": return terminal("e", "Snatch only works properly with Pytnon 3. Please upgrade/use Python 3.", exitScript=True)
     load_dotenv(override=True)
-    os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
-    os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
     tf.get_logger().setLevel("ERROR")
 
 @cli.command()

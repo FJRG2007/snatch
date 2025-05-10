@@ -1,7 +1,7 @@
 import importlib
 import src.lib.colors as cl
 from datetime import datetime
-from src.utils.basics import cls, quest, terminal, getPositive
+from src.utils.basics import cls, quest, terminal
 
 def get_function(module_name, function_name="main"):
     try: return getattr(importlib.import_module(f"src.services.scraper.platforms.dorks.engines.{module_name}"), function_name)
@@ -29,7 +29,7 @@ def main(query, engine, num_results, saveonfile):
                 terminal("e", "Invalid number. Defaulting to 'All'.")
                 engine = "All"
         else: engine = engine_input
-    if engine.lower() == "all": engines_to_use = [eng.lower() for eng in engines[1:]]  # Exclude "All" from the list.
+    if engine.lower() == "all": engines_to_use = [eng.lower() for eng in engines[1:]] # Exclude "All" from the list.
     else: engines_to_use = [engine.lower()]
     if not num_results: num_results = quest("Number of results", format_type=int)
     # Add Banner.
@@ -38,9 +38,10 @@ def main(query, engine, num_results, saveonfile):
     print(f"Engine: {next((eng for eng in engines if eng.lower() == engine.lower()), None)}")
     print(f"Number of results: {num_results}")
     print(f"Scanning started at: {str(datetime.now())}")
-    print(f"{cl.G} Recommended resource {cl.w} https://tools.tpeoficial.com/tools/google-dorks-search")
+    print(f"{cl.G} Recommended resource {cl.w} https://tools.tpeoficial.com/tools/google-dorks-search") # Deprecated.
     print("-" * 50)
     for eng in engines_to_use:
+        print(f"Scanning with engine: {eng}")
         func = get_function(eng)
         if func: func(query, num_results, saveonfile)
         else: terminal("e", f"No function available for engine: {eng}")
