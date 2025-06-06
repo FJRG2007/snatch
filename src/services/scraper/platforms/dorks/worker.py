@@ -1,6 +1,5 @@
-import importlib
-import src.lib.colors as cl
 from datetime import datetime
+import importlib, src.lib.colors as cl
 from src.utils.basics import cls, quest, terminal
 
 def get_function(module_name, function_name="main"):

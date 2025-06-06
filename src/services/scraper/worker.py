@@ -10,7 +10,7 @@ def main(platforms, userid, intitle, intext, site, inurl, filetype, ext, engine,
     platforms = platforms.strip().lower()
     functions = [
         ("discord", {"userId": userid}),
-        ("dorks", {"query": query_dorks, "engine": engine, "num_results": num_results, "saveonfile": saveonfile}),
+        ("dorks", {"query": query_dorks, "engine": engine, "num_results": num_results, "saveonfile": saveonfile})
     ]
     if platforms == "all":
         for i, (function_name, params) in enumerate(functions):

@@ -16,7 +16,6 @@ def load_gitignore(local_dir):
     if not gitignore_file.exists(): return None
     with open(gitignore_file) as f:
         return parse_gitignore(f.read())
-    
 
 def compare_directories(repo_dir, local_dir, gitignore_rule):
     # Compares files in two directories, applying the .gitignore rules.
