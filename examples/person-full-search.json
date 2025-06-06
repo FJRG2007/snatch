@@ -1,0 +1,134 @@
+{
+    "target": {
+        "basic_info": {
+            "full_name": "John Doe",
+            "gender": "male",
+            "birth_date": "1990-01-01",
+            "age_estimated": true,
+            "national_id": "12345678X",
+            "nationality": "Spain"
+        },
+        "contact": {
+            "emails": [
+                {
+                    "address": "johndoe@example.com",
+                    "priority": 1,
+                    "verified": true,
+                    "source": "linkedin"
+                },
+                {
+                    "address": "doejohn123@mail.com",
+                    "priority": 2,
+                    "verified": false
+                }
+            ],
+            "phones": [
+                {
+                    "number": "+34 600 123 456",
+                    "type": "mobile",
+                    "priority": 1,
+                    "source": "facebook"
+                },
+                {
+                    "number": "+34 911 222 333",
+                    "type": "landline",
+                    "priority": 2
+                }
+            ],
+            "usernames": [
+                {
+                    "username": "johndoe92",
+                    "platform": "Instagram"
+                },
+                {
+                    "username": "doe_j",
+                    "platform": "GitHub"
+                }
+            ]
+        },
+        "location": {
+            "last_known_locations": [
+                {
+                    "coordinates": {
+                        "lat": 40.4168,
+                        "lon": -3.7038
+                    },
+                    "description": "Madrid, Spain",
+                    "timestamp": "2024-12-01"
+                },
+                {
+                    "coordinates": {
+                        "lat": 41.3851,
+                        "lon": 2.1734
+                    },
+                    "description": "Barcelona, Spain"
+                }
+            ],
+            "address": {
+                "street": "123 Main St",
+                "city": "Anytown",
+                "state": "CA",
+                "zip": "12345",
+                "country": "USA"
+            }
+        },
+        "visual_media": {
+            "image_urls": [
+                "https://example.com/photo1.jpg",
+                "https://example.com/photo2.png"
+            ]
+        },
+        "social_profiles": [
+            {
+                "platform": "Twitter",
+                "url": "https://twitter.com/johndoe",
+                "username": "johndoe"
+            },
+            {
+                "platform": "Facebook",
+                "url": "https://facebook.com/johndoe"
+            }
+        ],
+        "personal_life": {
+            "marital_status": "single",
+            "partner_name": null,
+            "family": {
+                "has_children": false,
+                "relatives": [
+                    {
+                        "relation": "mother",
+                        "name": "Jane Doe"
+                    },
+                    {
+                        "relation": "brother",
+                        "name": "James Doe"
+                    }
+                ]
+            },
+            "pets": [
+                {
+                    "type": "dog",
+                    "name": "Bobby"
+                }
+            ]
+        },
+        "work_and_interests": {
+            "job_title": "Software Engineer",
+            "company": "TechCorp",
+            "industry": "Technology",
+            "interests": [
+                "coding",
+                "cybersecurity",
+                "gaming"
+            ]
+        },
+        "other": {
+            "notes": "Frequently travels to Germany.",
+            "tags": [
+                "developer",
+                "freelancer",
+                "security"
+            ]
+        }
+    }
+}

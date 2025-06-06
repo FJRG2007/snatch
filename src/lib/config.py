@@ -22,6 +22,11 @@ class Config:
             if len(api_key) < 7: return random.choice(data.DEFAULT_API_KEYS["HUNTER"])
             elif len(api_key) >= 7: return api_key
             else: terminal("e", "Invalid Hunter API Key.", True)
+        elif (name == "TRUSTFULL"):
+            api_key = os.getenv("TRUSTFULL_API_KEY")
+            if len(api_key) < 7: return random.choice(data.DEFAULT_API_KEYS["TRUSTFULL"])
+            elif len(api_key) >= 7: return api_key
+            else: terminal("e", "Invalid Trustfull API Key.", True)
 
     def __getattr__(self, name):
         return getattr(self.config, name)

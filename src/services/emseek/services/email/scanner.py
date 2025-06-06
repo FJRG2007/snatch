@@ -19,7 +19,8 @@ def fetch_dymo_data(params):
             terminal("e", "Invalid Dymo API Key.")
             return {"email": {}}
         return dymo_client.is_valid_data(params)
-    except: terminal("e", "Invalid Hunter API Key.")
+    except: terminal("e", "Invalid Dymo API Key.")
+
 def fetch_hunter_data(email):
     try:
         h_api = config.get_api_key("HUNTER")
@@ -38,7 +39,36 @@ def fetch_hunter_data(email):
             terminal("e", data["errors"][0]["details"])
             return {}
     except Exception as e:
-        terminal("e", "Invalid Hunter API KEY.")
+        terminal("e", "Invalid Hunter API Key.")
+        return {}
+    
+def fetch_trustfull_data(email):
+    try:
+        tf_api = config.get_api_key("TRUSTFULL")
+        response = requests.post("https://api.fido.id/1.0/email", headers={
+            "Accept": "application/json",
+            "Content-Type": "application/json",
+            "x-api-key": tf_api
+        }, params={
+            "customer_id": os.getenv("TRUSTFULL_CUSTOMER_ID"),
+            "claims": ["email"],
+            "email": email
+        })
+        data = response.json()
+        if not data.get("errors"):
+            return {
+                "regexp": data['data']['regexp'],
+                "gibberish": data['data']['gibberish'],
+                "mx_records": data['data']['mx_records'],
+                "smtp_server": data['data']['smtp_server'],
+                "smtp_check": data['data']['smtp_check'],
+                "block": data['data']['block']
+            }
+        else: 
+            terminal("e", data["errors"][0]["details"])
+            return {}
+    except Exception as e:
+        terminal("e", "Invalid Hunter API Key.")
         return {}
 
 def scanner(input_data, name, first, last, birthdate, addinfo, username, company, providers, saveonfile, validate, list):
