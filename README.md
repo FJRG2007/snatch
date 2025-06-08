@@ -8,7 +8,7 @@
   <br />
   <a href="https://github.com/FJRG2007/snatch/blob/main/docs/getting-started/quickstart.md">Quickstart</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
-  <a href="https://tpeoficial.com/dsc">Discord</a>
+  <a href="https://tpe.li/dsc">Discord</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
   <a href="https://github.com/FJRG2007/snatch/blob/main/docs/community/features.md">All Features</a>
   <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>

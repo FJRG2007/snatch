@@ -5,13 +5,13 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "snatch"
 version = "0.1.0"
-description = "📥 AI OSINT - Capture, download, and enjoy."
+description = "🔍 Scan repositories for vulnerabilities in the most comfortable and efficient way."
 license = {text = "AGPL-3.0"}
 authors = [{name = "FJRG2007"}]
 keywords = ["artificial intelligence", "osint", "reconnaissance", "information gathering"]
 
 [project.urls]
-"Bug Tracker" = "https://github.com/FJRG2007/snatch/issues"
+"Bug Tracker" = "https://github.com/FJRG2007/radar-scanner/issues"
 
 [project.scripts]
 snatch = "src.cli:main"
