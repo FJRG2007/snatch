@@ -1,5 +1,5 @@
 > [!WARNING]  
-> Snatch OSS has been deprecated; Snatch has been rebuilt from scratch as a streamlined version of Cerberus and will be available starting in June 2026 on <a href="https://dymo.tpeoficial.com/products/snatch">Dymo</a>.
+> Snatch OSS has been deprecated; Snatch has been rebuilt from scratch as a streamlined version of Cerberus and will be available starting in July 2026 on <a href="https://dymo.tpeoficial.com/products/snatch">Dymo</a>.
 
 <div align="center">
   <h1>Snatch</h1>
