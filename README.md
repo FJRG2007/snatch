@@ -2,7 +2,7 @@
 > Snatch OSS has been deprecated; Snatch has been rebuilt from scratch as a streamlined version of Cerberus and will be available starting in July 2026 on <a href="https://dymo.tpeoficial.com/products/snatch">Dymo</a>.
 
 <div align="center">
-  <h1>Snatch</h1>
+  <h1>Snatch [OSS VERSION DEPRECATED, NOW IN <a href="https://dymo.tpeoficial.com/dash/snatch/install">DYMO</a>]</h1>
   <h3>AI OSINT - Capture, download, and enjoy.</h3>
   <img src="https://img.shields.io/badge/Python-purple?style=for-the-badge&logo=python&logoColor=white"/> 
   <a href="https://github.com/FJRG2007"> <img alt="GitHub" src="https://img.shields.io/badge/GitHub-purple?style=for-the-badge&logo=github&logoColor=white"/></a>
