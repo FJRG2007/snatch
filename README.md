@@ -1,3 +1,5 @@
+
+
 > [!WARNING]  
 > Snatch OSS has been deprecated; Snatch has been rebuilt from scratch as a streamlined version of Cerberus and will be available starting in July 2026 on <a href="https://dymo.tpeoficial.com/products/snatch">Dymo</a>.
 
@@ -98,7 +100,7 @@ $ python cli.py help
 Requirements available at [`REQUIREMENTS`](./docs/REQUIREMENTS.md).
 
 #### Author
- - FJRG007
+ - FJRG2007
  - Email: [fjrg2007@tpeoficial.com](mailto:fjrg2007@tpeoficial.com)
 
 #### Contributors
